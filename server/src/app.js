@@ -1,12 +1,24 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const config = require('./config/config')
+const mongoose = require('mongoose')
+const { MONGOURI } = require('./config/secure')
 
 const app = express()
 
-app.use(bodyParser.json())
-
-app.listen(process.env.PORT || 8081)
-
-app.get('/status', (req,res) => {
-    res.send("Bruuuuuuuuh")
+mongoose.connect(MONGOURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
 })
+
+mongoose.connection.on('connected', () => {
+    console.log("connected to mongodb")
+})
+mongoose.connection.on('error', () => {
+    console.log("did not connect error")
+})
+
+
+app.listen(config.port, () => {
+    console.log(`Listening on port ${config.port}`)
+}) 
