@@ -1,31 +1,39 @@
 import React from 'react'
 import './viewsStyles/Login.scss'
+import logo from './viewsStyles/imgs/slyde.png'
+
 
 const Login = () => {
     return(
         <div className="homeBody">
             <div className="loginForm">
 
-                <div className="Logo">S</div>
+                <div className="Logo">
+                    <img src={logo} alt="logo" style={{'height':'120px', 'width':'120px'}}/>
+                </div>
 
                 <div className="loginTitle">Login to Slyde</div>
 
-                    <div className="inputBox">
-                        <soan>email</soan>
-                        <input type="text" />
+
+                    <div className="inputWrap">
+                        <div className="placeholder" id="omg">Email or username</div>
+                        <input className="inputBox" type="text" />
                     </div>
 
-                    <div className="inputBox">
-                        <soan>email</soan>
-                        <input type="text" />
+                    <div className="inputWrap">
+                        <div className="placeholder">Password</div>
+                        <input className="inputBox" type="password" />
                     </div>
+
+                    <div className="button"><button>Log in</button></div>
+
                     <div className="loginFooter">
                         <div className="footLinks">
-                            <a href="#">Forgot password?</a>
+                            <a href="/">Forgot password?</a>
                         </div>
                         <span> • </span>
                         <div className="footLinks">
-                            <a href="#">Sign up for Slyde</a>
+                            <a href="/">Sign up for Slyde</a>
                         </div>
                     </div>
 

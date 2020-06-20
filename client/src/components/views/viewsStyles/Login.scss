@@ -12,12 +12,56 @@ body, html {
     .loginForm{
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
         margin-top: 3em;
-
+        font-family: 'Poppins', sans-serif;
         .Logo{
-            font-size: 15em;
-            color: red
+          
+        }
+        .loginTitle{
+            color: #ffffff;
+            font-size: 23px;
+            font-weight: 700;
+        }
+        .inputWrap{
+            position: relative;
+
+            .placeholder{
+                font-weight: 500;
+                color: #6f6f6f;
+                position: absolute;
+                top: 1.3em;
+                left: 1.7em;
+            }
+            .inputBox{
+                font-size: 1.2em;
+                font-weight: 800;
+                outline: none;
+                width: 26.75em;
+                height: 2.5em;
+                margin: 1em;
+                margin-bottom: 0.6em;
+                padding: 0.5em;
+                padding-bottom: 0em;
+                padding-top: 0.7em;
+                background-color: $dark-background;
+                border-style:solid;
+                border-color: transparent;
+                color: #ffffff;
+                border-bottom: 2px solid #6f6f6f;
+
+            }
+            input:focus {
+                transition: all .2s ease-in-out;
+                border-bottom: 2px solid #ff4d52;
+            }
+
+        }
+
+        button{
+            padding: 1em 2em;
+            background-color: red;
         }
         
     }
