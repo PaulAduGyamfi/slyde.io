@@ -21,4 +21,4 @@ mongoose.connection.on('error', () => {
 
 app.listen(config.port, () => {
     console.log(`Listening on port ${config.port}`)
-}) 
+})
