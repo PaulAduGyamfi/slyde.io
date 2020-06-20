@@ -6,12 +6,14 @@ const mongoose = require('mongoose')
 const { MONGOURI } = require('./config/secure')
 
 
-
-
 require('./models/User')
+
+app.use(bodyParser.json())
+app.use(require('./routes/auth'))
 
 
 mongoose.connect(MONGOURI, {
+    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true 
 })
@@ -22,6 +24,7 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', () => {
     console.log("did not connect error")
 })
+
 
 
 app.listen(config.port, () => {
