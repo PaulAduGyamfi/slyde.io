@@ -7,10 +7,7 @@ const { MONGOURI } = require('./config/secure')
 
 
 require('./models/User')
-
-app.use(bodyParser.json())
-app.use(require('./routes/auth'))
-
+require('./models/Post')
 
 mongoose.connect(MONGOURI, {
     useCreateIndex: true,
@@ -25,6 +22,9 @@ mongoose.connection.on('error', () => {
     console.log("did not connect error")
 })
 
+app.use(bodyParser.json())
+app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
 
 
 app.listen(config.port, () => {
