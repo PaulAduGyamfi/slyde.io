@@ -85,7 +85,7 @@ router.post('/signin',(req,res) => {
          })
       }
       else if(!username && email){
-         User.findOne({username:username})
+         User.findOne({email:email})
          .then(savedUser => {
             if(!savedUser){
                return res.status(422).json({err:"Invalid email or password"})

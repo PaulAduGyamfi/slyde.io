@@ -35,5 +35,16 @@ router.post('/createpost',RequireLogin,(req,res) => {
     })
 })
 
+router.get('/myposts',RequireLogin,(req,res) => {
+    Post.find({postedBy:req.user._id})
+    .populate("postedBy", "_id username")
+    .then(mypost => {
+        res.json({mypost})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 
 module.exports = router
