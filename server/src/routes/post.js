@@ -5,7 +5,16 @@ const Post = mongoose.model("Post")
 const RequireLogin = require('../middleware/RequireLogin')
 
 
-
+router.get('/allposts', (req,res) => {
+    Post.find()
+    .populate("postedBy", "_id username")
+    .then(posts => {
+        res.json({posts})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
 
 router.post('/createpost',RequireLogin,(req,res) => {
     const {body} = req.body
