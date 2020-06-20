@@ -1,10 +1,15 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const app = express()
 const config = require('./config/config')
 const mongoose = require('mongoose')
 const { MONGOURI } = require('./config/secure')
 
-const app = express()
+
+
+
+require('./models/User')
+
 
 mongoose.connect(MONGOURI, {
     useNewUrlParser: true,
