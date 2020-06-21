@@ -4,4 +4,59 @@
     height: 34.375em;
     background-color:  $dark-background;
     width: 100%;
+    display:flex;
+    flex-direction: column;
+    .profileBanner{
+        flex: 1;
+        background-color: green;
+    }
+    .profileInfo{
+        flex: 1;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // width: 80%;
+        background-color: $dark-background;
+        .profileInfoWrap{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+            top: 12em;
+            margin: 0 2.2em;
+            color: $dark-white;
+            .profileInfoTop{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                .profilePicture{
+                    height: 10.5em;
+                        width: 10.5em;
+                        border-radius: 50%;
+                         background-color: $primary
+                }
+            }
+            .profileInfoBottom{
+                .profileUsername{
+                    font-weight: 800;
+                    font-size: 1.7em;
+                    margin: 0.5em 0;
+                }
+                .profileStats{
+                    display: flex;
+                    align-items: baseline;
+                    color: $trsansparent-grey;
+                    font-size: 1em;
+                    .profileFollowers, .profileFolling{
+                        margin-right: 1em;
+                    }
+                      #followers, #following{
+                            color: $dark-white;
+                            font-weight: 700;
+                        }
+                    
+                }
+            }
+        }
+    }
 }
