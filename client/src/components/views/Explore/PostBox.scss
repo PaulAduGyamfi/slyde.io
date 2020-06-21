@@ -113,6 +113,11 @@
                             background-color: $primary-faded;
                         }
                     }
+                    #upload > input{
+                        position: absolute;
+                        left: 15em;
+                        visibility: hidden !important;
+                    }
                 }
 
                 .postboxSubmit{

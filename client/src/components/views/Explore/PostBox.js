@@ -27,6 +27,11 @@ const PostBox = () =>{
         autoExpand(event.target);
     }, false);
 
+ const clik = () =>{
+    
+        document.getElementById('file-input').click();
+ }
+
     return(
         <div className="postboxContainer">
             <div className="postboxWrap">
@@ -52,7 +57,10 @@ const PostBox = () =>{
                     <div className="postboxBody-Bottom">
 
                         <div className="postboxAttach">
-                            <div className="postboxAttachLink"><FileImageOutlined /></div>
+                            <div className="postboxAttachLink" id="upload" onClick={clik}>
+                                    <FileImageOutlined />
+                                    <input id="file-input" type="file"/>
+                                </div>
                             <div className="postboxAttachLink"><FileGifOutlined /></div>
                             <div className="postboxAttachLink"><SmileOutlined /></div>
                            
