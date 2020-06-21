@@ -89,5 +89,37 @@
                 background-color: $dark-background-match;
             }
         }
+        .card{
+            background-color: $dark-background-match;
+            .card-header{
+                padding-bottom: 1em;
+                .profileSnippetWrap{
+                    color: $dark-white;
+                    font-weight: 700;
+                    display: flex;
+                    align-items: center;
+                    .profilePic{
+                        height: 3.2em;
+                        width: 3.2em;
+                        border-radius: 50%;
+                         background-color: $primary;
+                         margin-right: 0.8em;
+                     }
+                }
+            }
+            .logout{
+                text-align: center;
+                color: $dark-white;
+                padding-top: 1em;
+                font-weight: 800;
+                cursor: pointer;
+                &:hover{
+                    background-color: $primary;
+                }
+                &:active{
+                    background-color: $primary-hover;
+                }
+            }
+        }
     }
 }
