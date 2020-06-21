@@ -1,6 +1,7 @@
 import React from 'react'
 import './viewsStyles/Login.scss'
 import logo from './viewsStyles/imgs/slyde.png'
+import 'spectre.css'
 
 
 const Login = () => {
@@ -9,14 +10,14 @@ const Login = () => {
             <div className="loginForm">
 
                 <div className="Logo">
-                    <img src={logo} alt="logo" style={{'height':'120px', 'width':'120px'}}/>
+                    <img src={logo} alt="logo" style={{'height':'120px', 'width':'120px'}} draggable="false" />
                 </div>
 
                 <div className="loginTitle">Login to Slyde</div>
 
 
                     <div className="inputWrap">
-                        <div className="placeholder" id="omg">Email or username</div>
+                        <div className="placeholder">Email or username</div>
                         <input className="inputBox" type="text" />
                     </div>
 
@@ -33,7 +34,7 @@ const Login = () => {
                         </div>
                         <span> • </span>
                         <div className="footLinks">
-                            <a href="/">Sign up for Slyde</a>
+                            <a href="/signup">Sign up for Slyde</a>
                         </div>
                     </div>
 

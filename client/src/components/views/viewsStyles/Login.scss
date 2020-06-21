@@ -3,7 +3,8 @@
 body, html {
     margin: 0;
     height: 100%;
-    background-color: $darkest-background;
+    background-color: $white !important;
+    overflow-y: hidden;
 }
 
 .homeBody{
@@ -20,7 +21,7 @@ body, html {
           
         }
         .loginTitle{
-            color: #ffffff;
+            color: $primary;
             font-size: 23px;
             font-weight: 700;
         }
@@ -29,7 +30,7 @@ body, html {
 
             .placeholder{
                 font-weight: 500;
-                color: #6f6f6f;
+                color: $primary;
                 position: absolute;
                 top: 1.3em;
                 left: 1.7em;
@@ -39,42 +40,43 @@ body, html {
                 font-weight: 800;
                 outline: none;
                 width: 26.75em;
-                height: 2.5em;
+                height: 2.9em !important;
                 margin: 1em;
                 margin-bottom: 0.6em;
                 padding: 0.5em;
                 padding-bottom: 0em;
                 padding-top: 0.7em;
-                background-color: $dark-background;
+                background-color: $dark-white;
                 border-style:solid;
                 border-color: transparent;
-                color: #ffffff;
-                border-bottom: 2px solid #6f6f6f;
+                color: $primary;
+                border-bottom: 2px solid $light-grey;
 
             }
             input:focus {
                 transition: all .2s ease-in-out;
-                border-bottom: 2px solid #ff4d52;
+                border-bottom: 2px solid $primary;
             }
 
         }
 
         button{
             padding: 1em 2em;
-            background-color: #ff4d52;
+            background-color: $primary;
             border: transparent;
             outline: none;
-            width: 33.5em;
-            color: #ffffff;
+            width: 30.5em;
+            color: $white;
             font-weight: 900;
             font-size: 16px;
             border-radius: 2em;
             margin-top: 1em;
+            cursor: pointer;
             &:hover{
-                background-color: #f1444a;
+                background-color: $primary-hover;
             }
             &:active{
-                background-color: #db353a;
+                background-color: $primary-active;
             }
         }
         .loginFooter{
@@ -83,13 +85,13 @@ body, html {
             width: 20em;
             margin-top: 2em;
             span{
-                color: #ffffff;
-                font-size: 6px;
+                color: $primary;
+                font-size: 8px;
                 margin: 0 2em;
             }
             .footLinks{
                 a{
-                    color: #ff4d52;
+                    color: $primary;
                     text-decoration: none;
                     font-size: 0.85em;
                     font-weight: 100;
