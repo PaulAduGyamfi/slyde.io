@@ -1,12 +1,15 @@
 @import '../../viewsStyles/global';
 
 .navContainer{
+    position: fixed;
+    left:0;
+    top:0;
+    bottom:0;
     width: 20%;
     background-color:  $dark-background;
-
-    
     .navContainerWrapper{
         margin: 0.5em 2em;
+        height: 100% !important;
         .sidenavLogo{
             width: 4.5em;
             cursor: pointer;
