@@ -1,14 +1,14 @@
 @import '../../viewsStyles/global';
 
 .profilecardWrap{
-    height: 34.375em;
+    height: 29.375em;
     background-color:  $dark-background;
     width: 100%;
     display:flex;
     flex-direction: column;
     .profileBanner{
         flex: 1;
-        background-color: green;
+        background-color: $dark-background-match;
     }
     .profileInfo{
         flex: 1;
@@ -22,7 +22,7 @@
             display: flex;
             flex-direction: column;
             width: 45%;
-            top: 12em;
+            top: 9em;
             margin: 0 2.2em;
             color: $dark-white;
             .profileInfoTop{
@@ -35,12 +35,47 @@
                         border-radius: 50%;
                          background-color: $primary
                 }
+                .editProfileButton{
+                    button{
+                        background-color: transparent;
+                        border: 1.3px solid $primary;
+                        width: 7em;
+                        color: $white;
+                        font-weight: 700;
+                        font-size: 16px;
+                        border-radius: 2em;
+                        padding: 0.4em 0.7em;
+                        outline: none;
+                        cursor: pointer;
+
+                        &:hover{
+                            transition: all .2s ease-in-out;
+                            background-color: $primary-faded;
+                        }
+                    }
+                }
             }
             .profileInfoBottom{
                 .profileUsername{
+                    display: flex;
                     font-weight: 800;
                     font-size: 1.7em;
-                    margin: 0.5em 0;
+                    margin: 0;
+                    align-items: center;
+                   .userFullname{
+                       margin-right: 0.3em;
+                   }
+                    .badge{
+                        height: 1.1em;
+                        path{
+                            fill: $dark-white;
+                        }
+                    }
+                }
+                .userTagname{
+                    font-size: 1.2em;
+                    color: $trsansparent-grey;
+                    margin-bottom: 1em;
                 }
                 .profileStats{
                     display: flex;
