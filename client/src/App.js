@@ -16,6 +16,7 @@ function App() {
       <Route exact path="/profile">
           <Profile />
       </Route>
+    
    </BrowserRouter>
   );
 }
