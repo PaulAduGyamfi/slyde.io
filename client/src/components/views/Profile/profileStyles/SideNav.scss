@@ -1,0 +1,65 @@
+@import '../../viewsStyles/global';
+
+.navContainer{
+    width: 20%;
+    background-color:  $dark-background;
+
+    
+    .navContainerWrapper{
+        margin: 0.5em 2em;
+        .sidenavLogo{
+            width: 4.5em;
+            cursor: pointer;
+            &:hover{
+                background-color: #f1444a1f;
+                border-radius: 50%;
+            }
+        }
+      
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: left;
+        color: $dark-white;
+        height: 100%;
+        
+        .sidenavHome,.sidenavNews,.sidenavUser{
+            display: flex;
+            align-items: center;
+            margin: 1em 0;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            &:hover{
+                color: $primary;
+                background-color: #f1444a33;
+                border-radius: 3em;
+            }
+        }
+        .Text{
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-left: 1em;
+        }
+        .sidnavPost{
+            button{
+                margin: 1em 0.5em;
+                background-color: $primary;
+                border: transparent;
+                width: 10em;
+                color: $white;
+                font-weight: 700;
+                font-size: 16px;
+                border-radius: 2em;
+                padding: 0.6em 1em;
+                outline: none;
+                cursor: pointer;
+                    &:hover{
+                        background-color: $primary-hover;
+                    }
+                    &:active{
+                        background-color: $primary-active;
+                    }
+            }
+        }
+    }
+}

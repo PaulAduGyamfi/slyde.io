@@ -1,6 +1,7 @@
 import React from 'react'
 import './viewsStyles/Login.scss'
 import logo from './viewsStyles/imgs/slyde.png'
+import { Link } from 'react-router-dom'
 
 
 const Login = () => {
@@ -29,11 +30,11 @@ const Login = () => {
 
                     <div className="loginFooter">
                         <div className="footLinks">
-                            <a href="/">Forgot password?</a>
+                        <Link to="/">Forgot password?</Link>
                         </div>
                         <span> • </span>
                         <div className="footLinks">
-                            <a href="/signup">Sign up for Slyde</a>
+                            <Link to="/signup">Sign up for Slyde</Link>
                         </div>
                     </div>
 

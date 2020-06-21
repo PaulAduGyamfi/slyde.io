@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from './viewsStyles/imgs/slyde.png'
 import './viewsStyles/Signup.scss'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
     return(
@@ -36,10 +37,10 @@ const Signup = () => {
                             <input className="inputBox" type="password" />
                         </div>
 
-                        <div className="button"><button>Next</button></div>
+                        <div className="button"><button>Sign up</button></div>
 
                 </div>
-                <div className="loginLink">Have an account? <a href="/">Login</a></div>
+                <div className="loginLink">Have an account? <Link to="/">Log in</Link></div>
             </div>
         </div>
     )

@@ -36,7 +36,7 @@
     
                 .placeholder{
                     font-weight: 500;
-                    color: $dark-primary;
+                    color: $trsansparent-grey;
                     position: absolute;
                     top: 1.3em;
                     left: 1.7em;
@@ -52,11 +52,11 @@
                     padding: 0.5em;
                     padding-bottom: 0em;
                     padding-top: 0.7em;
-                    background-color: $primary;
+                    background-color: $dark-background-match;
                     border-style:solid;
                     border-color: transparent;
                     color: $dark-white;
-                    border-bottom: 2px solid $primary;
+                    border-bottom: 2px solid $trsansparent-grey;
     
                 }
                 input:focus {
@@ -81,7 +81,7 @@
                     background-color: $primary-hover;
                 }
                 &:active{
-                    background-color: $primary-button-active;
+                    background-color: $primary-active;
                 }
             }
         }

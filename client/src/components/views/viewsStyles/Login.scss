@@ -3,7 +3,7 @@
 body, html {
     margin: 0;
     height: 100%;
-    background-color: $primary-active !important;
+    background-color: $dark-background;
     overflow-y: hidden;
 }
 
@@ -30,7 +30,7 @@ body, html {
 
             .placeholder{
                 font-weight: 500;
-                color: $dark-primary;
+                color: $trsansparent-grey;
                 position: absolute;
                 top: 1.3em;
                 left: 1.7em;
@@ -46,11 +46,11 @@ body, html {
                 padding: 0.5em;
                 padding-bottom: 0em;
                 padding-top: 0.7em;
-                background-color: $primary;
+                background-color: $dark-background-match;
                 border-style:solid;
                 border-color: transparent;
                 color: $dark-white;
-                border-bottom: 2px solid $primary;
+                border-bottom: 2px solid $trsansparent-grey;
     
                 &:focus {
                     transition: all .2s ease-in-out;
@@ -75,7 +75,7 @@ body, html {
                 background-color: $primary-hover;
             }
             &:active{
-                background-color: $primary-button-active;
+                background-color: $primary-active;
             }
         }
         .loginFooter{
