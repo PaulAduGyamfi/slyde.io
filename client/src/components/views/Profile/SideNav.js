@@ -9,6 +9,7 @@ import {
   DownOutlined,
 } from "@ant-design/icons";
 import "spectre.css";
+import { Link } from 'react-router-dom'
 
 const SideNav = () => {
   return (
@@ -23,16 +24,22 @@ const SideNav = () => {
           />
         </div>
         <div className="sidenavHome">
-          <HomeOutlined style={{ fontSize: "29px" }} />
-          <div className="home Text">Home</div>
+        <Link to="/explore">
+            <HomeOutlined style={{ fontSize: "29px" }} />
+            <div className="home Text">Home</div>
+          </Link>
         </div>
         <div className="sidenavNews">
-          <ReadOutlined style={{ fontSize: "29px" }} />
-          <div className="news Text">News</div>
+        <Link to="/">
+            <ReadOutlined style={{ fontSize: "29px" }} />
+            <div className="news Text">News</div>
+          </Link>
         </div>
         <div className="sidenavUser">
-          <UserOutlined style={{ fontSize: "29px" }} />
-          <div className="user Text">Profile</div>
+        <Link to="/profile">
+            <UserOutlined style={{ fontSize: "29px" }} />
+            <div className="user Text">Profile</div>
+          </Link>
         </div>
         <div className="sidnavPost">
           <button>Post</button>

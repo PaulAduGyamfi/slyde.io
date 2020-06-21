@@ -3,6 +3,7 @@ import {BrowserRouter,Route} from 'react-router-dom'
 import Login from './components/views/Login'
 import Signup from './components/views/Signup'
 import Profile from './components/views/Profile/Profile'
+import Explore from './components/views/Explore/Explore'
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       </Route>
       <Route exact path="/profile">
           <Profile />
+      </Route>
+      <Route exact path="/explore">
+          <Explore />
       </Route>
     
    </BrowserRouter>

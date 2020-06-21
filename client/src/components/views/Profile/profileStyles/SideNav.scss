@@ -27,7 +27,9 @@
         color: $dark-white;
         height: 100%;
         
-        .sidenavHome,.sidenavNews,.sidenavUser{
+        .sidenavHome,.sidenavNews,.sidenavUser {
+           a{
+            color: $dark-white;
             display: flex;
             align-items: center;
             margin: 1em 0;
@@ -39,6 +41,7 @@
                 background-color: $primary-faded;
                 border-radius: 3em;
             }
+           }
         }
         .Text{
             font-size: 1.4em;
