@@ -10,6 +10,9 @@ function App() {
       <Route exact path="/">
           <Login />
       </Route>
+      <Route exact path="/login">
+          <Login />
+      </Route>
       <Route exact path="/signup">
           <Signup />
       </Route>

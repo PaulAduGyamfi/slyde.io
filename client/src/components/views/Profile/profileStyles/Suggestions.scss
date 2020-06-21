@@ -8,7 +8,6 @@
     right:0;
     top:0;
     bottom:0;
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +15,6 @@
     .searchContainer{
         display: flex;
         position: fixed;
-        background-color: red;
         padding: 0.7em 0;
         
         .searchIcon{
@@ -52,7 +50,6 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        background-color: yellowgreen;
         align-items: center;
         padding-top: 0.6em;
         overflow-y: scroll;
@@ -60,17 +57,58 @@
         width: 100%;
 
         .Trending{
-            height: 20em;
+            height: auto;
             width: 22.5em;
-            background-color: hotpink;
-            margin-left: 2em;
-            margin-right: 3em;
+            background-color: $dark-background-match;
+            margin: 2em auto ;
             display: flex;
             flex-direction: column;
+            border-radius: 1em;
 
             .trendingHeader{
                 font-weight: 800;
+                font-size: 1.7em;
+                padding: 0.5em;
                 color:$dark-white;
+                border-bottom: 0.3px solid $invisible-grey;
+                   
+            }
+            .trendingItem{
+                display: flex;
+                padding: 0 1em;
+                padding-top: 0.7em;
+                padding-bottom: 1em;
+                justify-content: space-between;
+                background-color: transparent;
+                height: auto;
+                width: 100%;
+                border-bottom: 0.3px solid $invisible-grey;
+                cursor: pointer;
+
+                .trendingTitle{
+                    font-weight: 600;
+                    color: $dark-white;
+                    font-size: 1.1em;
+                }
+                .trendingArrow{
+                    color:  $trsansparent-grey;
+                }
+                &:hover{
+                    background-color: $dark-background-match-hover;
+                    transition: all .18s ease-in-out;
+                }
+            }
+            .trendingMore{
+                text-align: center;
+                height: 2em;
+                color: $primary;
+                border-bottom-left-radius: 1em;
+                border-bottom-right-radius: 1em;
+                cursor: pointer;
+                &:hover{
+                    background-color: $dark-background-match-hover;
+                    transition: all .18s ease-in-out;
+                }
             }
         }
        

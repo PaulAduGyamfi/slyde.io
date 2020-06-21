@@ -20,11 +20,24 @@ const Suggestions = () => {
                     <div className="trendingHeader">Whats Happening</div>
 
                     <div className="trendingItem">
-                        <div className="trendingTitle">Title</div>
-                        <div className="trendingTitle"><DownOutlined /></div>
+                        <div className="trendingTitle">COVID-19: Updates for the US</div>
+                        <div className="trendingArrow"><DownOutlined /></div>
+                    </div>
+                    <div className="trendingItem">
+                        <div className="trendingTitle">Trump’s Tulsa Rally Adds to Week of Warning Signs for Campaign</div>
+                        <div className="trendingArrow"><DownOutlined /></div>
+                    </div>
+                    <div className="trendingItem">
+                        <div className="trendingTitle">Mark Cuban: NBA may let fans push noise into the arena</div>
+                        <div className="trendingArrow"><DownOutlined /></div>
+                    </div>
+                    <div className="trendingItem">
+                        <div className="trendingTitle">Apple could switch to its own chips for Macs. Here's what that means</div>
+                        <div className="trendingArrow"><DownOutlined /></div>
                     </div>
                     
-                    <div className="trendingMore"></div>
+                    
+                    <div className="trendingMore">See more</div>
                     
                 </div>
                 <div className=""></div>
