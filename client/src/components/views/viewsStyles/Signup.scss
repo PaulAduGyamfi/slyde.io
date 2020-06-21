@@ -1,0 +1,96 @@
+@import './global';
+
+.signupWrap{
+    width: 40%;
+    margin: 0 auto;
+    .signupModal{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 3em;
+        font-family: 'Poppins', sans-serif;
+        padding-bottom: 2em;
+        // min-width: 550px;
+        .modalTop{
+            display: flex;
+            align-items: center;
+            .logo{
+                margin: 0 auto;
+            }
+            
+        }
+        .signupTitle{
+            color: $dark-white;
+            font-size: 23px;
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
+        }
+        .inputContainer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .inputWrap{
+                position: relative;
+    
+                .placeholder{
+                    font-weight: 500;
+                    color: $dark-primary;
+                    position: absolute;
+                    top: 1.3em;
+                    left: 1.7em;
+                }
+                .inputBox{
+                    font-size: 1.2em;
+                    font-weight: 800;
+                    outline: none;
+                    width: 19.75em;
+                    height: 2.5em !important;
+                    margin: 1em;
+                    margin-bottom: 0.6em;
+                    padding: 0.5em;
+                    padding-bottom: 0em;
+                    padding-top: 0.7em;
+                    background-color: $primary;
+                    border-style:solid;
+                    border-color: transparent;
+                    color: $dark-white;
+    
+                }
+    
+            }
+            button{
+                padding: 1em 2em;
+                background-color: $primary;
+                border: transparent;
+                outline: none;
+                width: 20.5em;
+                color: $white;
+                font-weight: 900;
+                font-size: 16px;
+                border-radius: 2em;
+                margin-top: 1em;
+                cursor: pointer;
+                &:hover{
+                    background-color: $primary-hover;
+                }
+                &:active{
+                    background-color: $primary-button-active;
+                }
+            }
+        }
+        .loginLink{
+            margin-top: 2em;
+            font-size: 0.85em;
+            color: $dark-white;
+            a{
+                color: $dark-white;
+                font-weight: 100;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

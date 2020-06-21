@@ -1,7 +1,6 @@
 import React from 'react'
 import './viewsStyles/Login.scss'
 import logo from './viewsStyles/imgs/slyde.png'
-import 'spectre.css'
 
 
 const Login = () => {

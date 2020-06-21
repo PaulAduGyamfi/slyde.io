@@ -3,7 +3,7 @@
 body, html {
     margin: 0;
     height: 100%;
-    background-color: $white !important;
+    background-color: $primary-active !important;
     overflow-y: hidden;
 }
 
@@ -21,7 +21,7 @@ body, html {
           
         }
         .loginTitle{
-            color: $primary;
+            color: $dark-white;
             font-size: 23px;
             font-weight: 700;
         }
@@ -30,7 +30,7 @@ body, html {
 
             .placeholder{
                 font-weight: 500;
-                color: $primary;
+                color: $dark-primary;
                 position: absolute;
                 top: 1.3em;
                 left: 1.7em;
@@ -40,24 +40,18 @@ body, html {
                 font-weight: 800;
                 outline: none;
                 width: 26.75em;
-                height: 2.9em !important;
+                height: 2.5em !important;
                 margin: 1em;
                 margin-bottom: 0.6em;
                 padding: 0.5em;
                 padding-bottom: 0em;
                 padding-top: 0.7em;
-                background-color: $dark-white;
+                background-color: $primary;
                 border-style:solid;
                 border-color: transparent;
-                color: $primary;
-                border-bottom: 2px solid $light-grey;
+                color: $dark-white;
 
             }
-            input:focus {
-                transition: all .2s ease-in-out;
-                border-bottom: 2px solid $primary;
-            }
-
         }
 
         button{
@@ -76,7 +70,7 @@ body, html {
                 background-color: $primary-hover;
             }
             &:active{
-                background-color: $primary-active;
+                background-color: $primary-button-active;
             }
         }
         .loginFooter{
@@ -85,13 +79,13 @@ body, html {
             width: 20em;
             margin-top: 2em;
             span{
-                color: $primary;
+                color: $dark-white;
                 font-size: 8px;
                 margin: 0 2em;
             }
             .footLinks{
                 a{
-                    color: $primary;
+                    color: $dark-white;
                     text-decoration: none;
                     font-size: 0.85em;
                     font-weight: 100;
