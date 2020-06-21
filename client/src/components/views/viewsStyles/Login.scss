@@ -1,13 +1,8 @@
 @import './global';
 
-body, html {
-    margin: 0;
-    height: 100%;
-    background-color: $dark-background;
-    overflow-y: hidden;
-}
 
 .homeBody{
+    overflow-y: hidden;
     width: 40%;
     margin: 0 auto;
     .loginForm{
@@ -64,7 +59,7 @@ body, html {
             background-color: $primary;
             border: transparent;
             outline: none;
-            width: 30.5em;
+            width: 25.5em;
             color: $white;
             font-weight: 900;
             font-size: 16px;

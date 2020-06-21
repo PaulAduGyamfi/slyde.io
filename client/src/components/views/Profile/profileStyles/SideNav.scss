@@ -7,21 +7,22 @@
     bottom:0;
     width: 20%;
     background-color:  $dark-background;
+    border-right: 0.3px solid $invisible-grey;
     .navContainerWrapper{
         margin: 0.5em 2em;
-        height: 100% !important;
+        height: 100%;
         .sidenavLogo{
             width: 4.5em;
             cursor: pointer;
             &:hover{
-                background-color: #f1444a1f;
+                background-color: $dark-background-match;
                 border-radius: 50%;
             }
         }
       
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-around;
         align-items: left;
         color: $dark-white;
         height: 100%;
@@ -30,11 +31,12 @@
             display: flex;
             align-items: center;
             margin: 1em 0;
-            padding: 0.5em 1em;
+            padding: 0.9em 1em;
+            width: 11em;
             cursor: pointer;
             &:hover{
                 color: $primary;
-                background-color: #f1444a33;
+                background-color: $dark-background-match;
                 border-radius: 3em;
             }
         }
@@ -62,6 +64,29 @@
                     &:active{
                         background-color: $primary-active;
                     }
+            }
+        }
+        .profileButton{
+            font-weight: 700;
+            padding: 0.8em 1.2em;
+            border-radius: 3em;
+            display:  flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            .profileSnippetWrap{
+                display: flex;
+                align-items: center;
+                .profilePic{
+                   height: 3.2em;
+                   width: 3.2em;
+                   border-radius: 50%;
+                    background-color: $primary;
+                    margin-right: 0.8em;
+                }
+            }
+            &:hover{
+                background-color: $dark-background-match;
             }
         }
     }

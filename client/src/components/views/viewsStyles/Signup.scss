@@ -3,6 +3,7 @@
 .signupWrap{
     width: 40%;
     margin: 0 auto;
+    overflow-y: hidden;
     .signupModal{
         display: flex;
         flex-direction: column;

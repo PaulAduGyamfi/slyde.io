@@ -14,6 +14,7 @@ $white: #ffffff;
 $light-grey: #f0f0f0;
 $dark-white: #f4f4f4;
 $trsansparent-grey : #f0f0f079;
+$invisible-grey : #c2c2c24f;
 
 
 //#dedede
@@ -27,3 +28,11 @@ $trsansparent-grey : #f0f0f079;
             Fonts
 ************************************/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+
+
+body, html {
+    margin: 0;
+    height: 100%;
+    background-color: $dark-background !important;
+}

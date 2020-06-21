@@ -2,6 +2,7 @@
 
 .profilefeedContainer{
     width: 100%;
-    height: auto;
-    background-color: teal;
+    height: 40%;
+    background-color:  $dark-background;
+    border-top: 0.3px solid $invisible-grey;
 }
