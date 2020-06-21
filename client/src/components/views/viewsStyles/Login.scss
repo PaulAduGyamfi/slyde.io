@@ -61,7 +61,43 @@ body, html {
 
         button{
             padding: 1em 2em;
-            background-color: red;
+            background-color: #ff4d52;
+            border: transparent;
+            outline: none;
+            width: 33.5em;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 16px;
+            border-radius: 2em;
+            margin-top: 1em;
+            &:hover{
+                background-color: #f1444a;
+            }
+            &:active{
+                background-color: #db353a;
+            }
+        }
+        .loginFooter{
+            display: flex;
+            align-items: center;
+            width: 20em;
+            margin-top: 2em;
+            span{
+                color: #ffffff;
+                font-size: 6px;
+                margin: 0 2em;
+            }
+            .footLinks{
+                a{
+                    color: #ff4d52;
+                    text-decoration: none;
+                    font-size: 0.85em;
+                    font-weight: 100;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
         }
         
     }
