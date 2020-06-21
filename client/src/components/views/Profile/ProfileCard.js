@@ -1,6 +1,7 @@
 import React from 'react'
 import './profileStyles/ProfileCard.scss'
 import banner from "../viewsStyles/imgs/banner.jpg"
+import pic from "../viewsStyles/imgs/lbj.jpg";
 
 const ProfileCard = () => {
     return(
@@ -9,7 +10,7 @@ const ProfileCard = () => {
             <div className="profileInfo">
                 <div className="profileInfoWrap">
                     <div className="profileInfoTop">
-                        <div className="profilePicture"></div>
+                        <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                         <div className="editProfileButton"><button>Edit profile</button></div>
                     </div>
                     <div className="profileInfoBottom">
@@ -19,7 +20,7 @@ const ProfileCard = () => {
                             </div>
                             <div className="userTagname">@kingjames</div>
                             <div className="profileStats">
-                                <div className="profileFollowers"><span id="followers">1.2M</span> Followers</div>
+                                <div className="profileFollowers"><span id="followers">46.5M</span> Followers</div>
                                 <div className="profileFolling"><span id="following">100</span> Following</div>
                             </div>
                     </div>
