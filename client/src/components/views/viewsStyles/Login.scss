@@ -50,7 +50,12 @@ body, html {
                 border-style:solid;
                 border-color: transparent;
                 color: $dark-white;
-
+                border-bottom: 2px solid $primary;
+    
+                &:focus {
+                    transition: all .2s ease-in-out;
+                    border-bottom: 2px solid $dark-white;
+                }
             }
         }
 
