@@ -2,10 +2,11 @@
 
 .postboxContainer{
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color:  $dark-background;
     display: flex;
     flex-direction: column;
+  
 
     .postboxWrap{
         width: 83.5%;
@@ -13,8 +14,8 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        
-        border-bottom: 0.3px solid $invisible-grey;
+        padding-bottom: 1em;
+        border-bottom: 0.5em solid $invisible-grey;
 
         .postboxHeader{
             color: $dark-white;
@@ -92,6 +93,7 @@
 
             .postboxBody-Bottom{
                 display: flex;
+                align-items: center;
                 justify-content: space-between;
 
                 .postboxAttach{
