@@ -34,7 +34,7 @@ const Login = () => {
             else{
 
                 localStorage.setItem('jwt', data.token)
-                localStorage.setItem('user', JSON.stringify(data))
+                localStorage.setItem('user', JSON.stringify(data.user))
 
                 notification.config({
                     placement: 'topRight',
@@ -44,7 +44,7 @@ const Login = () => {
                     
                   });
                 history.push("/explore", notification.open({
-                    message: `Hello @${data.username}`,
+                    message: `Hello @${data.user.username}`,
                     style: {
                         width: 250,
                         marginLeft: 335 - 600,

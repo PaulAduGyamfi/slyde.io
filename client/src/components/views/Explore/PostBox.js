@@ -1,74 +1,12 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './PostBox.scss'
 import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
+import {useHistory} from 'react-router-dom'
 
  const PostBox = () =>{
 
-
-    const [body,setBody] = useState("")
-    const [image,setImage] = useState("")
-    const [url,setUrl] = useState("")
-    const [error,setError] = useState("")
-
-    const postDetails = () => {
-        const data = new FormData()
-        data.append("file",image)
-        data.append("upload_preset","slydepreset")
-        data.append("cloud_name", "slyde")
-
-
-        fetch("https://api.cloudinary.com/v1_1/slyde/image/upload", {
-            method:"post",
-            body:data
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            
-            console.log(data.url)
-            setUrl(data.url)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-
-
-
-          fetch("/createpost", {
-            method: "post",
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization":"Bearer "+localStorage.getItem("jwt")
-            },
-            body:JSON.stringify({
-                body:body,
-                media:url,
-            })
-        }).then(res => res.json())
-        .then(data =>{
-            if(data.error){
-                setError(data.error)
-            }
-            else{
-
-                console.log(data)
-               
-                // setTimeout(() => {
-                    
-                //     document.getElementById('postbox').value='' }, 900);
-                    
-             
-            }
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-
-        
-    }
-
-
-
+    const history = useHistory()
 
     var autoExpand = function (field) {
 
@@ -96,6 +34,90 @@ import pic from "../viewsStyles/imgs/lbj.jpg"
  const clik = () =>{
     
         document.getElementById('file-input').click();
+ }
+
+
+
+ const [body,setBody] = useState("")
+ const [image,setImage] = useState("")
+ const [url,setUrl] = useState("")
+ const [error,setError] = useState("")
+ useEffect(()=>{
+    if(url){
+        fetch("/createpost",{
+            method:"post",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                body,
+                pic:url
+            })
+        }).then(res=>res.json())
+           .then(data=>{
+               console.log(data)
+               if(data.error){
+                   setError(data.error)
+               }
+               else{
+                setTimeout(() => {
+                    document.getElementById('postbox').value='' 
+                   }, 900)
+               }
+           }).catch(err=>{
+               console.log(err)
+           })
+    }
+ },[url])
+
+ const postDetails = () => {
+     if(image){
+        const data = new FormData()
+        data.append("file",image)
+        data.append("upload_preset","slydepreset")
+        data.append("cloud_name", "slyde")
+   
+        
+        fetch("https://api.cloudinary.com/v1_1/slyde/image/upload", {
+            method:"post",
+            body:data
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            setUrl(data.url)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+     }else{
+        fetch("/createpost",{
+            method:"post",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                body,
+                pic:url
+            })
+        }).then(res=>res.json())
+           .then(data=>{
+               console.log(data)
+               if(data.error){
+                   setError(data.error)
+               }
+               else{
+                   setTimeout(() => {
+                    document.getElementById('postbox').value='' 
+                   }, 900)
+               }
+           }).catch(err=>{
+               console.log(err)
+           })
+     }
+     
+
  }
 
     return(

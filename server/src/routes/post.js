@@ -17,14 +17,14 @@ router.get('/allposts', (req,res) => {
 })
 
 router.post('/createpost',RequireLogin,(req,res) => {
-    const {body,media} = req.body
+    const {body,pic} = req.body
     if(!body){
       return res.status(422).json({error:"please write something first"})
     }
     req.user.password = undefined
     const post = new Post({
         body:body,
-        media:media,
+        media:pic,
         postedBy:req.user
     })
     post.save()

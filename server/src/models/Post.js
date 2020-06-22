@@ -8,7 +8,7 @@ const postSchema = new mongoose.Schema({
     },
     media: {
         type:String,
-        default:"n/a"
+        default:"N/a"
     },
     postedBy: {
         type:ObjectId,

@@ -70,7 +70,7 @@ router.post('/signin',(req,res) => {
                if(passwordMatch){
                   const token = jwt.sign({_id:savedUser._id},JWT_KEY)
                   const {_id,username,email,fullname} = savedUser
-                  res.json({token, _id,username,email,fullname})
+                  res.json({token, user:{_id,username,email,fullname}})
                }
                else{
                   return res.json({error:"The username and password you entered did not match our records. Please double-check and try again."})
@@ -92,7 +92,7 @@ router.post('/signin',(req,res) => {
                if(passwordMatch){
                   const token = jwt.sign({_id:savedUser._id},JWT_KEY)
                   const {_id,username,email,fullname} = savedUser
-                  res.json({token, _id,username,email,fullname})
+                  res.json({token, user:{_id,username,email,fullname}})
                }
                else{
                   return res.json({error:"The username and password you entered did not match our records. Please double-check and try again."})
