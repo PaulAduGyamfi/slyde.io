@@ -2,11 +2,9 @@ import React,{useState} from 'react'
 import './PostBox.scss'
 import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
-import {useHistory} from 'react-router-dom'
 
-const PostBox = () =>{
+ const PostBox = () =>{
 
-    const history = useHistory()
 
     const [body,setBody] = useState("")
     const [image,setImage] = useState("")
@@ -19,26 +17,32 @@ const PostBox = () =>{
         data.append("upload_preset","slydepreset")
         data.append("cloud_name", "slyde")
 
+
         fetch("https://api.cloudinary.com/v1_1/slyde/image/upload", {
             method:"post",
             body:data
         })
         .then(res=>res.json())
         .then(data=>{
+            
+            console.log(data.url)
             setUrl(data.url)
         })
         .catch(err=>{
             console.log(err)
         })
 
-        fetch("/createpost", {
+
+
+          fetch("/createpost", {
             method: "post",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
             },
             body:JSON.stringify({
-                body,
-                url
+                body:body,
+                media:url,
             })
         }).then(res => res.json())
         .then(data =>{
@@ -46,14 +50,21 @@ const PostBox = () =>{
                 setError(data.error)
             }
             else{
+
+                console.log(data)
                
-                history.push("/explore")
+                // setTimeout(() => {
+                    
+                //     document.getElementById('postbox').value='' }, 900);
+                    
              
             }
         })
         .catch(err=>{
             console.log(err)
         })
+
+        
     }
 
 
@@ -93,7 +104,7 @@ const PostBox = () =>{
 
                 <div className="postboxHeader">
                     <div className="postboxTitle">What's New</div>
-                    <div className="postboxRefresh"><ReloadOutlined /></div>
+                    <div className="postboxRefresh" onClick={()=>window.location.reload()}><ReloadOutlined /></div>
                 </div>
 
                 <div className="postboxBody">
@@ -102,7 +113,7 @@ const PostBox = () =>{
                        
                         <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                         <div className="postboxTextBox">
-                            <textarea maxLength="280" placeholder="What's the word?" value={body} onChange={(e)=>setBody(e.target.value)}>
+                            <textarea id="postbox" maxLength="280" placeholder="What's the word?" value={body} onChange={(e)=>setBody(e.target.value)}>
 
                             </textarea>
                         </div>
@@ -121,9 +132,9 @@ const PostBox = () =>{
                             <div className="postboxAttachLink"><SmileOutlined /></div>
                            
                         </div>
-                                    <span>{error}</span>
+                                    <span style={{color:'red', fontWeight:400}}>{error}</span>
 
-                        <div className="postboxSubmit"><button onClick={()=>postDetails()}>Post</button></div>
+                        <div className="postboxSubmit"><button id="postButton" onClick={()=>postDetails()}>Post</button></div>
 
                     </div>
                 </div>

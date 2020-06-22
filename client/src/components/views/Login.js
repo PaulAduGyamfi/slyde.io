@@ -32,6 +32,10 @@ const Login = () => {
                 setError(data.error)
             }
             else{
+
+                localStorage.setItem('jwt', data.token)
+                localStorage.setItem('user', JSON.stringify(data))
+
                 notification.config({
                     placement: 'topRight',
                     top: 50,
