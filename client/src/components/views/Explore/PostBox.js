@@ -62,8 +62,10 @@ import {useHistory} from 'react-router-dom'
                }
                else{
                 setTimeout(() => {
-                    document.getElementById('postbox').value='' 
+                    document.getElementById('postbox').value=''
+                    window.location.reload()
                    }, 900)
+                   
                }
            }).catch(err=>{
                console.log(err)
@@ -90,7 +92,8 @@ import {useHistory} from 'react-router-dom'
         .catch(err=>{
             console.log(err)
         })
-     }else{
+     }
+     else{
         fetch("/createpost",{
             method:"post",
             headers:{
@@ -109,7 +112,8 @@ import {useHistory} from 'react-router-dom'
                }
                else{
                    setTimeout(() => {
-                    document.getElementById('postbox').value='' 
+                    document.getElementById('postbox').value=''
+                    window.location.reload() 
                    }, 900)
                }
            }).catch(err=>{
