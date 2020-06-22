@@ -1,9 +1,64 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './PostBox.scss'
 import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
+import {useHistory} from 'react-router-dom'
 
 const PostBox = () =>{
+
+    const history = useHistory()
+
+    const [body,setBody] = useState("")
+    const [image,setImage] = useState("")
+    const [url,setUrl] = useState("")
+    const [error,setError] = useState("")
+
+    const postDetails = () => {
+        const data = new FormData()
+        data.append("file",image)
+        data.append("upload_preset","slydepreset")
+        data.append("cloud_name", "slyde")
+
+        fetch("https://api.cloudinary.com/v1_1/slyde/image/upload", {
+            method:"post",
+            body:data
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            setUrl(data.url)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+
+        fetch("/createpost", {
+            method: "post",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                body,
+                url
+            })
+        }).then(res => res.json())
+        .then(data =>{
+            if(data.error){
+                setError(data.error)
+            }
+            else{
+               
+                history.push("/explore")
+             
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+
+
+
+
     var autoExpand = function (field) {
 
         // Reset field height
@@ -47,7 +102,7 @@ const PostBox = () =>{
                        
                         <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                         <div className="postboxTextBox">
-                            <textarea maxLength="280" placeholder="What's the word?">
+                            <textarea maxLength="280" placeholder="What's the word?" value={body} onChange={(e)=>setBody(e.target.value)}>
 
                             </textarea>
                         </div>
@@ -57,16 +112,18 @@ const PostBox = () =>{
                     <div className="postboxBody-Bottom">
 
                         <div className="postboxAttach">
-                            <div className="postboxAttachLink" id="upload" onClick={clik}>
+                            <div className="postboxAttachLink" id="upload" onClick={clik} type="file" value={image} onChange={(e)=>setImage(e.target.files[0])}>
+                                    
+                                    <input id="file-input"  type="file"/>
                                     <FileImageOutlined />
-                                    <input id="file-input" type="file"/>
                                 </div>
                             <div className="postboxAttachLink"><FileGifOutlined /></div>
                             <div className="postboxAttachLink"><SmileOutlined /></div>
                            
                         </div>
+                                    <span>{error}</span>
 
-                        <div className="postboxSubmit"><button>Post</button></div>
+                        <div className="postboxSubmit"><button onClick={()=>postDetails()}>Post</button></div>
 
                     </div>
                 </div>
