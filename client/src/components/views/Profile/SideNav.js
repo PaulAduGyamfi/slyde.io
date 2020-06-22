@@ -63,9 +63,9 @@ const SideNav = () => {
               <DownOutlined />
             </div>
           </div>
-          <div class="popover-container" style={{ width: "20em" }}>
-            <div class="card">
-              <div class="card-header">
+          <div className="popover-container" style={{ width: "20em" }}>
+            <div className="card">
+              <div className="card-header">
                 <div className="profileSnippetWrap">
                   <div
                     className="profilePic"
@@ -78,7 +78,7 @@ const SideNav = () => {
                   <div className="pofileUserName">Lebron James</div>
                 </div>
               </div>
-              <div class="card-body logout">Log out</div>
+              <div className="card-body logout">Log out</div>
             </div>
           </div>
         </div>

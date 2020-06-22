@@ -8,9 +8,6 @@ const { JWT_KEY } = require('../config/secure')
 const RequireLogin = require('../middleware/RequireLogin')
 
 
-router.get('/protected',RequireLogin,(req,res) => {
-   res.send("hello user")
-})
 
 router.post('/signup', (req,res) => {
    const {fullname,username,email,password} = req.body
@@ -62,17 +59,18 @@ router.post('/signin',(req,res) => {
       return res.status(422).json({error:"Please provide password"})
    }
 
-      if(username && !email){
+      if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(username)){
          User.findOne({username:username})
          .then(savedUser => {
             if(!savedUser){
-               return res.status(422).json({err:"Invalid username or password"})
+               return res.status(422).json({error:"Invalid username or password"})
             }
             bcrypt.compare(password, savedUser.password)
             .then(passwordMatch => {
                if(passwordMatch){
                   const token = jwt.sign({_id:savedUser._id},JWT_KEY)
-                  res.json({token})
+                  const {_id,username,email,fullname} = savedUser
+                  res.json({token, _id,username,email,fullname})
                }
                else{
                   return res.json({error:"Invalid username or password"})
@@ -83,17 +81,18 @@ router.post('/signin',(req,res) => {
             })
          })
       }
-      else if(!username && email){
+      else{
          User.findOne({email:email})
          .then(savedUser => {
             if(!savedUser){
-               return res.status(422).json({err:"Invalid email or password"})
+               return res.status(422).json({error:"Invalid email or password"})
             }
             bcrypt.compare(password, savedUser.password)
             .then(passwordMatch => {
                if(passwordMatch){
                   const token = jwt.sign({_id:savedUser._id},JWT_KEY)
-                  res.json({token})
+                  const {_id,username,email,fullname} = savedUser
+                  res.json({token, _id,username,email,fullname})
                }
                else{
                   return res.json({error:"Invalid email or password"})

@@ -5,12 +5,39 @@ import { Link,useHistory } from 'react-router-dom'
 
 
 const Login = () => {
+    
+    const history = useHistory()
 
     const [username,setUsername] = useState("")
-    const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const [error, setError] = useState("")
 
-   
+   const PostData = () => {
+
+
+        fetch("/signin", {
+            method: "post",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                username,
+                email:username,
+                password
+            })
+        }).then(res => res.json())
+        .then(data =>{
+            if(data.error){
+                setError(data.error)
+            }
+            else{
+                history.push("/explore")
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+   }
 
     return(
         <div className="homeBody">
@@ -22,7 +49,7 @@ const Login = () => {
 
                 <div className="loginTitle">Login to Slyde</div>
 
-
+                <span style={{color:"red", textAlign:"center"}}>{error}</span>
                     <div className="inputWrap">
                         <input className="inputBox" name="email" type="text" value={username} onChange={(e)=>setUsername(e.target.value)} />
                         <div className="placeholder">Email or username</div>
@@ -33,7 +60,7 @@ const Login = () => {
                         <div className="placeholder">Password</div>
                     </div>
 
-                    <div className="button"><button>Log in</button></div>
+                    <div className="button"><button onClick={()=>PostData()} >Log in</button></div>
 
                     <div className="loginFooter">
                         <div className="footLinks">

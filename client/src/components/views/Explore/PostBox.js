@@ -47,7 +47,7 @@ const PostBox = () =>{
                        
                         <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                         <div className="postboxTextBox">
-                            <textarea maxlength="280" placeholder="What's the word?">
+                            <textarea maxLength="280" placeholder="What's the word?">
 
                             </textarea>
                         </div>
