@@ -1,12 +1,13 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import './viewsStyles/Login.scss'
 import logo from './viewsStyles/imgs/slyde.png'
 import { Link,useHistory } from 'react-router-dom'
+import {UserContext} from '../../App'
 import { notification} from 'antd';
 
 
 const Login = () => {
-
+    const [state,dispatch] = useContext(UserContext)
     const history = useHistory()
 
     const [username,setUsername] = useState("")
@@ -35,6 +36,7 @@ const Login = () => {
 
                 localStorage.setItem('jwt', data.token)
                 localStorage.setItem('user', JSON.stringify(data.user))
+                dispatch({type:"USER",payload:data.user})
 
                 notification.config({
                     placement: 'topRight',
