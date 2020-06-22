@@ -63,7 +63,7 @@ router.post('/signin',(req,res) => {
          User.findOne({username:username})
          .then(savedUser => {
             if(!savedUser){
-               return res.status(422).json({error:"Invalid username or password"})
+               return res.status(422).json({error:"The username and password you entered did not match our records. Please double-check and try again."})
             }
             bcrypt.compare(password, savedUser.password)
             .then(passwordMatch => {
@@ -73,7 +73,7 @@ router.post('/signin',(req,res) => {
                   res.json({token, _id,username,email,fullname})
                }
                else{
-                  return res.json({error:"Invalid username or password"})
+                  return res.json({error:"The username and password you entered did not match our records. Please double-check and try again."})
                }
             })
             .catch(err => {
@@ -85,7 +85,7 @@ router.post('/signin',(req,res) => {
          User.findOne({email:email})
          .then(savedUser => {
             if(!savedUser){
-               return res.status(422).json({error:"Invalid email or password"})
+               return res.status(422).json({error:"The username and password you entered did not match our records. Please double-check and try again."})
             }
             bcrypt.compare(password, savedUser.password)
             .then(passwordMatch => {
@@ -95,7 +95,7 @@ router.post('/signin',(req,res) => {
                   res.json({token, _id,username,email,fullname})
                }
                else{
-                  return res.json({error:"Invalid email or password"})
+                  return res.json({error:"The username and password you entered did not match our records. Please double-check and try again."})
                }
             })
             .catch(err => {

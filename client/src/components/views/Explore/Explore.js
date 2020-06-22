@@ -6,6 +6,7 @@ import ExploreFeed from './ExploreFeed'
 import './Explore.scss'
 
 
+
 const Explore = () => {
     return(
         <div className="exploreContainer" style={{display:'flex'}}>

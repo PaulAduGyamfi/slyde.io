@@ -2,10 +2,11 @@ import React,{useState} from 'react'
 import './viewsStyles/Login.scss'
 import logo from './viewsStyles/imgs/slyde.png'
 import { Link,useHistory } from 'react-router-dom'
+import { notification} from 'antd';
 
 
 const Login = () => {
-    
+
     const history = useHistory()
 
     const [username,setUsername] = useState("")
@@ -31,7 +32,25 @@ const Login = () => {
                 setError(data.error)
             }
             else{
-                history.push("/explore")
+                notification.config({
+                    placement: 'topRight',
+                    top: 50,
+                    duration: 3.5,
+                    rtl: true,
+                    
+                  });
+                history.push("/explore", notification.open({
+                    message: `Hello @${data.username}`,
+                    style: {
+                        width: 250,
+                        marginLeft: 335 - 600,
+                        textAlign: 'left',
+                        colorAdjust: '#ff4d52',
+                        fontWeight:'700',
+                        fontSize: '1.3em'
+                      },
+                  }))
+             
             }
         })
         .catch(err=>{
