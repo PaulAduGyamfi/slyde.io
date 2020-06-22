@@ -70,9 +70,11 @@
                 .postboxTextBox{
                     margin-left: 2em;
                     textarea{
+                        overflow: hidden;
                         width: 30em;
                         resize: none;
                         min-height: 4em;
+                        max-height: 16em;
                         padding-top: 1em;
                         background-color: $dark-background;
                         outline: none;
@@ -84,7 +86,7 @@
                             color: $trsansparent-grey;
                         }
                         &:focus::placeholder{
-                            color: $dark-white;
+                            color: #ffffffa4;
                         }
                         
                     }

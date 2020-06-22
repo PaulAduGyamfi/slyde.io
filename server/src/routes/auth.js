@@ -16,7 +16,7 @@ router.post('/signup', (req,res) => {
    const {fullname,username,email,password} = req.body
    if(!fullname || !username || !email || !password){
       return res.status(422).json({
-         error:"Please add all fields"
+         error:"* Please complete all fields before attempting to signup *"
       })
    }
   User.findOne({email:email})

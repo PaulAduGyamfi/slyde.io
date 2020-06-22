@@ -1,10 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './viewsStyles/Login.scss'
 import logo from './viewsStyles/imgs/slyde.png'
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 
 
 const Login = () => {
+
+    const [username,setUsername] = useState("")
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+
+   
+
     return(
         <div className="homeBody">
             <div className="loginForm">
@@ -17,12 +24,12 @@ const Login = () => {
 
 
                     <div className="inputWrap">
-                        <input className="inputBox" name="email" type="text" />
+                        <input className="inputBox" name="email" type="text" value={username} onChange={(e)=>setUsername(e.target.value)} />
                         <div className="placeholder">Email or username</div>
                     </div>
 
                     <div className="inputWrap">
-                        <input className="inputBox" type="password" />
+                        <input className="inputBox" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}  />
                         <div className="placeholder">Password</div>
                     </div>
 
