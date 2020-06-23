@@ -1,2 +1,118 @@
 @import '../viewsStyles/global';
 @import '../Profile/profileStyles/ProfileFeed.scss';
+
+
+.commentWrap{
+
+    .commentTop{
+        display:flex;
+        align-items: center;
+        .posterPic{
+            margin-right: 0.7em;
+        }
+        .posterInfoWrap{
+            display:flex;
+            flex-direction:column;
+
+            .posterInfo{
+                display:flex;
+                align-items: center;
+                .feedCardAuthor{
+                    
+                }
+                .Name{
+                    color: $dark-white;
+                    font-weight: 800;
+                    font-size: 1.1em;
+                    margin-right: 0.3em;
+                }
+                .Tag{
+                    color: $trsansparent-grey;
+                }
+            }
+            .postBody{
+                color: $dark-white;
+                font-weight: 400;
+
+            }
+        }
+    }
+
+    .commentDivide{
+        display:flex;
+        margin-left: 1.7em;
+        align-items: center;
+        .verticalLine{
+            border-left:2px solid #f0f0f079;
+            height:3.5em;
+
+        }
+        .replyTo{
+            color: $trsansparent-grey;
+            margin-left: 2.3em;
+            font-size: 1.1em;
+
+            span{
+                color:$primary;
+            }
+        }
+    }
+
+    .commentBottom{
+        display:flex;
+        margin-top: 0.4em;
+        .posterPic{
+            margin-right: 0.7em;
+        }
+        textarea{
+            width: 30em;
+            background-color: $dark-background;
+            border: none;
+            resize: none;
+            height: 100px;
+            max-height: auto;
+            color: $dark-white;
+            font-size: 1.2em;
+            font-weight: 500;
+            padding-top: 0.7em;
+            outline: none;
+            &::placeholder{
+                font-weight: 600;
+                
+            }
+        }
+        textarea:focus::placeholder{
+            color: #f0f0f093;
+        }
+    }
+
+   
+}
+.modal-footer{
+    .commentButton{
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        button{
+            background-color: $primary;
+            border: none;
+            border-radius: 2em;
+            width: 5em;
+            padding: 0.5em;
+            outline: none;
+            color: $dark-white;
+            font-weight: 700;
+            cursor: pointer;
+
+            &:hover{
+                background-color: $primary-hover;
+            }
+            &:active{
+                background-color: $primary-active;
+            }
+
+        }
+    }
+}
