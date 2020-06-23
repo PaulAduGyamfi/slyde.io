@@ -10,9 +10,11 @@ export const UserContext = createContext()
 
 const Routing = () => {
     const history = useHistory()
+    const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{
         const user = JSON.parse(localStorage.getItem("user"))
         if(user){
+            dispatch({type:"USER",payload:user})
             history.push('/explore')
         }else{
             history.push('/signin')
@@ -23,16 +25,16 @@ const Routing = () => {
             <Route exact path="/">
                 <Login />
             </Route>
-            <Route exact path="/signin">
+            <Route path="/signin">
                 <Login />
             </Route>
-            <Route exact path="/signup">
+            <Route path="/signup">
                 <Signup />
             </Route>
-            <Route exact path="/profile">
+            <Route path="/profile">
                 <Profile />
             </Route>
-            <Route exact path="/explore">
+            <Route path="/explore">
                 <Explore />
             </Route>
         </Switch>

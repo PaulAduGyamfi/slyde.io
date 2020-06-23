@@ -7,7 +7,7 @@ import { notification} from 'antd';
 
 
 const Login = () => {
-    const [state,dispatch] = useContext(UserContext)
+    const {state,dispatch} = useContext(UserContext)
     const history = useHistory()
 
     const [username,setUsername] = useState("")
