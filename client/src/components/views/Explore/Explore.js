@@ -26,7 +26,7 @@ const Explore = () => {
     return(
         <div className="exploreContainer" style={{display:'flex'}}>
           
-            <SideNav props={user} />
+            <SideNav />
                 <div className="middle">
                     <PostBox />
                     {

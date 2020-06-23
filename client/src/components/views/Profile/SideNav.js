@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext, useEffect} from "react";
 import "./profileStyles/SideNav.scss";
 import logo from "../viewsStyles/imgs/slyde.png";
 import pic from "../viewsStyles/imgs/lbj.jpg";
@@ -9,9 +9,12 @@ import {
   DownOutlined,
 } from "@ant-design/icons";
 import "spectre.css";
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
+import { UserContext } from "../../../App";
 
-const SideNav = (props) => {
+const SideNav = () => {
+  const history = useHistory()
+  const {state,dispatch} = useContext(UserContext)
   return (
     <div className="navContainer">
       <div className="navContainerWrapper">
@@ -30,7 +33,7 @@ const SideNav = (props) => {
           </Link>
         </div>
         <div className="sidenavNews">
-        <Link to="/">
+        <Link to="">
             <ReadOutlined style={{ fontSize: "29px" }} />
             <div className="news Text">News</div>
           </Link>
@@ -56,7 +59,11 @@ const SideNav = (props) => {
                   backgroundSize: "cover",
                 }}
               ></div>
-              <div className="pofileUserName">{props.props.fullname}</div>
+              <div className="nameWrap" style={{display:"flex",flexDirection:"column",alignItems:"flex-start"}}>
+                  <div className="pofileUserName fullname">{state?state.fullname:"loading"}</div>
+                  <div className="pofileUserName username">@{state?state.username:"loading"}</div>
+              </div>
+              
             </div>
 
             <div className="logoutModalButton">
@@ -75,10 +82,16 @@ const SideNav = (props) => {
                       backgroundSize: "cover",
                     }}
                   ></div>
-                  <div className="pofileUserName" style={{width:"50%",textAlign:"center"}}>{props.props.fullname}</div>
+                  <div className="pofileUserName" style={{width:"50%",textAlign:"center"}}>{state?state.fullname:"loading"}</div>
                 </div>
               </div>
-              <div className="card-body logout">Log out</div>
+              <div className="card-body logout" onClick={()=>{
+                localStorage.clear()
+                dispatch({type:"CLEAR"})
+                history.push("/")
+              }}>
+                Log out
+                </div>
             </div>
           </div>
         </div>
