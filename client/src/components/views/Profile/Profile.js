@@ -87,6 +87,7 @@ const Profile = () => {
             <SideNav />
             <div className="middle" >
                 <ProfileCard />
+                <div style={{display:"flex",flexDirection:"column-reverse"}}>
                         {
                             posts.map(item => {
                                 return(
@@ -107,7 +108,7 @@ const Profile = () => {
                                          </div>
                                          <div className="feedCard-body">
                                                 <div className="postTitle">{item.body}</div>
-                                                {item.media && <img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
+                                                {item.media.substring(item.media.length-4,item.media.length.length)==".mp4" ? <video width="85%" height="auto" controls><source src={item.media} type="video/mp4" /></video>:<img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
                                          </div>
                                          <div className="feedCard-actions">
                                              <div>
@@ -135,6 +136,7 @@ const Profile = () => {
                                 )
                             })
                         }
+                        </div>
             </div>
             <Suggestions />
         </div>

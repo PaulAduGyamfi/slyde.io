@@ -86,6 +86,7 @@ const Explore = () => {
             <SideNav />
                 <div className="middle">
                     <PostBox />
+                    <div style={{display:"flex",flexDirection:"column-reverse"}}>
                     {
                         data.map((item) => {
                             return(
@@ -106,7 +107,8 @@ const Explore = () => {
                                          </div>
                                          <div className="feedCard-body">
                                                 <div className="postTitle">{item.body}</div>
-                                                {item.media && <img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
+                                                {console.log(item.media)}
+                                                {item.media.substring(item.media.length-4,item.media.length.length)==".mp4" ? <video width="85%" height="auto" controls><source src={item.media} type="video/mp4" /></video>:<img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
                                          </div>
                                          <div className="feedCard-actions">
                                              <div>
@@ -134,6 +136,7 @@ const Explore = () => {
                             )
                         })
                     }
+                    </div>
                 </div>
         
             <Suggestions />

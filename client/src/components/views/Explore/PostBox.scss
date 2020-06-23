@@ -27,11 +27,14 @@
             padding: 0.5em;
             background-color: $dark-background;
             border-bottom: 0.3px solid $invisible-grey;
+            z-index: 99;
 
                 .postboxTitle{
                     font-weight: 700;
                     font-size: 1.4em;
                     text-indent: 1em;
+                    background-color: $dark-background;
+                    z-index: 99;
                 }
                 .postboxRefresh{
                     text-align: center;

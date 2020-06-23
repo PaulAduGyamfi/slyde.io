@@ -81,7 +81,7 @@ import {useHistory} from 'react-router-dom'
         data.append("cloud_name", "slyde")
    
         
-        fetch("https://api.cloudinary.com/v1_1/slyde/image/upload", {
+        fetch("https://api.cloudinary.com/v1_1/slyde/upload", {
             method:"post",
             body:data
         })
