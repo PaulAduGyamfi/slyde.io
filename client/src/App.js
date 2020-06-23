@@ -20,6 +20,7 @@ const Routing = () => {
             history.push('/signin')
         }
     },[])
+    { document.getElementById("htmlTitle").innerHTML = state?state.fullname + ' (@'+ state.username+') / Slyde':"Slyde"}
     return(
         <Switch>
             <Route exact path="/">
