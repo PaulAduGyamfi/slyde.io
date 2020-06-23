@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import SideNav from '../Profile/SideNav'
 import Suggestions from '../Profile/Suggestions'
 import PostBox from './PostBox'
@@ -6,11 +6,13 @@ import pic from "../viewsStyles/imgs/lbj.jpg";
 import {DownOutlined,HeartOutlined,MessageOutlined} from "@ant-design/icons";
 import './ExploreFeed.scss'
 import './Explore.scss'
+import { UserContext } from '../../../App';
 
 
 
 const Explore = () => {
     const [data,setData] = useState([])
+    const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{
         fetch("/allposts",{
             headers:{
@@ -23,6 +25,60 @@ const Explore = () => {
         })
     },[])
 
+
+    const likePost = (id) => {
+        fetch("/like",{
+            method:"put",
+            headers:{
+                "Content-Type":'application/json',
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                postId:id
+            })
+        }).then(res => res.json())
+        .then(result => {
+            console.log(result)
+            const newData = data.map(item => {
+                if(item._id == result._id){
+                    return result
+                }else{
+                    return item
+                }
+            })
+            setData(newData)
+
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+
+    const unlikePost = (id) => {
+        fetch("/unlike",{
+            method:"put",
+            headers:{
+                "Content-Type":'application/json',
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                postId:id
+            })
+        }).then(res => res.json())
+        .then(result => {
+            // console.log(result)
+            const newData = data.map(item => {
+                if(item._id == result._id){
+                    return result
+                }else{
+                    return item
+                }
+            })
+            setData(newData)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
     return(
         <div className="exploreContainer" style={{display:'flex'}}>
           
@@ -53,7 +109,14 @@ const Explore = () => {
                                          </div>
                                          <div className="feedCard-actions">
                                              <div>
-                                             <HeartOutlined />
+                                             <HeartOutlined onClick={() =>{
+                                                 if(item.likes.includes(state._id)){
+                                                        unlikePost(item._id)
+                                                 }else{
+                                                    likePost(item._id)
+                                                 }
+                                             }}/>
+
                                              <span style={{marginLeft:"0.75em"}}>{item.likes.length}</span>
                                              </div>
                                              <MessageOutlined />
