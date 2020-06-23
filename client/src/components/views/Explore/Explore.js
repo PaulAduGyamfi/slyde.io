@@ -112,13 +112,13 @@ const Explore = () => {
                                          </div>
                                          <div className="feedCard-actions">
                                              <div>
-                                             {item.likes.includes(state._id)?<HeartFilled className="animate__animated animate__bounceIn" style={{color:"#e0245e"}} onClick={() =>{
+                                             {item.likes.includes(state._id)?<HeartFilled className="animate__animated animate__bounceIn" style={{color:"#e0245e",cursor:"pointer"}} onClick={() =>{
                                                  if(item.likes.includes(state._id)){
                                                         unlikePost(item._id)
                                                  }else{
                                                     likePost(item._id)
                                                  }
-                                             }} />:<HeartOutlined className="likeButton" style={{color:"#f0f0f079"}} onClick={() =>{
+                                             }} />:<HeartOutlined className="likeButton" style={{color:"#f0f0f079",cursor:"pointer"}} onClick={() =>{
                                                  if(item.likes.includes(state._id)){
                                                         unlikePost(item._id)
                                                  }else{
@@ -126,7 +126,7 @@ const Explore = () => {
                                                  }
                                              }}/>  }
                                 
-                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length}</span>
+                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
                                              <MessageOutlined />
                                          </div>
