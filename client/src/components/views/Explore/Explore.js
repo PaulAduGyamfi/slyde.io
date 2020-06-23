@@ -22,10 +22,11 @@ const Explore = () => {
             console.log(result.posts)
         })
     },[])
+    const user = JSON.parse(localStorage.getItem("user"))
     return(
         <div className="exploreContainer" style={{display:'flex'}}>
           
-            <SideNav />
+            <SideNav props={user} />
                 <div className="middle">
                     <PostBox />
                     {

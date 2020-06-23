@@ -10,7 +10,6 @@
     border-right: 0.3px solid $invisible-grey;
     .navContainerWrapper{
         margin: 0.5em 2em;
-        height: 100%;
         .sidenavLogo{
             width: 4.5em;
             cursor: pointer;
@@ -28,6 +27,7 @@
         height: 100%;
         
         .sidenavHome,.sidenavNews,.sidenavUser {
+            
            a{
             color: $dark-white;
             display: flex;

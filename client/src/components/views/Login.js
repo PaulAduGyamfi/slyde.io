@@ -49,8 +49,9 @@ const Login = () => {
                     message: `Hello @${data.user.username}`,
                     style: {
                         width: 250,
+                        maxWidth: "auto",
                         marginLeft: 335 - 600,
-                        textAlign: 'left',
+                        textAlign: 'center',
                         colorAdjust: '#ff4d52',
                         fontWeight:'700',
                         fontSize: '1.3em'

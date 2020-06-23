@@ -6,11 +6,12 @@ import Suggestions from './Suggestions'
 import './profileStyles/Profile.scss'
 
 const Profile = () => {
+    const user = JSON.parse(localStorage.getItem("user"))
     return(
         <div className="profileContainer">
-            <SideNav />
+            <SideNav  props={user} />
             <div className="middle" >
-                <ProfileCard />
+                <ProfileCard props={user} />
                 <ProfileFeed />
             </div>
             <Suggestions />

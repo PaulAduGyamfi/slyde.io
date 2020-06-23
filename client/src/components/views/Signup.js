@@ -22,7 +22,7 @@ const Signup = () => {
             return setError("* That email address is invalid. Please choose another one *")
         }
         // eslint-disable-next-line
-        if(!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/)){
+        if(!(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/).test(password)){
             
             const errMsg = 'Please make sure your password meets the following requirements:\n1. Must be at least 8-15 characters long.\n2. Contains at least one letter, one number and one special character.'
             return setError(errMsg)
@@ -44,7 +44,7 @@ const Signup = () => {
                 setError(data.error)
             }
             else{
-                history.push("/login")
+                history.push("/signin")
             }
         })
         .catch(err=>{

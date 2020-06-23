@@ -11,7 +11,7 @@ import {
 import "spectre.css";
 import { Link } from 'react-router-dom'
 
-const SideNav = () => {
+const SideNav = (props) => {
   return (
     <div className="navContainer">
       <div className="navContainerWrapper">
@@ -56,7 +56,7 @@ const SideNav = () => {
                   backgroundSize: "cover",
                 }}
               ></div>
-              <div className="pofileUserName">Lebron James</div>
+              <div className="pofileUserName">{props.props.fullname}</div>
             </div>
 
             <div className="logoutModalButton">
@@ -75,7 +75,7 @@ const SideNav = () => {
                       backgroundSize: "cover",
                     }}
                   ></div>
-                  <div className="pofileUserName">Lebron James</div>
+                  <div className="pofileUserName" style={{width:"50%",textAlign:"center"}}>{props.props.fullname}</div>
                 </div>
               </div>
               <div className="card-body logout">Log out</div>
