@@ -31,7 +31,7 @@ const Explore = () => {
                     {
                         data.map((item) => {
                             return(
-                                <div className="explorefeedContainer postComponent">
+                                <div className="explorefeedContainer postComponent" key={item._id}>
                                 <div className="feedCard">
                                      <div className="feedCard-Left">
                                          <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>

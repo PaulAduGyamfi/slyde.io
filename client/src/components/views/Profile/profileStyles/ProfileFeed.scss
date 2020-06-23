@@ -36,6 +36,7 @@
                 flex: 1;
                 display: flex;
                 flex-direction: column;
+                justify-content: left;
                     .feedCard-header{
                         display: flex;
                         justify-content: space-between;
@@ -48,12 +49,13 @@
                                 }
                                 .Name{
                                     color: $dark-white;
-                                    font-size: 1.1em;
+                                    font-size: 1.12em;
                                     font-weight: 700;
+                                    margin-left: 1em;
                                 }
                                 .Tag{
                                     color: $trsansparent-grey;
-                                    font-size: 0.9em;
+                                    font-size: 1em;
                                 }
                             }
                             .feedCard-arrow{
