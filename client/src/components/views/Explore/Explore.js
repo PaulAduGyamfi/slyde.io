@@ -19,10 +19,10 @@ const Explore = () => {
         }).then(res=>res.json())
         .then(result=>{
             setData(result.posts)
-            console.log(result.posts)
+            console.log(result)
         })
     },[])
-    const user = JSON.parse(localStorage.getItem("user"))
+
     return(
         <div className="exploreContainer" style={{display:'flex'}}>
           
@@ -52,7 +52,10 @@ const Explore = () => {
                                                 {item.media && <img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
                                          </div>
                                          <div className="feedCard-actions">
+                                             <div>
                                              <HeartOutlined />
+                                             <span style={{marginLeft:"0.75em"}}>{item.likes.length}</span>
+                                             </div>
                                              <MessageOutlined />
                                          </div>
                                      </div>
