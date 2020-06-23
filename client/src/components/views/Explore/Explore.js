@@ -3,9 +3,10 @@ import SideNav from '../Profile/SideNav'
 import Suggestions from '../Profile/Suggestions'
 import PostBox from './PostBox'
 import pic from "../viewsStyles/imgs/lbj.jpg";
-import {DownOutlined,HeartOutlined,MessageOutlined} from "@ant-design/icons";
+import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled} from "@ant-design/icons";
 import './ExploreFeed.scss'
 import './Explore.scss'
+import 'animate.css'
 import { UserContext } from '../../../App';
 
 
@@ -109,15 +110,21 @@ const Explore = () => {
                                          </div>
                                          <div className="feedCard-actions">
                                              <div>
-                                             <HeartOutlined onClick={() =>{
+                                             {item.likes.includes(state._id)?<HeartFilled className="animate__animated animate__bounceIn" style={{color:"#e0245e"}} onClick={() =>{
                                                  if(item.likes.includes(state._id)){
                                                         unlikePost(item._id)
                                                  }else{
                                                     likePost(item._id)
                                                  }
-                                             }}/>
-
-                                             <span style={{marginLeft:"0.75em"}}>{item.likes.length}</span>
+                                             }} />:<HeartOutlined className="likeButton" style={{color:"#f0f0f079"}} onClick={() =>{
+                                                 if(item.likes.includes(state._id)){
+                                                        unlikePost(item._id)
+                                                 }else{
+                                                    likePost(item._id)
+                                                 }
+                                             }}/>  }
+                                
+                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length}</span>
                                              </div>
                                              <MessageOutlined />
                                          </div>
