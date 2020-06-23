@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^7.1.2",
     "animate.css": "^4.1.0",
     "antd": "^4.3.4",
+    "is-in-viewport": "^3.0.4",
+    "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

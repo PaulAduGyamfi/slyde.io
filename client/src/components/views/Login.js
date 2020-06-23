@@ -4,6 +4,7 @@ import logo from './viewsStyles/imgs/slyde.png'
 import { Link,useHistory } from 'react-router-dom'
 import {UserContext} from '../../App'
 import { notification} from 'antd';
+import {LoadingOutlined} from '@ant-design/icons';
 
 
 const Login = () => {
@@ -45,18 +46,23 @@ const Login = () => {
                     rtl: true,
                     
                   });
-                history.push("/explore", notification.open({
-                    message: `Hello @${data.user.username}`,
-                    style: {
-                        width: 250,
-                        maxWidth: "auto",
-                        marginLeft: 335 - 600,
-                        textAlign: 'center',
-                        colorAdjust: '#ff4d52',
-                        fontWeight:'700',
-                        fontSize: '1.3em'
-                      },
-                  }))
+                
+                  setTimeout(() => {
+                    history.push("/explore", notification.open({
+                        message: `Hello @${data.user.username}`,
+                        style: {
+                            width: 250,
+                            maxWidth: "auto",
+                            marginLeft: 335 - 600,
+                            textAlign: 'center',
+                            colorAdjust: '#ff4d52',
+                            fontWeight:'700',
+                            fontSize: '1.3em'
+                          },
+                      }))
+                  }, 3000)
+                  
+                
              
             }
         })
@@ -86,7 +92,7 @@ const Login = () => {
                         <div className="placeholder">Password</div>
                     </div>
 
-                    <div className="button"><button onClick={()=>PostData()} >Log in</button></div>
+                    <div className="button"><button id="login" onClick={()=>PostData()} >{state?<LoadingOutlined />:"Log in"}</button></div>
 
                     <div className="loginFooter">
                         <div className="footLinks">
