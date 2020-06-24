@@ -126,7 +126,7 @@ const Profile = () => {
                                                  }
                                              }}/>  }
                                 
-                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length}</span>
+                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
                                              <MessageOutlined />
                                          </div>

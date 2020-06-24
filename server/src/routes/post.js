@@ -61,6 +61,7 @@ router.put("/like",RequireLogin,(req,res) => {
         }
     })
 })
+
 router.put("/unlike",RequireLogin,(req,res) => {
     Post.findByIdAndUpdate(req.body.postId,{
         $pull:{likes:req.user._id}
@@ -75,5 +76,26 @@ router.put("/unlike",RequireLogin,(req,res) => {
         }
     })
 })
+
+
+router.put("/comment",RequireLogin,(req,res) => {
+    const comment = {
+        text:req.body.text,
+        postedBy:req.user._id
+    }
+    Post.findByIdAndUpdate(req.body.postId,{
+        $push:{comments:comment}
+    },{
+        new:true
+    }).populate("comments.postedBy", "_id username fullname")
+    .exec((err,result) => {
+        if(err){
+            res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
+
 
 module.exports = router
