@@ -2,11 +2,11 @@ import React,{useState,useEffect} from 'react'
 import './PostBox.scss'
 import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
  const PostBox = () =>{
 
-    const history = useHistory()
+    // const history = useHistory()
 
     var autoExpand = function (field) {
 

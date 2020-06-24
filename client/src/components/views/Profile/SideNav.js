@@ -7,6 +7,7 @@ import {
   ReadOutlined,
   UserOutlined,
   DownOutlined,
+  WechatOutlined
 } from "@ant-design/icons";
 import "spectre.css";
 import { Link,useHistory } from 'react-router-dom'
@@ -36,6 +37,12 @@ const SideNav = () => {
         <Link to="">
             <ReadOutlined style={{ fontSize: "29px" }} />
             <div className="news Text">News</div>
+          </Link>
+        </div>
+        <div className="sidenavChat">
+        <Link to="">
+            <WechatOutlined style={{ fontSize: "29px" }} />
+            <div className="news Text">Chat</div>
           </Link>
         </div>
         <div className="sidenavUser">
