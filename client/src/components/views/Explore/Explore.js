@@ -90,17 +90,51 @@ const Explore = () => {
             console.log(err)
         })
     }
-
-    // const makeComment = () => {
-        
-    // }
-
-
-
     return(
         <div className="exploreContainer" style={{display:'flex'}}>
 
-            
+            <div className="modal " id="modal-id">
+                <a href="#close" className="modal-overlay" aria-label="Close" onClick={()=>closeModal()} style={{opacity:".5"}}></a>
+                <div className="modal-container" style={{backgroundColor:"#2C2F33",height:"30em",maxHeight:"auto",borderRadius:"1em"}}>
+                        <div className="modal-header" style={{borderBottom:"1px solid #f0f0f079"}}>
+                            <a href="#close" className="btn btn-clear float-right" aria-label="Close" onClick={()=>closeModal()} style={{color:"#ff4d52"}}></a>
+                        </div>
+                        <div className="modal-body">
+                            <div className="content">
+                                    
+                                    <div className="commentWrap" style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
+                                            
+                                            <div className="commentTop">
+                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"52px",width:"52px",borderRadius:50}}></div>
+                                                    <div className="posterInfoWrap">
+                                                            <div className="posterInfo">
+                                                                <div className="feedCardAuthor Name">Lebron James</div>
+                                                                <div className="feedCardAuthor Tag">@kingjames</div>
+                                                            </div>
+                                                            <div className="postBody">
+                                                                Don’t go anywhere near him @KingJames  he’s one of those anti vaccine new age water boys
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                            
+                                            <div className="commentDivide">
+                                                    <div className="verticalLine"></div>
+                                                    <div className="replyTo">Replying to <span>@ZlatanLeko</span></div>
+                                            </div>
+
+                                            <div className="commentBottom">
+                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"52px",width:"52px",borderRadius:50}}></div>
+                                                    <textarea placeholder="Comment your reply" rows="5"></textarea>
+                                            </div>
+                                            
+                                    </div>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                        <div className="commentButton"><button>Reply</button></div>
+                        </div>
+                </div>
+            </div>
           
             <SideNav />
                 <div className="middle">
@@ -150,49 +184,6 @@ const Explore = () => {
                                              <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
                                              <MessageOutlined onClick={()=>openModal()} />
-            
-            <div className="modal " id="modal-id">
-                <a href="#close" className="modal-overlay" aria-label="Close" onClick={()=>closeModal()} style={{opacity:".5"}}></a>
-                <div className="modal-container" style={{backgroundColor:"#2C2F33",height:"30em",maxHeight:"auto",borderRadius:"1em"}}>
-                        <div className="modal-header" style={{borderBottom:"1px solid #f0f0f079"}}>
-                            <a href="#close" className="btn btn-clear float-right" aria-label="Close" onClick={()=>closeModal()} style={{color:"#ff4d52"}}></a>
-                        </div>
-                        <div className="modal-body">
-                            <div className="content">
-                                    
-                                    <div className="commentWrap" style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
-                                            
-                                            <div className="commentTop">
-                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"52px",width:"52px",borderRadius:50}}></div>
-                                                    <div className="posterInfoWrap">
-                                                            <div className="posterInfo">
-                                                                <div className="feedCardAuthor Name">Lebron James</div>
-                                                                <div className="feedCardAuthor Tag">@kingjames</div>
-                                                            </div>
-                                                            <div className="postBody">
-                                                                Don’t go anywhere near him @KingJames  he’s one of those anti vaccine new age water boys
-                                                            </div>
-                                                    </div>
-                                            </div>
-                                            
-                                            <div className="commentDivide">
-                                                    <div className="verticalLine"></div>
-                                                    <div className="replyTo">Replying to <span>@ZlatanLeko</span></div>
-                                            </div>
-
-                                            <div className="commentBottom">
-                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"52px",width:"52px",borderRadius:50}}></div>
-                                                    <textarea placeholder="Comment your reply" rows="5"></textarea>
-                                            </div>
-                                           
-                                    </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                                <div className="commentButton"><button>Reply</button></div>
-                        </div>
-                </div>
-            </div>
                                          </div>
                                      </div>
                                  </div>
