@@ -151,14 +151,14 @@ const Explore = () => {
                                              </div>
                                              <MessageOutlined onClick={()=>openModal()} />
             
-            <div class="modal " id="modal-id">
-                <a href="#close" class="modal-overlay" aria-label="Close" onClick={()=>closeModal()} style={{opacity:".5"}}></a>
-                <div class="modal-container" style={{backgroundColor:"#2C2F33",height:"30em",maxHeight:"auto",borderRadius:"1em"}}>
-                        <div class="modal-header" style={{borderBottom:"1px solid #f0f0f079"}}>
-                            <a href="#close" class="btn btn-clear float-right" aria-label="Close" onClick={()=>closeModal()} style={{color:"#ff4d52"}}></a>
+            <div className="modal " id="modal-id">
+                <a href="#close" className="modal-overlay" aria-label="Close" onClick={()=>closeModal()} style={{opacity:".5"}}></a>
+                <div className="modal-container" style={{backgroundColor:"#2C2F33",height:"30em",maxHeight:"auto",borderRadius:"1em"}}>
+                        <div className="modal-header" style={{borderBottom:"1px solid #f0f0f079"}}>
+                            <a href="#close" className="btn btn-clear float-right" aria-label="Close" onClick={()=>closeModal()} style={{color:"#ff4d52"}}></a>
                         </div>
-                        <div class="modal-body">
-                            <div class="content">
+                        <div className="modal-body">
+                            <div className="content">
                                     
                                     <div className="commentWrap" style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
                                             
@@ -188,7 +188,7 @@ const Explore = () => {
                                     </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div className="modal-footer">
                                 <div className="commentButton"><button>Reply</button></div>
                         </div>
                 </div>
