@@ -19,7 +19,7 @@ const Signup = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const [image,setImage] = useState("")
-    const [url,setUrl] = useState("")
+    const [url,setUrl] = useState(undefined)
 
 useEffect(()=>{
     if(url){
