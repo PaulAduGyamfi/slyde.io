@@ -168,24 +168,36 @@ const Explore = () => {
                                              <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
                                              <MessageOutlined onClick={()=>{
-                                                 document.getElementById(`${item._id}`).classList.toggle('showCommentBox')
-                                             }} />
+                                                 document.getElementById(`${item._id}`).classList.toggle("showComments")
+                                             }}/>
                                          </div>
                                      </div>
                                  </div>
-                                 <div className="commentForm" id={`${item._id}`}>
-                                        <div className="profileAndInput">
-                                                <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"40px",width:"40px",borderRadius:50}}></div>
-                                                <form className="commentArea" onSubmit={(e)=>{
-                                                    e.preventDefault()
-                                                    makeComment(e.target[0].value,item._id)
-                                                }}>
-                                                    <textarea placeholder="Comment you reply" maxLength="250" rows="1"></textarea>
-            
-                                                </form>
-                                        </div>
-                                        <div className="commentSubmitButton"><button>Reply</button></div>
-                                    </div>
+
+                            <div className="comments" id={`${item._id}`}>
+                                <div className="commentsWrap">
+                                    {
+                                        item.comments.map(record => {
+                                            return(
+                                                <div className="comment" style={{color:'#ffffff'}}>
+                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
+                                                    <div className="authorReply">
+                                                        <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
+                                                        <div className="bottom">{record.text}</div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                                 
+                                 <form id={`${item._id}`} onSubmit={(e)=>{
+                                     e.preventDefault()
+                                     makeComment(e.target[0].value,item._id)
+                                 }}>
+                                     <input />
+                                </form>
+                                </div>
                             </div>
                             )
                         })

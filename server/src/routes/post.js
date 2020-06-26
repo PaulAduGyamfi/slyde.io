@@ -8,6 +8,7 @@ const RequireLogin = require('../middleware/RequireLogin')
 router.get('/allposts',RequireLogin,(req,res) => {
     Post.find()
     .populate("postedBy", "_id username fullname")
+    .populate("comments.postedBy", "_id username fullname")
     .then(posts => {
         res.json({posts})
     })

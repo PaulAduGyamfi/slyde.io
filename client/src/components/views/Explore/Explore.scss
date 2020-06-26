@@ -16,6 +16,65 @@
 
     }
 }
+
+
+.comments{
+    display: none;
+    margin-left: 7em;
+    
+    .commentsWrap{
+        padding-bottom: 10em;
+        height:auto;
+        overflow-y:scroll;
+         max-height:250px;
+         background-color: yellow;
+         width: 80%;
+
+         .comment{
+             display: flex;
+             height: auto;
+             background-color: red;
+             margin: 2em 0;
+             width: 90%;
+
+             .authorReply{
+                 color: $trsansparent-grey ;
+
+                  .top{
+                    span{
+                        color: $dark-white;
+                    }
+                  }
+                  .bottom{
+                      color: $dark-white;
+                  }
+             }
+         }
+        
+    }
+    
+    
+}
+
+.showComments{
+    display: block;
+
+}
+
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
 .commentForm{
     display: none;
 .profileAndInput{
@@ -30,7 +89,7 @@
         .commentArea{
             width: 100%;
             margin-right: 1em;
-            textarea{
+            input{
              width: 100%;
              height: auto;
              max-height: 15em;
@@ -75,8 +134,15 @@
         }
 }
 
-.showCommentBox{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
+
+
+
+
+
+
+
+
+
+
+
+*/
