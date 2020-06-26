@@ -65,8 +65,8 @@ router.put("/like",RequireLogin,(req,res) => {
         $push:{likes:req.user._id}
     },{
         new:true
-    }).populate("postedBy", "_id username fullname")
-    .populate("comments.postedBy", "_id username fullname")
+    }).populate("postedBy", "_id username fullname pic")
+    .populate("comments.postedBy", "_id username fullname pic")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})
@@ -81,8 +81,8 @@ router.put("/unlike",RequireLogin,(req,res) => {
         $pull:{likes:req.user._id}
     },{
         new:true
-    }).populate("postedBy", "_id username fullname")
-    .populate("comments.postedBy", "_id username fullname")
+    }).populate("postedBy", "_id username fullname pic")
+    .populate("comments.postedBy", "_id username fullname pic")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})

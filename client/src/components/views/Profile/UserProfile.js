@@ -221,14 +221,14 @@ const unfollowUser = () => {
                 </div>
             </div>
         </div>
-                <div style={{display:"flex",flexDirection:"column-reverse"}}>
+                <div style={{display:"flex",flexDirection:"column-reverse",width:'100%'}}>
                         {
                             userProfile.posts.map(item => {
                                 return(
                                     <div className="profilefeedContainer postComponent" key={item._id}>
              <div className="feedCard">
                                      <div className="feedCard-Left">
-                                         <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
+                                         <div className="profilePicture" style={{backgroundImage: `url(${item.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                                      </div>
                                      <div className="feedCard-Right">
                                          <div className="feedCard-header">
@@ -285,7 +285,7 @@ const unfollowUser = () => {
                                         item.comments.map((record,index) => {
                                             return(
                                                 <div className="comment" style={{color:'#ffffff'}} key={index}>
-                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
+                                                    <div className="posterPic" style={{backgroundImage: `url(${record.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
                                                     <div className="authorReply">
                                                         <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
                                                         <div className="bottom">{record.text}</div>
