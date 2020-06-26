@@ -146,7 +146,7 @@ const Explore = () => {
                                          </div>
                                          <div className="feedCard-body">
                                                 <div className="postTitle">{item.body}</div>
-                                                {console.log(item.media)}
+                                                {/* {console.log(item.media)} */}
                                                 {item.media.substring(item.media.length-4,item.media.length.length)==".mp4" ? <video width="85%" height="auto" controls style={{outline:"none",borderRadius:"0.6em",backgroundColor:"black", maxHeight:"40em"}} muted><source src={item.media} type="video/mp4" style={{backgroundColor:"black"}}/></video>:<img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
                                          </div>
                                          <div className="feedCard-actions">
@@ -167,9 +167,9 @@ const Explore = () => {
                                 
                                              <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
-                                             <MessageOutlined onClick={()=>{
+                                             <div className="commentButton"><MessageOutlined onClick={()=>{
                                                  document.getElementById(`${item._id}`).classList.toggle("showComments")
-                                             }}/>
+                                             }}/><span className="commentCount">{item.comments.length>0&&item.comments.length}</span></div>
                                          </div>
                                      </div>
                                  </div>
@@ -194,11 +194,13 @@ const Explore = () => {
                                  <form id={`${item._id}`} onSubmit={(e)=>{
                                      e.preventDefault()
                                      makeComment(e.target[0].value,item._id)
+                                     e.target[0].value = ''
                                  }}>
-                                     <input />
+                                     <textarea placeholder="Comment your reply" />
+                                     <button>Reply</button>
                                 </form>
-                                </div>
                             </div>
+                        </div>
                             )
                         })
                     }

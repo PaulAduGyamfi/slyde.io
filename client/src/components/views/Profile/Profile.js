@@ -82,6 +82,33 @@ const Profile = () => {
         })
     }
 
+    const makeComment = (text,postId) =>{
+        fetch('/comment',{
+            method:"put",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem('jwt')
+            },
+            body:JSON.stringify({
+                postId,
+                text
+            })
+        }).then(res => res.json())
+        .then(result => {
+            console.log(result)
+            const newData = posts.map(item => {
+                if(item._id == result._id){
+                    return result
+                }else{
+                    return item
+                }
+            })
+            setMyposts(newData)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
     return(
         <div className="profileContainer">
             <SideNav />
@@ -128,10 +155,39 @@ const Profile = () => {
                                 
                                              <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
-                                             <MessageOutlined />
+                                             <div className="commentButton"><MessageOutlined onClick={()=>{
+                                                 document.getElementById(`${item._id}`).classList.toggle("showComments")
+                                             }}/><span className="commentCount">{item.comments.length>0&&item.comments.length}</span></div>
                                          </div>
                                      </div>
                                  </div>
+
+                            <div className="comments" id={`${item._id}`}>
+                                <div className="commentsWrap">
+                                    {
+                                        item.comments.map(record => {
+                                            return(
+                                                <div className="comment" style={{color:'#ffffff'}}>
+                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
+                                                    <div className="authorReply">
+                                                        <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
+                                                        <div className="bottom">{record.text}</div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                                 
+                                 <form id={`${item._id}`} onSubmit={(e)=>{
+                                     e.preventDefault()
+                                     makeComment(e.target[0].value,item._id)
+                                     e.target[0].value = ''
+                                 }}>
+                                     <textarea placeholder="Comment your reply" />
+                                     <button>Reply</button>
+                                </form>
+                            </div>
         </div>
                                 )
                             })

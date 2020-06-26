@@ -40,6 +40,7 @@ router.post('/createpost',RequireLogin,(req,res) => {
 router.get('/myposts',RequireLogin,(req,res) => {
     Post.find({postedBy:req.user._id})
     .populate("postedBy", "_id username fullname")
+    .populate("comments.postedBy", "_id username fullname")
     .then(mypost => {
         res.json({mypost})
     })
@@ -54,6 +55,7 @@ router.put("/like",RequireLogin,(req,res) => {
     },{
         new:true
     }).populate("postedBy", "_id username fullname")
+    .populate("comments.postedBy", "_id username fullname")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})
@@ -69,6 +71,7 @@ router.put("/unlike",RequireLogin,(req,res) => {
     },{
         new:true
     }).populate("postedBy", "_id username fullname")
+    .populate("comments.postedBy", "_id username fullname")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})
@@ -88,7 +91,8 @@ router.put("/comment",RequireLogin,(req,res) => {
         $push:{comments:comment}
     },{
         new:true
-    }).populate("comments.postedBy", "_id username fullname")
+    }).populate("postedBy", "_id username fullname")
+    .populate("comments.postedBy", "_id username fullname")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})
