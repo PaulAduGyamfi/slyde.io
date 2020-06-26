@@ -200,7 +200,7 @@ const unfollowUser = () => {
             <SideNav />
             <div className="middle" >
             <div className="profilecardWrap"> 
-            <div className="profileBanner" style={{backgroundImage: `url(${banner})`, backgroundPosition: "50% 20%", backgroundSize: "cover",}}></div>
+            <div className="profileBanner" style={{backgroundImage: `url(${userProfile.user.banner})`, backgroundPosition: "50% 20%", backgroundSize: "cover",}}></div>
             <div className="profileInfo">
                 <div className="profileInfoWrap">
                     <div className="profileInfoTop">

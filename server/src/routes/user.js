@@ -13,8 +13,8 @@ router.get("/user/:id",RequireLogin,(req,res) => {
     .select("-password")
     .then(user =>{
         Post.find({postedBy:req.params.id})
-        .populate("postedBy", "_id username fullname pic")
-        .populate("comments.postedBy", "_id username fullname pic")
+        .populate("postedBy", "_id username fullname pic banner")
+        .populate("comments.postedBy", "_id username fullname pic banner")
         .exec((err,posts) => {
             if(err){
                 return res.status(422).json({error:err})
@@ -63,7 +63,15 @@ router.put('/unfollow',RequireLogin,(req,res) => {
 })
 
 
-
+router.put('/updatebanner',RequireLogin,(req,res)=>{
+    User.findByIdAndUpdate(req.user._id,{$set:{banner:req.body.banner}},{new:true},
+        (err,result)=>{
+            if(err){
+                return res.status(422).json({error:err})
+            }
+            res.json(result)
+    })
+})
 
 
 

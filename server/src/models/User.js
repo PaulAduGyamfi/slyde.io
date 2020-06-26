@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:"https://res.cloudinary.com/slyde/image/upload/v1593166367/avatar-default_sgnvcm.png"
     },
+    banner:{
+        type:String,
+        default:"https://res.cloudinary.com/slyde/image/upload/v1593189063/FF7478_ctocbr.png"
+    },
     followers:[{type:ObjectId,ref:"User"}],
     following:[{type:ObjectId,ref:"User"}]
 })

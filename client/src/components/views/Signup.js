@@ -20,6 +20,8 @@ const Signup = () => {
     const [error, setError] = useState("")
     const [image,setImage] = useState("")
     const [url,setUrl] = useState(undefined)
+    const [banner,setBanner] = useState("")
+    const [bannerUrl,setBannerUrl] = useState(undefined)
 
 useEffect(()=>{
     if(url){
@@ -35,7 +37,7 @@ useEffect(()=>{
             data.append("cloud_name", "slyde")
        
             
-            fetch("https://api.cloudinary.com/v1_1/slyde/upload", {
+            fetch("https://api.cloudinary.com/v1_1/slyde/image/upload", {
                 method:"post",
                 body:data
             })
@@ -74,7 +76,8 @@ useEffect(()=>{
                 username,
                 email,
                 password,
-                pic:url
+                pic:url,
+                banner:bannerUrl
             })
         }).then(res => res.json())
         .then(data =>{

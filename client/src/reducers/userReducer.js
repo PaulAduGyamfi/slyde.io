@@ -14,6 +14,12 @@ export const reducer = (state,action) => {
             following:action.payload.following
         }
     }
+    if(action.type == "UPDATEBANNER"){
+        return{
+            ...state,
+            banner:action.payload
+        }
+    }
 
     return state
 }

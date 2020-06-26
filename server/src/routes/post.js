@@ -7,8 +7,8 @@ const RequireLogin = require('../middleware/RequireLogin')
 
 router.get('/allposts',RequireLogin,(req,res) => {
     Post.find()
-    .populate("postedBy", "_id username fullname pic")
-    .populate("comments.postedBy", "_id username fullname pic")
+    .populate("postedBy", "_id username fullname pic banner")
+    .populate("comments.postedBy", "_id username fullname pic banner")
     .then(posts => {
         res.json({posts})
     })
@@ -18,8 +18,8 @@ router.get('/allposts',RequireLogin,(req,res) => {
 })
 router.get('/followingposts',RequireLogin,(req,res) => {
     Post.find({postedBy:{$in:req.user.following}})
-    .populate("postedBy", "_id username fullname pic")
-    .populate("comments.postedBy", "_id username fullname pic")
+    .populate("postedBy", "_id username fullname pic banner")
+    .populate("comments.postedBy", "_id username fullname pic banner")
     .then(posts => {
         res.json({posts})
     })
@@ -50,8 +50,8 @@ router.post('/createpost',RequireLogin,(req,res) => {
 
 router.get('/myposts',RequireLogin,(req,res) => {
     Post.find({postedBy:req.user._id})
-    .populate("postedBy", "_id username fullname pic")
-    .populate("comments.postedBy", "_id username fullname pic")
+    .populate("postedBy", "_id username fullname pic banner")
+    .populate("comments.postedBy", "_id username fullname pic banner")
     .then(mypost => {
         res.json({mypost})
     })
@@ -65,8 +65,8 @@ router.put("/like",RequireLogin,(req,res) => {
         $push:{likes:req.user._id}
     },{
         new:true
-    }).populate("postedBy", "_id username fullname pic")
-    .populate("comments.postedBy", "_id username fullname pic")
+    }).populate("postedBy", "_id username fullname pic banner")
+    .populate("comments.postedBy", "_id username fullname pic banner")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})
@@ -81,8 +81,8 @@ router.put("/unlike",RequireLogin,(req,res) => {
         $pull:{likes:req.user._id}
     },{
         new:true
-    }).populate("postedBy", "_id username fullname pic")
-    .populate("comments.postedBy", "_id username fullname pic")
+    }).populate("postedBy", "_id username fullname pic banner")
+    .populate("comments.postedBy", "_id username fullname pic banner")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})
@@ -102,8 +102,8 @@ router.put("/comment",RequireLogin,(req,res) => {
         $push:{comments:comment}
     },{
         new:true
-    }).populate("postedBy", "_id username fullname pic")
-    .populate("comments.postedBy", "_id username fullname pic")
+    }).populate("postedBy", "_id username fullname pic banner")
+    .populate("comments.postedBy", "_id username fullname pic banner")
     .exec((err,result) => {
         if(err){
             res.status(422).json({error:err})
