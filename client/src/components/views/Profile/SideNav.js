@@ -41,13 +41,13 @@ const SideNav = () => {
           </Link>
         </div>
         <div className="sidenavNews">
-        <Link to="">
+        <Link to="/news">
             <ReadOutlined style={{ fontSize: "29px" }} />
             <div className="news Text">News</div>
           </Link>
         </div>
         <div className="sidenavChat">
-        <Link to="">
+        <Link to="/chat">
             <WechatOutlined style={{ fontSize: "29px" }} />
             <div className="news Text">Chat</div>
           </Link>

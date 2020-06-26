@@ -1,10 +1,13 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import logo from './viewsStyles/imgs/slyde.png'
 import './viewsStyles/Signup.scss'
 import {FileImageOutlined,CheckCircleOutlined} from "@ant-design/icons";
 import { Link, useHistory } from 'react-router-dom'
+import { UserContext } from '../../App';
 
 const Signup = () => {
+
+    const {state,dispatch} = useContext(UserContext)
 
     const clik = () =>{
     
@@ -104,6 +107,8 @@ useEffect(()=>{
     }
 
     return(
+        <>
+        {!state?
         <div className="signupWrap">
             <div className="signupModal">
 
@@ -152,6 +157,8 @@ useEffect(()=>{
                 <div className="loginLink">Have an account? <Link to="/">Log in</Link></div>
             </div>
         </div>
+        : history.push('/profile')}
+        </>
     )
 }
 

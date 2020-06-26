@@ -7,6 +7,18 @@ const jwt = require('jsonwebtoken')
 const { JWT_KEY } = require('../config/secure')
 const RequireLogin = require('../middleware/RequireLogin')
 
+const nodemailer = require('nodemailer')
+const sengridTransport = require('nodemailer-sendgrid-transport')
+
+const transporter = nodemailer.createTransport(sengridTransport({
+      auth:{
+         api_key:"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"
+      }
+}))
+
+
+
+
 
 
 router.post('/signup', (req,res) => {
@@ -38,6 +50,12 @@ router.post('/signup', (req,res) => {
             })
             user.save()
             .then(user => {
+               transporter.sendMail({
+                  to:user.email,
+                  from:"pjadu7@gmail.com",
+                  subject:"Thank you for signing up for Slyde",
+                  html:"<h1>Welcome to Slyde!</h1>"
+               })
                return res.json({message:"You have successfully signed up!"})
             })
             .catch(err => {

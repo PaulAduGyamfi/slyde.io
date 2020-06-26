@@ -6,6 +6,8 @@ import Profile from './components/views/Profile/Profile'
 import Explore from './components/views/Explore/Explore'
 import FollowingFeed from './components/views/Explore/FollowingFeed'
 import UserProfile from './components/views/Profile/UserProfile'
+import Chat from './components/views/Chat/Chat'
+import News from './components/views/News/News'
 import {reducer,initialState} from './reducers/userReducer'
 
 
@@ -46,6 +48,12 @@ const Routing = () => {
             </Route>
             <Route path="/profile/:userid">
                 <UserProfile />
+            </Route>
+            <Route path="/news">
+                <News />
+            </Route>
+            <Route path="/chat">
+                <Chat />
             </Route>
         </Switch>
     )

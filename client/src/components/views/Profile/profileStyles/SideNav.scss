@@ -89,11 +89,15 @@
                 }
 
                 .nameWrap{
+                    
                     .fullname{
                         color: $dark-white;
                      }
                      .username{
                         color: $trsansparent-grey;
+                        width: 8em;
+                        overflow: hidden;
+                        text-overflow: ellipsis;;
                      }
                  }
             }

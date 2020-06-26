@@ -47,7 +47,7 @@ const Login = () => {
                     
                   });
                 
-                  setTimeout(() => {
+                  
                     history.push("/explore", notification.open({
                         message: `Hello @${data.user.username}`,
                         style: {
@@ -60,7 +60,7 @@ const Login = () => {
                             fontSize: '1.3em'
                           },
                       }))
-                  }, 3000)
+                
                   
                 
              
@@ -72,6 +72,8 @@ const Login = () => {
    }
 
     return(
+        <>
+        {state?history.push('/profile'):
         <div className="homeBody">
             <div className="loginForm">
 
@@ -106,6 +108,8 @@ const Login = () => {
 
             </div>
         </div>
+}
+        </>
     )
 }
 
