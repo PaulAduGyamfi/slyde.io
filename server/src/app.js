@@ -25,6 +25,7 @@ mongoose.connection.on('error', () => {
 app.use(bodyParser.json())
 app.use(require('./routes/auth'))
 app.use(require('./routes/post'))
+app.use(require('./routes/user'))
 
 
 app.listen(config.port, () => {

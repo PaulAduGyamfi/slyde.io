@@ -4,7 +4,9 @@ import Login from './components/views/Login'
 import Signup from './components/views/Signup'
 import Profile from './components/views/Profile/Profile'
 import Explore from './components/views/Explore/Explore'
+import UserProfile from './components/views/Profile/UserProfile'
 import {reducer,initialState} from './reducers/userReducer'
+
 
 export const UserContext = createContext()
 
@@ -32,11 +34,14 @@ const Routing = () => {
             <Route path="/signup">
                 <Signup />
             </Route>
-            <Route path="/profile">
+            <Route exact path="/profile">
                 <Profile />
             </Route>
             <Route path="/explore">
                 <Explore />
+            </Route>
+            <Route path="/profile/:userid">
+                <UserProfile />
             </Route>
         </Switch>
     )

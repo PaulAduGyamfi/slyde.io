@@ -1,45 +1,42 @@
-import React,{useState,useEffect,useContext} from 'react'
-import SideNav from '../Profile/SideNav'
-import Suggestions from '../Profile/Suggestions'
-import PostBox from './PostBox'
-import pic from "../viewsStyles/imgs/lbj.jpg";
-import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled,DeleteOutlined} from "@ant-design/icons";
-import './ExploreFeed.scss'
-import './Explore.scss'
+import React,{useEffect,useState,useContext} from 'react'
+import SideNav from './SideNav'
+import ProfileCard from './ProfileCard'
+import ProfileFeed from './ProfileFeed'
+import Suggestions from './Suggestions'
+import './profileStyles/Profile.scss'
+import './profileStyles/ProfileFeed.scss'
 import 'animate.css'
-import "spectre.css"
+import banner from "../viewsStyles/imgs/banner.jpg"
+import pic from "../viewsStyles/imgs/lbj.jpg";
+import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled,DeleteOutlined,LoadingOutlined} from "@ant-design/icons";
 import { UserContext } from '../../../App'
-import { Link } from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 
+const Profile = () => {
 
-const Explore = () => {
-
-    // const openModal = () =>{
-    //     document.getElementById("modal-id").classList.add("active")
-    // }
-    // const closeModal = ()=>{
-        
-    //     document.getElementById("modal-id").classList.remove("active")
-
-    // }
-
+    
+    const [userProfile,setUserProfile] = useState(null)
     const [data,setData] = useState([])
     const {state,dispatch} = useContext(UserContext)
+
+    const {userid} = useParams()
+    console.log(userid)
+
     useEffect(()=>{
-        fetch("/allposts",{
-            headers:{
-                "Authorization":"Bearer "+localStorage.getItem("jwt")
-            }
-        }).then(res=>res.json())
+        fetch(`/user/${userid}`,{
+          headers:{
+            "Authorization":"Bearer "+localStorage.getItem("jwt")
+          }
+        }).then(res => res.json())
         .then(result=>{
-            setData(result.posts)
-            console.log(result)
+          setUserProfile(result)
+          console.log(result)
         })
-    },[])
+      },[data])
 
 
-    const likePost = (id) => {
+      const likePost = (id) => {
         fetch("/like",{
             method:"put",
             headers:{
@@ -119,52 +116,68 @@ const Explore = () => {
             console.log(err)
         })
     }
-
     const deletePost = (postid) =>{
-            fetch(`/deletepost/${postid}`,{
-                method:"delete",
-                headers:{
-                    Authorization:"Bearer "+localStorage.getItem('jwt')
-                }
-            }).then(res => res.json())
-            .then(result => {
-                // console.log(result)
-                const newData = data.filter(item => {
-                    return item._id !== result._id
-                })
-                setData(newData)
-            }).catch(err =>{
-                console.log(err)
+        fetch(`/deletepost/${postid}`,{
+            method:"delete",
+            headers:{
+                Authorization:"Bearer "+localStorage.getItem('jwt')
+            }
+        }).then(res => res.json())
+        .then(result => {
+            // console.log(result)
+            const newData = data.filter(item => {
+                return item._id !== result._id
             })
-    }
-
-
-
+            setData(newData)
+        }).catch(err =>{
+            console.log(err)
+        })
+}
 
     return(
-        <div className="exploreContainer" style={{display:'flex'}}>
-          
-            <SideNav />
-                <div className="middle">
-                    <PostBox />
+        <>
 
-                        
-                    <div style={{display:"flex",flexDirection:"column-reverse"}}>
-                    {
-                        data.map((item) => {
-                            return(
-                                <div className="explorefeedContainer postComponent" key={item._id}>
-                                <div className="feedCard">
+        {userProfile ?  <div className="profileContainer">
+            <SideNav />
+            <div className="middle" >
+            <div className="profilecardWrap"> 
+            <div className="profileBanner" style={{backgroundImage: `url(${banner})`, backgroundPosition: "50% 20%", backgroundSize: "cover",}}></div>
+            <div className="profileInfo">
+                <div className="profileInfoWrap">
+                    <div className="profileInfoTop">
+                        <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
+                        <div className="editProfileButton"><button>Edit profile</button></div>
+                    </div>
+                    <div className="profileInfoBottom">
+                            <div className="profileUsername">
+                                <div className="userFullname">{userProfile.user.fullname}</div>
+                                <svg viewBox="0 0 24 24" aria-label="Verified account" className="badge"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>
+                            </div>
+                            <div className="userTagname">@{userProfile.user.username}</div>
+                            <div className="profileStats">
+                                <div className="profileFollowers"><span id="followers">46.5M</span> Followers</div>
+                                <div className="profileFolling"><span id="following">100</span> Following</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div style={{display:"flex",flexDirection:"column-reverse"}}>
+                        {
+                            userProfile.posts.map(item => {
+                                return(
+                                    <div className="profilefeedContainer postComponent" key={item._id}>
+             <div className="feedCard">
                                      <div className="feedCard-Left">
                                          <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                                      </div>
                                      <div className="feedCard-Right">
                                          <div className="feedCard-header">
                                                  <div className="feedCard-info">
-                                                         <div className="feedCardAuthor Name"><Link to={`/profile/${item.postedBy._id}`} style={{color:"#ffffff"}}>{item.postedBy.fullname}</Link></div>
-                                                         <div className="feedCardAuthor Tag"><Link to={`/profile/${item.postedBy._id}`} style={{color:"#f0f0f079"}}>@{item.postedBy.username}</Link></div>
-                                                    </div>
-                                                        {item.postedBy._id == state._id
+                                                         <div className="feedCardAuthor Name">{item.postedBy.fullname}</div>
+                                                         <div className="feedCardAuthor Tag">@{item.postedBy.username}</div>
+                                                 </div>
+                                                 {item.postedBy._id == state._id
                                                             && <div className="feedCard-arrow popover popover-bottom">
                                                             <DownOutlined />
                                                                 <div className="popover-container" style={{width:'8em'}}>
@@ -180,8 +193,7 @@ const Explore = () => {
                                          </div>
                                          <div className="feedCard-body">
                                                 <div className="postTitle">{item.body}</div>
-                                                {/* {console.log(item.media)} */}
-                                                {item.media.substring(item.media.length-4,item.media.length.length)==".mp4" ? <video width="85%" height="auto" controls style={{outline:"none",borderRadius:"0.6em",backgroundColor:"black", maxHeight:"40em"}} muted><source src={item.media} type="video/mp4" style={{backgroundColor:"black"}}/></video>:<img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
+                                                {item.media.substring(item.media.length-4,item.media.length.length)==".mp4" ? <video width="85%" height="auto" controls style={{outline:"none",borderRadius:"0.6em"}} muted><source src={item.media} type="video/mp4" /></video>:<img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
                                          </div>
                                          <div className="feedCard-actions">
                                              <div>
@@ -234,84 +246,18 @@ const Explore = () => {
                                      <button>Reply</button>
                                 </form>
                             </div>
-                        </div>
-                            )
-                        })
-                    }
-                    </div>
-                </div>
-        
-            <Suggestions />
         </div>
+                                )
+                            })
+                        }
+                        </div>
+            </div>
+            <Suggestions />
+        </div> : <LoadingOutlined  style={{fontSize:'20em', color:'#ff4d52',display:'flex',alignItems:'center',justifyContent:'center',paddingTop:'1em'}} />}
+
+       
+        </>
     )
 }
 
-export default Explore
-
-
-
-
-/*
-
-
-
-
-
-
-<div className="modal " id="modal-id">
-                <a href="#close" className="modal-overlay" aria-label="Close" onClick={()=>closeModal()} style={{opacity:".5"}}></a>
-                <div className="modal-container" style={{backgroundColor:"#2C2F33",height:"30em",maxHeight:"auto",borderRadius:"1em"}}>
-                        <div className="modal-header" style={{borderBottom:"1px solid #f0f0f079"}}>
-                            <a href="#close" className="btn btn-clear float-right" aria-label="Close" onClick={()=>closeModal()} style={{color:"#ff4d52"}}></a>
-                        </div>
-                        <div className="modal-body">
-                            <div className="content">
-                                    
-                                    <div className="commentWrap" style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
-                                            
-                                            <div className="commentTop">
-                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"52px",width:"52px",borderRadius:50}}></div>
-                                                    <div className="posterInfoWrap">
-                                                            <div className="posterInfo">
-                                                                <div className="feedCardAuthor Name">Lebron James</div>
-                                                                <div className="feedCardAuthor Tag">@kingjames</div>
-                                                            </div>
-                                                            <div className="postBody">
-                                                                Don’t go anywhere near him @KingJames  he’s one of those anti vaccine new age water boys
-                                                            </div>
-                                                    </div>
-                                            </div>
-                                            
-                                            <div className="commentDivide">
-                                                    <div className="verticalLine"></div>
-                                                    <div className="replyTo">Replying to <span>@ZlatanLeko</span></div>
-                                            </div>
-
-                                            <div className="commentBottom">
-                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"52px",width:"52px",borderRadius:50}}></div>
-                                                    <textarea placeholder="Comment your reply" rows="5"></textarea>
-                                            </div>
-                                            
-                                    </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                        <div className="commentButton"><button>Reply</button></div>
-                        </div>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
+export default Profile

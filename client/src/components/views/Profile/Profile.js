@@ -6,7 +6,7 @@ import Suggestions from './Suggestions'
 import './profileStyles/Profile.scss'
 import './profileStyles/ProfileFeed.scss'
 import pic from "../viewsStyles/imgs/lbj.jpg";
-import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled} from "@ant-design/icons";
+import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled,DeleteOutlined} from "@ant-design/icons";
 import { UserContext } from '../../../App'
 
 
@@ -108,6 +108,23 @@ const Profile = () => {
             console.log(err)
         })
     }
+    const deletePost = (postid) =>{
+        fetch(`/deletepost/${postid}`,{
+            method:"delete",
+            headers:{
+                Authorization:"Bearer "+localStorage.getItem('jwt')
+            }
+        }).then(res => res.json())
+        .then(result => {
+            // console.log(result)
+            const newData = posts.filter(item => {
+                return item._id !== result._id
+            })
+            setMyposts(newData)
+        }).catch(err =>{
+            console.log(err)
+        })
+}
 
     return(
         <div className="profileContainer">
@@ -129,9 +146,19 @@ const Profile = () => {
                                                          <div className="feedCardAuthor Name">{item.postedBy.fullname}</div>
                                                          <div className="feedCardAuthor Tag">@{item.postedBy.username}</div>
                                                  </div>
-                                                 <div className="feedCard-arrow">
-                                                         <DownOutlined />
-                                                 </div>
+                                                 {item.postedBy._id == state._id
+                                                            && <div className="feedCard-arrow popover popover-bottom">
+                                                            <DownOutlined />
+                                                                <div className="popover-container" style={{width:'8em'}}>
+                                                                    <div className="card">
+                                                                        <div className="card-body" style={{textAlign:'center'}} onClick={()=>deletePost(item._id)}>
+                                                                            <DeleteOutlined /> Delete
+                                                                        </div>
+                                                            
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                        }
                                          </div>
                                          <div className="feedCard-body">
                                                 <div className="postTitle">{item.body}</div>
@@ -165,9 +192,9 @@ const Profile = () => {
                             <div className="comments" id={`${item._id}`}>
                                 <div className="commentsWrap">
                                     {
-                                        item.comments.map(record => {
+                                        item.comments.map((record,index) => {
                                             return(
-                                                <div className="comment" style={{color:'#ffffff'}}>
+                                                <div className="comment" style={{color:'#ffffff'}} key={index}>
                                                     <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
                                                     <div className="authorReply">
                                                         <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
