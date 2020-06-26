@@ -3,9 +3,10 @@ import './PostBox.scss'
 import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
 import { UserContext } from '../../../App';
+import { OmitProps } from 'antd/lib/transfer/ListBody';
 // import {useHistory} from 'react-router-dom'
 
- const PostBox = () =>{
+ const PostBox = (props) =>{
 
     // const history = useHistory()
 
@@ -130,7 +131,7 @@ import { UserContext } from '../../../App';
             <div className="postboxWrap">
 
                 <div className="postboxHeader">
-                    <div className="postboxTitle">What's New</div>
+                        <div className="postboxTitle">{props.prop}</div>
                     <div className="postboxRefresh" onClick={()=>window.location.reload()}><ReloadOutlined /></div>
                 </div>
 

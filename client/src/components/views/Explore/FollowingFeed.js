@@ -147,11 +147,11 @@ const Explore = () => {
           
             <SideNav />
                 <div className="middle">
-                    <PostBox />
+                    <PostBox prop={'Home'}/>
 
                    <>  
                    {!data.length==0?   
-                    <div style={{display:"flex",flexDirection:"column-reverse"}}>
+                    <div style={{display:"flex",flexDirection:"column-reverse",width:'100%'}}>
                     {
                         data.map((item) => {
                             return(
@@ -241,7 +241,7 @@ const Explore = () => {
                         })
                     }
                     </div>
-                    :<><div style={{fontSize:'4em',fontWeight:800,color:'#3a3e42',textAlign:'center',width:'50%',marginRight:'3em',marginTop:'1.8em'}}>You are currently not <br></br>following anyone!</div><div style={{color:'#ff4d52',textAlign:'left',marginRight:'13em',fontWeight:'700'}}>Navigate to the explorre page to find new friends</div></>}
+                    :<><div style={{fontSize:'4em',fontWeight:800,color:'#3a3e42',textAlign:'center',width:'50%',marginRight:'3em',marginTop:'1.8em'}}>You are currently not <br></br>following anyone!</div><div style={{color:'#ff4d52',textAlign:'left',marginRight:'13em',fontWeight:'700'}}>Navigate to the <Link to='/explore' style={{color:'#f4f4f4'}}>"Explore"</Link> page to find new friends</div></>}
                     </>
                 </div>
         

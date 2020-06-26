@@ -146,10 +146,10 @@ const Explore = () => {
           
             <SideNav />
                 <div className="middle">
-                    <PostBox />
+                    <PostBox prop={"What's New"} />
 
                         
-                    <div style={{display:"flex",flexDirection:"column-reverse"}}>
+                    <div style={{display:"flex",flexDirection:"column-reverse",width:'100%'}}>
                     {
                         data.map((item) => {
                             return(
