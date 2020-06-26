@@ -68,7 +68,7 @@ const SideNav = () => {
               <div
                 className="profilePic"
                 style={{
-                  backgroundImage: `url(${pic})`,
+                  backgroundImage: `url(${state?state.pic:""})`,
                   backgroundPosition: "50% 50%",
                   backgroundSize: "cover",
                 }}
@@ -91,7 +91,7 @@ const SideNav = () => {
                   <div
                     className="profilePic"
                     style={{
-                      backgroundImage: `url(${pic})`,
+                      backgroundImage: `url(${state?state.pic:""})`,
                       backgroundPosition: "50% 50%",
                       backgroundSize: "cover",
                     }}

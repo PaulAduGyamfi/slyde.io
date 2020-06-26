@@ -142,13 +142,15 @@ const Explore = () => {
 
 
     return(
+    
         <div className="exploreContainer" style={{display:'flex'}}>
           
             <SideNav />
                 <div className="middle">
                     <PostBox />
 
-                        
+                   <>  
+                   {!data.length==0?   
                     <div style={{display:"flex",flexDirection:"column-reverse"}}>
                     {
                         data.map((item) => {
@@ -239,10 +241,13 @@ const Explore = () => {
                         })
                     }
                     </div>
+                    :<div style={{fontSize:'4em',fontWeight:800,color:'#3a3e42',textAlign:'center',width:'50%',marginRight:'3em',marginTop:'1.8em'}}>You are currently not <br></br>following anyone!</div>}
+                    </>
                 </div>
         
             <Suggestions />
         </div>
+        
     )
 }
 

@@ -13,8 +13,8 @@ router.get("/user/:id",RequireLogin,(req,res) => {
     .select("-password")
     .then(user =>{
         Post.find({postedBy:req.params.id})
-        .populate("postedBy", "_id username fullname")
-        .populate("comments.postedBy", "_id username fullname")
+        .populate("postedBy", "_id username fullname pic")
+        .populate("comments.postedBy", "_id username fullname pic")
         .exec((err,posts) => {
             if(err){
                 return res.status(422).json({error:err})
