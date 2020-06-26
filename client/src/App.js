@@ -4,6 +4,7 @@ import Login from './components/views/Login'
 import Signup from './components/views/Signup'
 import Profile from './components/views/Profile/Profile'
 import Explore from './components/views/Explore/Explore'
+import FollowingFeed from './components/views/Explore/FollowingFeed'
 import UserProfile from './components/views/Profile/UserProfile'
 import {reducer,initialState} from './reducers/userReducer'
 
@@ -39,6 +40,9 @@ const Routing = () => {
             </Route>
             <Route path="/explore">
                 <Explore />
+            </Route>
+            <Route path="/feed">
+                <FollowingFeed />
             </Route>
             <Route path="/profile/:userid">
                 <UserProfile />

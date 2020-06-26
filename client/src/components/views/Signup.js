@@ -1,9 +1,15 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import logo from './viewsStyles/imgs/slyde.png'
 import './viewsStyles/Signup.scss'
+import {FileImageOutlined,CheckCircleOutlined} from "@ant-design/icons";
 import { Link, useHistory } from 'react-router-dom'
 
 const Signup = () => {
+
+    const clik = () =>{
+    
+        document.getElementById('file-input').click();
+ }
 
     const history = useHistory()
 
@@ -12,8 +18,39 @@ const Signup = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const [image,setImage] = useState("")
+    const [url,setUrl] = useState("")
 
-    const PostData = () => {
+useEffect(()=>{
+    if(url){
+        uploadFields()
+    }
+},[url])
+
+    const uploadPic = () =>{
+        if(image){
+            const data = new FormData()
+            data.append("file",image)
+            data.append("upload_preset","slydepreset")
+            data.append("cloud_name", "slyde")
+       
+            
+            fetch("https://api.cloudinary.com/v1_1/slyde/upload", {
+                method:"post",
+                body:data
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                setUrl(data.url)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+         }
+    }
+
+    const uploadFields = () => {
+
         if((fullname === "") || (username === "")|| (email === "")|| (password === "")){
             return setError('* Please complete all fields before attempting to signup *')
         }
@@ -36,7 +73,8 @@ const Signup = () => {
                 fullname,
                 username,
                 email,
-                password
+                password,
+                pic:url
             })
         }).then(res => res.json())
         .then(data =>{
@@ -50,6 +88,16 @@ const Signup = () => {
         .catch(err=>{
             console.log(err)
         })
+
+    }
+    const PostData = () => {
+        if(image){
+            uploadPic()
+        }
+        else{
+            uploadFields()
+        }
+       
     }
 
     return(
@@ -83,6 +131,16 @@ const Signup = () => {
                         <div className="inputWrap">
                             <div className="placeholder">Password</div>
                             <input className="inputBox" type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                        </div>
+
+                        <div className="uploadProfilePic">
+                            <div className="postboxAttachLink" id="upload" onClick={clik} type="file" value={image} onChange={(e)=>setImage(e.target.files[0])} style={{textAlign:'center',cursor:'pointer',display:'flex',flexDirection:'column',alignItems:'center',marginTop:'0.5em'}}>
+                            
+                            <FileImageOutlined style={{fontSize:'2em', color:'#f4f4f4',textAlign:'center'}} />
+                                        {image?<CheckCircleOutlined style={{fontSize:'2em', color:'#00FF00',marginTop:'0.5em'}} />:<span style={{color:'#ff4d52',fontWeight:700,marginTop:'1em'}}>No profile picture has been attached</span>}
+                                        <input id="file-input"  type="file" style={{visibility:'hidden'}}/>
+                                        
+                                    </div>
                         </div>
 
                         <div className="button"><button onClick={()=>PostData()} >Sign up</button></div>

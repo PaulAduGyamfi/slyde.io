@@ -1,7 +1,8 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import './PostBox.scss'
 import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
+import { UserContext } from '../../../App';
 // import {useHistory} from 'react-router-dom'
 
  const PostBox = () =>{
@@ -36,7 +37,7 @@ import pic from "../viewsStyles/imgs/lbj.jpg"
         document.getElementById('file-input').click();
  }
 
-
+ const {state,dispatch} = useContext(UserContext)
 
  const [body,setBody] = useState("")
  const [image,setImage] = useState("")
@@ -137,7 +138,7 @@ import pic from "../viewsStyles/imgs/lbj.jpg"
 
                     <div className="postboxBody-Top">
                        
-                        <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
+                        <div className="profilePicture" style={{backgroundImage: `url(${state?state.pic:""})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                         <div className="postboxTextBox">
                             <textarea id="postbox" maxLength="280" placeholder="What's the word?" value={body} onChange={(e)=>setBody(e.target.value)}>
 

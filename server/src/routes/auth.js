@@ -10,7 +10,7 @@ const RequireLogin = require('../middleware/RequireLogin')
 
 
 router.post('/signup', (req,res) => {
-   const {fullname,username,email,password} = req.body
+   const {fullname,username,email,password,pic} = req.body
    if(!fullname || !username || !email || !password){
       return res.status(422).json({
          error:"* Please complete all fields before attempting to signup *"
@@ -32,7 +32,8 @@ router.post('/signup', (req,res) => {
                fullname,
                username,
                email,
-               password:hasedPassword
+               password:hasedPassword,
+               pic
             })
             user.save()
             .then(user => {
@@ -69,8 +70,8 @@ router.post('/signin',(req,res) => {
             .then(passwordMatch => {
                if(passwordMatch){
                   const token = jwt.sign({_id:savedUser._id},JWT_KEY)
-                  const {_id,username,email,fullname} = savedUser
-                  res.json({token, user:{_id,username,email,fullname}})
+                  const {_id,username,email,fullname,followers,following,pic} = savedUser
+                  res.json({token, user:{_id,username,email,fullname,followers,following,pic}})
                }
                else{
                   return res.json({error:"The username and password you entered did not match our records. Please double-check and try again."})
@@ -91,8 +92,8 @@ router.post('/signin',(req,res) => {
             .then(passwordMatch => {
                if(passwordMatch){
                   const token = jwt.sign({_id:savedUser._id},JWT_KEY)
-                  const {_id,username,email,fullname} = savedUser
-                  res.json({token, user:{_id,username,email,fullname}})
+                  const {_id,username,email,fullname,followers,following,pic} = savedUser
+                  res.json({token, user:{_id,username,email,fullname,followers,following,pic}})
                }
                else{
                   return res.json({error:"The username and password you entered did not match our records. Please double-check and try again."})

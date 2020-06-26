@@ -7,8 +7,19 @@ const RequireLogin = require('../middleware/RequireLogin')
 
 router.get('/allposts',RequireLogin,(req,res) => {
     Post.find()
-    .populate("postedBy", "_id username fullname")
-    .populate("comments.postedBy", "_id username fullname")
+    .populate("postedBy", "_id username fullname pic")
+    .populate("comments.postedBy", "_id username fullname pic")
+    .then(posts => {
+        res.json({posts})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+router.get('/followingposts',RequireLogin,(req,res) => {
+    Post.find({postedBy:{$in:req.user.following}})
+    .populate("postedBy", "_id username fullname pic")
+    .populate("comments.postedBy", "_id username fullname pic")
     .then(posts => {
         res.json({posts})
     })
@@ -39,8 +50,8 @@ router.post('/createpost',RequireLogin,(req,res) => {
 
 router.get('/myposts',RequireLogin,(req,res) => {
     Post.find({postedBy:req.user._id})
-    .populate("postedBy", "_id username fullname")
-    .populate("comments.postedBy", "_id username fullname")
+    .populate("postedBy", "_id username fullname pic")
+    .populate("comments.postedBy", "_id username fullname pic")
     .then(mypost => {
         res.json({mypost})
     })

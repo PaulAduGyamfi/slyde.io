@@ -154,15 +154,16 @@ const Explore = () => {
                         data.map((item) => {
                             return(
                                 <div className="explorefeedContainer postComponent" key={item._id}>
+                                    {console.log(item)}
                                 <div className="feedCard">
                                      <div className="feedCard-Left">
-                                         <div className="profilePicture" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
+                                         <div className="profilePicture" style={{backgroundImage: `url(${item.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                                      </div>
                                      <div className="feedCard-Right">
                                          <div className="feedCard-header">
                                                  <div className="feedCard-info">
-                                                         <div className="feedCardAuthor Name"><Link to={`/profile/${item.postedBy._id}`} style={{color:"#ffffff"}}>{item.postedBy.fullname}</Link></div>
-                                                         <div className="feedCardAuthor Tag"><Link to={`/profile/${item.postedBy._id}`} style={{color:"#f0f0f079"}}>@{item.postedBy.username}</Link></div>
+                                                         <div className="feedCardAuthor Name"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} style={{color:"#ffffff"}}>{item.postedBy.fullname}</Link></div>
+                                                         <div className="feedCardAuthor Tag"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} style={{color:"#f0f0f079"}}>@{item.postedBy.username}</Link></div>
                                                     </div>
                                                         {item.postedBy._id == state._id
                                                             && <div className="feedCard-arrow popover popover-bottom">
@@ -214,7 +215,7 @@ const Explore = () => {
                                         item.comments.map((record,index) => {
                                             return(
                                                 <div className="comment" style={{color:'#ffffff'}} key={index}>
-                                                    <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
+                                                    <div className="posterPic" style={{backgroundImage: `url(${record.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
                                                     <div className="authorReply">
                                                         <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
                                                         <div className="bottom">{record.text}</div>
