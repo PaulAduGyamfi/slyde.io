@@ -3,10 +3,11 @@ import SideNav from '../Profile/SideNav'
 import Suggestions from '../Profile/Suggestions'
 import PostBox from './PostBox'
 import pic from "../viewsStyles/imgs/lbj.jpg";
-import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled} from "@ant-design/icons";
+import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled,DeleteOutlined} from "@ant-design/icons";
 import './ExploreFeed.scss'
 import './Explore.scss'
 import 'animate.css'
+import "spectre.css"
 import { UserContext } from '../../../App';
 
 
@@ -117,6 +118,28 @@ const Explore = () => {
             console.log(err)
         })
     }
+
+    const deletePost = (postid) =>{
+            fetch(`/deletepost/${postid}`,{
+                method:"delete",
+                headers:{
+                    Authorization:"Bearer "+localStorage.getItem('jwt')
+                }
+            }).then(res => res.json())
+            .then(result => {
+                console.log(result)
+                const newData = data.filter(item => {
+                    return item._id !== result._id
+                })
+                setData(newData)
+            }).catch(err =>{
+                console.log(err)
+            })
+    }
+
+
+
+
     return(
         <div className="exploreContainer" style={{display:'flex'}}>
           
@@ -139,10 +162,20 @@ const Explore = () => {
                                                  <div className="feedCard-info">
                                                          <div className="feedCardAuthor Name">{item.postedBy.fullname}</div>
                                                          <div className="feedCardAuthor Tag">@{item.postedBy.username}</div>
-                                                 </div>
-                                                 <div className="feedCard-arrow">
-                                                         <DownOutlined />
-                                                 </div>
+                                                    </div>
+                                                        {item.postedBy._id == state._id
+                                                            && <div className="feedCard-arrow popover popover-bottom">
+                                                            <DownOutlined />
+                                                                <div className="popover-container" style={{width:'8em'}}>
+                                                                    <div className="card">
+                                                                        <div className="card-body" style={{textAlign:'center'}} onClick={()=>deletePost(item._id)}>
+                                                                            <DeleteOutlined /> Delete
+                                                                        </div>
+                                                            
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                        }
                                          </div>
                                          <div className="feedCard-body">
                                                 <div className="postTitle">{item.body}</div>
@@ -179,7 +212,7 @@ const Explore = () => {
                                     {
                                         item.comments.map(record => {
                                             return(
-                                                <div className="comment" style={{color:'#ffffff'}}>
+                                                <div className="comment" style={{color:'#ffffff'}} >
                                                     <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
                                                     <div className="authorReply">
                                                         <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>

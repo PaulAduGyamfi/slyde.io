@@ -119,6 +119,27 @@
 }
 
 
+
+
+.feedCard-arrow{
+    .popover-container{
+        .card-body{
+            font-weight: 700;
+            background-color: $primary;
+            color:$dark-white;
+            &:hover{
+                color: $dark-white;
+                background-color: $dark-primary;
+            }
+            &:active{
+                color: $dark-white;
+                background-color: $primary-button-active;
+            }
+        }
+    }
+}
+
+
 /*
 
 
