@@ -1,0 +1,17 @@
+@import '../viewsStyles/global';
+
+.newsContainer{
+    display: flex;
+    justify-content: center;
+    height: auto;
+
+    .middle{
+        width:60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: yellow;
+        height: auto;
+
+    }
+}

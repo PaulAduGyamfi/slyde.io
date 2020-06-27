@@ -158,7 +158,9 @@ const Explore = () => {
                                 <div className="explorefeedContainer postComponent" key={item._id}>
                                 <div className="feedCard">
                                      <div className="feedCard-Left">
+                                     <Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`}>
                                          <div className="profilePicture" style={{backgroundImage: `url(${item.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
+                                         </Link>
                                      </div>
                                      <div className="feedCard-Right">
                                          <div className="feedCard-header">
