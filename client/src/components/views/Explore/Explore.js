@@ -36,6 +36,7 @@ const Explore = () => {
             setData(result.posts)
             console.log(result)
         })
+
     },[])
 
 
@@ -142,6 +143,8 @@ const Explore = () => {
 
 
     return(
+        <>
+        {state?
         <div className="exploreContainer" style={{display:'flex'}}>
           
             <SideNav />
@@ -246,6 +249,8 @@ const Explore = () => {
         
             <Suggestions />
         </div>
+        : null}
+        </>
     )
 }
 

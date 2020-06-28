@@ -1,11 +1,16 @@
-import React from 'react'
+import React,{ useContext } from 'react'
 import SideNav from '../Profile/SideNav'
 import Suggestions from '../Profile/Suggestions'
+import { UserContext } from '../../../App'
 import './News.scss'
 
 const News = () =>{
-    return(
 
+
+    const {state,dispatch} = useContext(UserContext)
+    return(
+    <>
+    {state ? 
         <div className="newsContainer">
             <SideNav />
             <div className="middle">
@@ -13,6 +18,8 @@ const News = () =>{
             </div>
             <Suggestions />
         </div>
+        : null}
+    </>
     )
 }
 

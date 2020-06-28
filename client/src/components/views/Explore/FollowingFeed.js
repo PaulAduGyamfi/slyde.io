@@ -142,6 +142,9 @@ const Explore = () => {
 
 
     return(
+
+        <>
+        {state?
     
         <div className="exploreContainer" style={{display:'flex'}}>
           
@@ -249,6 +252,9 @@ const Explore = () => {
         
             <Suggestions />
         </div>
+        
+        :null}
+        </>
         
     )
 }

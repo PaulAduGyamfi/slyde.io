@@ -184,6 +184,8 @@ const Profile = () => {
 
 
     return(
+        <>
+        {state?
         <div className="profileContainer">
             <SideNav />
             <div className="middle" >
@@ -301,6 +303,8 @@ const Profile = () => {
             </div>
             <Suggestions />
         </div>
+        :null}
+        </>
     )
 }
 

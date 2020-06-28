@@ -9,6 +9,7 @@ import UserProfile from './components/views/Profile/UserProfile'
 import Chat from './components/views/Chat/Chat'
 import News from './components/views/News/News'
 import {reducer,initialState} from './reducers/userReducer'
+import { message } from 'antd';
 
 
 export const UserContext = createContext()
@@ -23,6 +24,7 @@ const Routing = () => {
  
         }else{
             history.push('/signin')
+           
         }
     },[])
     { document.getElementById("htmlTitle").innerHTML = state?state.fullname + ' (@'+ state.username+') / Slyde':"Slyde"}
