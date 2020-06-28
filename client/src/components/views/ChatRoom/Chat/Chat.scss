@@ -12,12 +12,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: orangered;
+        // background-color: orangered;
         height: 100%;
 
 
         .messageContainer{
-            background-color: yellow;
+            // background-color: yellow;
             display: flex;
             height: auto;
             flex-direction: column;
@@ -112,6 +112,7 @@
 
 
                         .messageText{
+                            color: $dark-white;
                             width: 100%;
                             p{
                                 white-space: pre-wrap;
@@ -143,6 +144,7 @@
 
 
                         .messageText{
+                            color: $dark-white;
                             width: 100%;
                             p{
                                 white-space: pre-wrap;
