@@ -155,7 +155,7 @@ const Explore = () => {
 
                    <>  
                    {!data.length==0?   
-                    <div style={{display:"flex",flexDirection:"column-reverse",width:'100%'}}>
+                    <div style={{display:"flex",flexDirection:"column",width:'100%'}}>
                     {
                         data.map((item) => {
                             return(

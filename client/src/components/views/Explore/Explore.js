@@ -153,7 +153,7 @@ const Explore = () => {
                     <PostBox prop={"What's New"} />
 
                         
-                    <div style={{display:"flex",flexDirection:"column-reverse",width:'100%'}}>
+                    <div style={{display:"flex",flexDirection:"column",width:'100%'}}>
                     {
                         data.map((item) => {
                             return(

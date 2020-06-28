@@ -212,7 +212,7 @@ const Profile = () => {
                 </div>
             </div>
         </div>
-                <div style={{display:"flex",flexDirection:"column-reverse",width:'100%'}}>
+                <div style={{display:"flex",flexDirection:"column",width:'100%'}}>
                         {
                             posts.map(item => {
                                 return(

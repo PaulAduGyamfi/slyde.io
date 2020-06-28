@@ -45,7 +45,7 @@ io.on('connection', (socket)=>{
         return callback(error)
        }
 
-       socket.emit('message', {user:'SlydeBOT', text:`Hi ${user.name}! Welcome to the ${user.room} chatroom`})
+       socket.emit('message', {user:'SlydeBOT', text:`Hi @${user.name}! Welcome to the ${user.room} chatroom`})
        socket.broadcast.to(user.room).emit('message',{user:'SlydeBOT', text:`${user.name} has joined the conversation`})
 
        socket.join(user.room)
