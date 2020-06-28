@@ -30,7 +30,7 @@ const Message = ({message:{user,text, pic},name}) => {
                 </div>
                 <div className="profilePicture" style={{backgroundImage:`url('${state.pic}')`, backgroundPosition: "50% 50%", backgroundSize: "cover", height:'25px',width:'25px', borderRadius:'50%',marginLeft:'1em'}}></div>
             </div>
-        ): (!sentByCurrentUser && user === 'SlydeBOT'?(
+        ): (!sentByCurrentUser && user === '🤖SlydeBOT'?(
             <div className="botMessage center">
             <div className="botName">{user}</div>
             <div className="botText">{ReactEmoji.emojify(text)}</div>
