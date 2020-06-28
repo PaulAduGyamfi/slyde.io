@@ -49,11 +49,22 @@ const Chat = () =>{
 
         if(message){
             socket.emit('sendMessage', message, ()=>{
-                
+                updateScroll()
                 setMessage('')
             })
         }
     }
+
+    //Scroll to bottom
+   
+    let scrolled = false;
+    function updateScroll(){
+        if(!scrolled){
+            var element = document.getElementById("data");
+            element.scrollTop = element.scrollHeight;
+        }
+    }
+  
 
     // console.log(name,messages)
     
@@ -61,9 +72,9 @@ const Chat = () =>{
             <div className="chatContainer">
                 <SideNav />
                 <div className="middle">
-                        <div className="messageContainer">
+                        <div className="messageContainer" id="data">
                             
-                              <div style={{height:'10em', position:'relative'}}> 
+                              <div  style={{height:'45em', position:'relative'}}> 
                                    <Messages messages={messages} />
                                    </div>
                                 

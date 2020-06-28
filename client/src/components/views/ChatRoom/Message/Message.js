@@ -28,6 +28,7 @@ const Message = ({message:{user,text},name}) => {
                         <p>{ReactEmoji.emojify(text)}</p>
                     </div>
                 </div>
+                <div className="profilePicture" style={{backgroundImage:`url('${state.pic}')`, backgroundPosition: "50% 50%", backgroundSize: "cover", height:'25px',width:'25px', borderRadius:'50%'}}></div>
             </div>
         ): (!sentByCurrentUser && user === 'SlydeBOT'?(
             <div className="botMessage center">
@@ -36,6 +37,7 @@ const Message = ({message:{user,text},name}) => {
         </div>
         ):(
             <div className="messageBubbleContainer left">
+                <div className="profilePicture" style={{backgroundColor:'red', backgroundPosition: "50% 50%", backgroundSize: "cover", height:'25px',width:'25px', borderRadius:'50%'}}></div>
             <div className="messageBubble">
                 <div className="messageText">
                     <p>{text}</p>

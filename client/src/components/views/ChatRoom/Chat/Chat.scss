@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     height: 100%;
+    background-color: $dark-background;
 
     .middle{
         width:60%;
@@ -24,6 +25,7 @@
             width: 100%;
             padding-top: 2em;
             padding-right: 9em;
+            overflow-y: scroll;
     
 
             .botMessage{
@@ -116,6 +118,7 @@
                             width: 100%;
                             p{
                                 white-space: pre-wrap;
+                                word-wrap: break-word;
                             }
                         }
                     }
@@ -148,6 +151,7 @@
                             width: 100%;
                             p{
                                 white-space: pre-wrap;
+                                word-wrap: break-word;
                             }
                         }
                     }
