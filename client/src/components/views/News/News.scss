@@ -2,16 +2,83 @@
 
 .newsContainer{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     height: auto;
 
     .middle{
-        width:60%;
+        width:80%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        background-color: yellow;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: $dark-background;
         height: auto;
+
+
+
+        .newsFeedWrap{
+            
+            color: $dark-white;
+            height: 17em;
+            display: flex;
+            align-items: center;
+            padding: 1em;
+            cursor: pointer;
+           
+
+            &:hover{
+                background-color: $dark-background-match;
+            }
+
+            .newsImage{
+                margin-right: 1em;
+                img{
+                    height: 12.875em;
+                    width: 19.375em;
+                }
+            }
+
+            .newsContent{
+                display: flex;
+                flex-direction: column;
+                // margin: 1em;
+                .newsHeader{
+                    // padding-top: 1em;
+                    .newsHeaderTitle{
+                        font-size: 1.3em;
+                        font-weight: 900;
+                    }
+                    .newsHeaderDate{
+                        padding-top: 0.4em;
+                        font-size: 0.9em;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: $primary;
+                    }
+                }
+    
+                .newsBody{
+                    
+                    margin-top: 1em;
+                    padding: 0.2em 0;
+                    height: auto;
+    
+                    .newsBodyAuthor{
+                        font-weight: 700;
+                    }
+                    .newsBodyText{
+                       
+                        p{
+                          
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+    
+                }
+            }
+
+        }
 
     }
 }
