@@ -6,6 +6,8 @@ const { MONGOURI } = require('./config/secure')
 const socketio = require('socket.io')
 const http = require('http')
 
+const { addUser, removeUser, getUser, getUserInRoom } =require('./chatUsers')
+
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
@@ -34,10 +36,30 @@ mongoose.connection.on('error', () => {
 
 
 io.on('connection', (socket)=>{
-    console.log('new connection!!')
 
-    socket.on('join', ({name,room}) =>{
-        console.log(name,room)
+    socket.on('join', ({name,room}, callback) =>{
+        
+       const {error, user} = addUser({id:socket.id, name, room})
+
+       if(error){
+        return callback(error)
+       }
+
+       socket.emit('message', {user:'SlydeBOT', text:`Hi ${user.name}! Welcome to the ${user.room} chatroom`})
+       socket.broadcast.to(user.room).emit('message',{user:'SlydeBOT', text:`${user.name} has joined the conversation`})
+
+       socket.join(user.room)
+    
+       callback()
+    })
+
+    socket.on('sendMessage', (message, callback)=>{
+
+        const user = getUser(socket.id)
+
+        io.to(user.room).emit('message', {user:user.name, text:message})
+
+        callback()
     })
 
 

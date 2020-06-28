@@ -26,12 +26,13 @@ const ChatRoom = () =>{
                     <div className="joinContainer">
                         <div className="joinHeader"></div>
                         <div className="joinBody">
-                            <input placeholder="Room" type="text" onChange={(e)=> {
+                            <input placeholder="Join a room" type="text" onChange={(e)=> {
                                 setRoom(e.target.value)
                                 setName(state.username)
                             }}/>
+                            <Link onClick={ e => (!room) ? e.preventDefault() : null} to={`/chat?name=${name}&room=${room}`}><button className="joinButton" type="submit">JOIN</button></Link>
+
                         </div>
-                        <Link onClick={ e => (!room) ? e.preventDefault() : null} to={`/chat?name=${name}&room=${room}`}><button className="joinButton" type="submit">JOIN</button></Link>
                     </div>
                 </div>
                 <Suggestions />

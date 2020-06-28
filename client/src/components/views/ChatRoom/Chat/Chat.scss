@@ -1,0 +1,37 @@
+.chatContainer{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    .middle{
+        width:60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: orangered;
+        height: auto;
+
+
+        .messageContainer{
+            background-color: purple;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .messageBox{
+                position: absolute;
+                bottom: 0;
+                left: 30%;
+                width: 30em;
+                input{
+                    width: 100%;
+                    height: 3em;
+                    
+                }
+            }
+        }
+
+    }
+}
