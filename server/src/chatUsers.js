@@ -3,8 +3,10 @@ const users = []
 
 const addUser = ({id,name,room,image}) => {
 
+   if(name && room){
     name = name.trim().toLowerCase()
     room = room.trim().toLowerCase()
+   }
 
 
     const user = {id, name, room,image}

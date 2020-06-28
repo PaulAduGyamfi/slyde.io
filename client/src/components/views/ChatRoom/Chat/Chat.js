@@ -75,6 +75,8 @@ const Chat = () =>{
     // console.log(name,messages)
     
     return(
+        <>
+        {state?
             <div className="chatContainer">
                 <SideNav />
                 <div className="middle">
@@ -92,6 +94,8 @@ const Chat = () =>{
                 </div>
                 <Suggestions />
             </div>
+                :null}
+            </>
 
     )
 }
