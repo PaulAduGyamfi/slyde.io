@@ -11,6 +11,7 @@ import pic from "../viewsStyles/imgs/lbj.jpg";
 import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled,DeleteOutlined,LoadingOutlined} from "@ant-design/icons";
 import { UserContext } from '../../../App'
 import {useParams} from 'react-router-dom'
+import ReactEmoji from 'react-emoji'
 
 
 const Profile = () => {
@@ -33,7 +34,7 @@ const Profile = () => {
         }).then(res => res.json())
         .then(result=>{
           setUserProfile(result)
-          console.log(result)
+        //   console.log(result)
         })
       },[data])
 
@@ -251,7 +252,7 @@ const unfollowUser = () => {
                                                         }
                                          </div>
                                          <div className="feedCard-body">
-                                                <div className="postTitle">{item.body}</div>
+                                                <div className="postTitle">{ReactEmoji.emojify(item.body)}</div>
                                                 {item.media.substring(item.media.length-4,item.media.length.length)==".mp4" ? <video width="85%" height="auto" controls style={{outline:"none",borderRadius:"0.6em"}} muted><source src={item.media} type="video/mp4" /></video>:<img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
                                          </div>
                                          <div className="feedCard-actions">
@@ -288,7 +289,7 @@ const unfollowUser = () => {
                                                     <div className="posterPic" style={{backgroundImage: `url(${record.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
                                                     <div className="authorReply">
                                                         <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
-                                                        <div className="bottom">{record.text}</div>
+                                                        <div className="bottom">{ReactEmoji.emojify(record.text)}</div>
                                                     </div>
                                                 </div>
                                             )

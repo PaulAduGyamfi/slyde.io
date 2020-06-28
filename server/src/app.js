@@ -49,6 +49,8 @@ io.on('connection', (socket)=>{
        socket.broadcast.to(user.room).emit('message',{user:'SlydeBOT', text:`${user.name} has joined the conversation`})
 
        socket.join(user.room)
+
+       io.to(user.room).emit('roomData', {room:user.room, users:getUserInRoom(user.room)})
     
        callback()
     })
@@ -58,13 +60,18 @@ io.on('connection', (socket)=>{
         const user = getUser(socket.id)
 
         io.to(user.room).emit('message', {user:user.name, text:message})
+        io.to(user.room).emit('roomData', {room:user.room ,sers:getUserInRoom(user.room)})
 
         callback()
     })
 
 
     socket.on('disconnect', ()=>{
-        console.log('user has left!!')
+        const user = removeUser(socket.id)
+
+        if(user){
+            io.to(user.room).emit('message', {user:'SlydeBOT',text:`${user.name} has ledt the chat`})
+        }
     })
 
 })

@@ -10,6 +10,7 @@ import 'animate.css'
 import "spectre.css"
 import { UserContext } from '../../../App'
 import { Link } from 'react-router-dom'
+import ReactEmoji from 'react-emoji'
 
 
 
@@ -34,7 +35,7 @@ const Explore = () => {
         }).then(res=>res.json())
         .then(result=>{
             setData(result.posts)
-            console.log(result)
+            // console.log(result)
         })
     },[])
 
@@ -51,7 +52,7 @@ const Explore = () => {
             })
         }).then(res => res.json())
         .then(result => {
-            console.log(result)
+            // console.log(result)
             const newData = data.map(item => {
                 if(item._id == result._id){
                     return result
@@ -106,7 +107,7 @@ const Explore = () => {
             })
         }).then(res => res.json())
         .then(result => {
-            console.log(result)
+            // console.log(result)
             const newData = data.map(item => {
                 if(item._id == result._id){
                     return result
@@ -186,7 +187,7 @@ const Explore = () => {
                                                         }
                                          </div>
                                          <div className="feedCard-body">
-                                                <div className="postTitle">{item.body}</div>
+                                                <div className="postTitle">{ReactEmoji.emojify(item.body)}</div>
                                                 {/* {console.log(item.media)} */}
                                                 {item.media.substring(item.media.length-4,item.media.length.length)==".mp4" ? <video width="85%" height="auto" controls style={{outline:"none",borderRadius:"0.6em",backgroundColor:"black", maxHeight:"40em"}} muted><source src={item.media} type="video/mp4" style={{backgroundColor:"black"}}/></video>:<img src={item.media} height="auto" width="85%" style={{borderRadius:"0.6em"}}/>}
                                          </div>
@@ -224,7 +225,7 @@ const Explore = () => {
                                                     <div className="posterPic" style={{backgroundImage: `url(${record.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
                                                     <div className="authorReply">
                                                         <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
-                                                        <div className="bottom">{record.text}</div>
+                                                        <div className="bottom">{ReactEmoji.emojify(record.text)}</div>
                                                     </div>
                                                 </div>
                                             )

@@ -3,7 +3,7 @@ import './PostBox.scss'
 import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
 import { UserContext } from '../../../App';
-import { OmitProps } from 'antd/lib/transfer/ListBody';
+
 // import {useHistory} from 'react-router-dom'
 
  const PostBox = (props) =>{
@@ -58,7 +58,7 @@ import { OmitProps } from 'antd/lib/transfer/ListBody';
             })
         }).then(res=>res.json())
            .then(data=>{
-               console.log(data)
+            //    console.log(data)
                if(data.error){
                    setError(data.error)
                }
@@ -108,7 +108,7 @@ import { OmitProps } from 'antd/lib/transfer/ListBody';
             })
         }).then(res=>res.json())
            .then(data=>{
-               console.log(data)
+            //    console.log(data)
                if(data.error){
                    setError(data.error)
                }

@@ -54,20 +54,23 @@ const Chat = () =>{
         }
     }
 
-    console.log(message,messages)
+    // console.log(name,messages)
     
     return(
             <div className="chatContainer">
                 <SideNav />
                 <div className="middle">
-                   <div className="messageContainer">
-                       
-                       <Messages messages={messages} />
-                       
-                       <div className="messageBox">
-                           <input value={message} onChange={e=>setMessage(e.target.value)} onKeyPress={e=>e.key === 'Enter'?sendMessage():null} />
-                       </div>
-                   </div>
+                        <div className="messageContainer">
+                            
+                              <div style={{height:'10em', position:'relative'}}> 
+                                   <Messages messages={messages} />
+                                   </div>
+                                
+                                <div className="messageBox">
+                                    <input placeholder="Message" value={message} onChange={e=>setMessage(e.target.value)} onKeyPress={e=>e.key === 'Enter'?sendMessage():null} />
+                                    <div className="sendMessageButton"><button type="submit" onClick={()=>sendMessage()}>Send</button></div>
+                                </div>
+                        </div>
                 </div>
                 <Suggestions />
             </div>
