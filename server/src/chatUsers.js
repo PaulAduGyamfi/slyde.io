@@ -1,13 +1,13 @@
 const users = []
 
 
-const addUser = ({id,name,room}) => {
+const addUser = ({id,name,room,image}) => {
 
     name = name.trim().toLowerCase()
     room = room.trim().toLowerCase()
 
 
-    const user = {id, name, room}
+    const user = {id, name, room,image}
     users.push(user)
 
     return { user }

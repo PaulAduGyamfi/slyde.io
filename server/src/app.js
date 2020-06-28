@@ -37,9 +37,10 @@ mongoose.connection.on('error', () => {
 
 io.on('connection', (socket)=>{
 
-    socket.on('join', ({name,room}, callback) =>{
-        
-       const {error, user} = addUser({id:socket.id, name, room})
+    socket.on('join', ({name,room, image}, callback) =>{
+
+        // console.log(image)
+       const {error, user} = addUser({id:socket.id, name, room,image})
 
        if(error){
         return callback(error)
@@ -59,8 +60,8 @@ io.on('connection', (socket)=>{
 
         const user = getUser(socket.id)
 
-        io.to(user.room).emit('message', {user:user.name, text:message})
-        io.to(user.room).emit('roomData', {room:user.room ,sers:getUserInRoom(user.room)})
+        io.to(user.room).emit('message', {user:user.name, text:message, pic:user.image})
+        io.to(user.room).emit('roomData', {room:user.room ,users:getUserInRoom(user.room)})
 
         callback()
     })
@@ -70,7 +71,8 @@ io.on('connection', (socket)=>{
         const user = removeUser(socket.id)
 
         if(user){
-            io.to(user.room).emit('message', {user:'SlydeBOT',text:`${user.name} has ledt the chat`})
+            io.to(user.room).emit('message', {user:'SlydeBOT',text:`${user.name} has left the chat`})
+            socket.broadcast.to(user.room).emit('message',{user:'SlydeBOT', text:`${user.name} has left the conversation`})
         }
     })
 

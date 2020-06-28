@@ -4,7 +4,7 @@ import './Message.scss'
 import ReactEmoji from 'react-emoji'
 import { UserContext } from '../../../../App'
 
-const Message = ({message:{user,text},name}) => {
+const Message = ({message:{user,text, pic},name}) => {
     
     const {state,dispatch} = useContext(UserContext)
 
@@ -28,7 +28,7 @@ const Message = ({message:{user,text},name}) => {
                         <p>{ReactEmoji.emojify(text)}</p>
                     </div>
                 </div>
-                <div className="profilePicture" style={{backgroundImage:`url('${state.pic}')`, backgroundPosition: "50% 50%", backgroundSize: "cover", height:'25px',width:'25px', borderRadius:'50%'}}></div>
+                <div className="profilePicture" style={{backgroundImage:`url('${state.pic}')`, backgroundPosition: "50% 50%", backgroundSize: "cover", height:'25px',width:'25px', borderRadius:'50%',marginLeft:'1em'}}></div>
             </div>
         ): (!sentByCurrentUser && user === 'SlydeBOT'?(
             <div className="botMessage center">
@@ -37,7 +37,7 @@ const Message = ({message:{user,text},name}) => {
         </div>
         ):(
             <div className="messageBubbleContainer left">
-                <div className="profilePicture" style={{backgroundColor:'red', backgroundPosition: "50% 50%", backgroundSize: "cover", height:'25px',width:'25px', borderRadius:'50%'}}></div>
+                <div className="profilePicture" style={{backgroundImage:`url('${pic}')`, backgroundPosition: "50% 50%", backgroundSize: "cover", height:'25px',width:'25px', borderRadius:'50%', marginRight:'1em'}}></div>
             <div className="messageBubble">
                 <div className="messageText">
                     <p>{text}</p>

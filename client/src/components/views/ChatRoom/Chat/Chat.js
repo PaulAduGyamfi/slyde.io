@@ -5,27 +5,33 @@ import queryString from 'query-string'
 import io, { Socket } from 'socket.io-client'
 import Messages from '../Messages/Messages'
 import './Chat.scss'
+import { UserContext } from '../../../../App'
 
 
 let socket;
 
 const Chat = () =>{
 
+    const {state,dispatch} = useContext(UserContext)
+
     const [room,setRoom] = useState("")
     const [name,setName] = useState("")
+    const [image,setImage] = useState("")
     const [message,setMessage] = useState([])
     const [messages,setMessages] = useState([])
     const ENDPOINT = 'localhost:3000'
     
     useEffect(() => {
-        const {name,room} = queryString.parse(window.location.search)
+        const {name,room,image} = queryString.parse(window.location.search)
 
         socket = io(ENDPOINT)
        
         setRoom(room)
         setName(name)
+        setImage(image)
+        
 
-        socket.emit('join', {name,room}, ()=>{
+        socket.emit('join', {name,room,image}, ()=>{
 
         })
 
@@ -75,7 +81,7 @@ const Chat = () =>{
                         <div className="messageContainer" id="data">
                             
                               <div  style={{height:'45em', position:'relative'}}> 
-                                   <Messages messages={messages} />
+                                   <Messages messages={messages} image={image} />
                                    </div>
                                 
                                 <div className="messageBox">
