@@ -47,7 +47,7 @@ const SideNav = () => {
           </Link>
         </div>
         <div className="sidenavChat">
-        <Link to="/chat">
+        <Link to="/chatroom">
             <WechatOutlined style={{ fontSize: "29px" }} />
             <div className="news Text">Chat</div>
           </Link>

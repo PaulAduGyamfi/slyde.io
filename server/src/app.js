@@ -1,9 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const app = express()
 const config = require('./config/config')
 const mongoose = require('mongoose')
 const { MONGOURI } = require('./config/secure')
+const socketio = require('socket.io')
+const http = require('http')
+
+const app = express()
+const server = http.createServer(app)
+const io = socketio(server)
 
 
 require('./models/User')
@@ -22,12 +27,38 @@ mongoose.connection.on('error', () => {
     console.log("did not connect error")
 })
 
+
+
+
+
+
+
+io.on('connection', (socket)=>{
+    console.log('new connection!!')
+
+    socket.on('join', ({name,room}) =>{
+        console.log(name,room)
+    })
+
+
+    socket.on('disconnect', ()=>{
+        console.log('user has left!!')
+    })
+
+})
+
+
+
+
+
+
+
 app.use(bodyParser.json())
 app.use(require('./routes/auth'))
 app.use(require('./routes/post'))
 app.use(require('./routes/user'))
 
 
-app.listen(config.port, () => {
-    console.log(`Listening on port ${config.port}`)
+server.listen(config.port, () => {
+    console.log(`Server has started on port ${config.port}`)
 })
