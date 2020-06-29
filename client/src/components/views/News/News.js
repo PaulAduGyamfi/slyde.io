@@ -3,6 +3,7 @@ import SideNav from '../Profile/SideNav'
 import Suggestions from '../Profile/Suggestions'
 import { UserContext } from '../../../App'
 import { Link } from 'react-router-dom'
+import TempNews from './tempNews'
 import './News.scss'
 
 const News = () =>{
@@ -19,7 +20,7 @@ const News = () =>{
 
     let req = new Request(url);
 
-        useEffect(()=>{
+        useEffect(()=>{  
 
             fetch(req)
             .then(res=>res.json())
@@ -46,6 +47,12 @@ const News = () =>{
             })
         }
 
+        const dateToString = (published) =>{
+            let date = new Date(published)
+
+            return date.toDateString()
+        }
+
 
     
     return(
@@ -55,19 +62,39 @@ const News = () =>{
             <SideNav />
             <div className="middle">
                 <div className="newsSections">
-                    <input type='text' onChange={(e)=>setCategory(e.target.value)}/>
-                    <button type="submit" onClick={()=>getNews(category)}>All</button>
+                    <input type='text' placeholder="Search for topics, locations & sources" onChange={(e)=>{
+                        e.preventDefault()
+                       if(e.target.value == ""){
+                          return news
+                       }
+                       getNews(e.target.value)
+
+                    }}/>
+                    <div className="categoryLinks">
+                        <ul>
+                            <li onClick={()=>getNews('Electronics')}>Electronics</li>
+                            <li onClick={()=>getNews('Money')}>Money</li>
+                            <li onClick={()=>getNews('Politics')}>Politics</li>
+                            <li onClick={()=>getNews('Sports')}>Sports</li>
+                            <li onClick={()=>getNews('Fitness')}>Fitness</li>
+                            <li onClick={()=>getNews('Travel')}>Travel</li>
+                        </ul>
+                    </div>
                 </div>
+                <div>
+                    {news?
+                    <>
                 {
                     news.map((item,i) => {
                         return(
-                            
+                          
                             <div className="newsFeedWrap" key={i} onClick={()=>window.open(`${item.url}`)}>
                                 <div className="newsImage"><img src={item.urlToImage} /></div>
                                     <div className="newsContent">
                                        <div className="newsHeader">
                                             <div className='newsHeaderTitle'>{item.title}</div>
-                                            <div className='newsHeaderDate'>{item.publishedAt}</div>
+                                            
+                                            <div className='newsHeaderDate'>{dateToString(item.publishedAt)}</div>
                                         </div>
                                         <div className="newsBody">
                                             {item.author != null || "" ? <div className="newsBodyAuthor">by {item.author}</div>:""}
@@ -81,6 +108,9 @@ const News = () =>{
                         )
                     })
                 }
+                </>
+                :<TempNews />}
+                </div>
             </div>
             {/* <Suggestions /> */}
         </div>

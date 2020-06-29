@@ -20,6 +20,12 @@ export const reducer = (state,action) => {
             banner:action.payload
         }
     }
+    if(action.type == "UPDATEPIC"){
+        return{
+            ...state,
+            pic:action.payload
+        }
+    }
 
     return state
 }

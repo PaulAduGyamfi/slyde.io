@@ -1,6 +1,6 @@
 @import '../../viewsStyles/global';
 
-.profilecardWrap{
+.myprofilecardWrap{
     height: 29.375em;
     background-color:  $dark-background;
     width: 100%;
@@ -10,7 +10,20 @@
         flex: 1;
         background-color: $dark-background-match;
 
-    
+        &:after {
+            content: '\A';
+            position: absolute;
+            width: 80%; height:27.7%;
+            top:0; right:0;
+            background:rgba(0,0,0,0.6);
+            opacity: 0;
+            transition: all .2s;
+            -webkit-transition: all .2s;
+        }
+
+        &:hover:after {
+            opacity: 1;
+        }
     }
     .profileInfo{
         flex: 1;
@@ -36,6 +49,23 @@
                         width: 10.5em;
                         border-radius: 50%;
                          background-color: $primary;
+
+                         &:after {
+                            content: '\A';
+                            position: absolute;
+                            height: 10.5em;
+                            width: 10.5em;
+                            border-radius: 50%;
+                            top:0; left:0;
+                            background:rgba(0, 0, 0, 0.342);
+                            opacity: 0;
+                            transition: all .2s;
+                            -webkit-transition: all .2s;
+                        }
+
+                        &:hover:after {
+                            opacity: 1;
+                        }
 
                 }
                 .editProfileButton{

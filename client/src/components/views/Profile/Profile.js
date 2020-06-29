@@ -1,7 +1,7 @@
 import React,{useEffect,useState,useContext} from 'react'
 import SideNav from './SideNav'
 import Suggestions from './Suggestions'
-import './profileStyles/Profile.scss'
+import './profileStyles/myProfile.scss'
 import './profileStyles/ProfileFeed.scss'
 import pic from "../viewsStyles/imgs/lbj.jpg";
 import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled,DeleteOutlined} from "@ant-design/icons";
@@ -18,10 +18,15 @@ const Profile = () => {
     
         document.getElementById('file-input').click();
  }
+    const clikProfile = () =>{
+    
+        document.getElementById('profile-input').click();
+ }
     
     const [posts,setMyposts] = useState([])
     const {state,dispatch} = useContext(UserContext)
     const [banner,setBanner] = useState("")
+    const [pic,setPic] = useState("")
     // const [bannerUrl,setBannerUrl] = useState("")
     // console.log(state)
 
@@ -182,6 +187,52 @@ const Profile = () => {
 
     }
 
+    useEffect(()=>{
+        if(pic){
+
+            const data = new FormData()
+            data.append("file",pic)
+            data.append("upload_preset","slydepreset")
+            data.append("cloud_name", "slyde")
+       
+            
+            fetch("https://api.cloudinary.com/v1_1/slyde/image/upload", {
+                method:"post",
+                body:data
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                // setBannerUrl(data.url)
+                // console.log(data)
+                
+                fetch('/updateprofilepic',{
+                    method:"put",
+                    headers:{
+                        "Content-Type":"application/json",
+                        "Authorization":"Bearer "+localStorage.getItem("jwt")
+                    },
+                    body:JSON.stringify({
+                        pic:data.url
+                    })
+                }).then(res => res.json())
+                .then(result => {
+                    localStorage.setItem("user",JSON.stringify({...state,pic:result.pic}))
+                    dispatch({type:"UPDATEPIC",payload:result.pic})
+                })
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        }
+    },[pic])
+
+    const updatePic = (file) =>{
+        
+        setPic(file)
+
+
+}
+
 
 
     return(
@@ -190,12 +241,12 @@ const Profile = () => {
         <div className="profileContainer">
             <SideNav />
             <div className="middle" >
-            <div className="profilecardWrap"> 
+            <div className="myprofilecardWrap"> 
             <div className="profileBanner" style={{backgroundImage: `url(${state?state.banner:""})`, backgroundPosition: "50% 20%", backgroundSize: "cover",cursor:'pointer'}} onClick={clik} type="file" value={banner} onChange={(e)=>updateBanner(e.target.files[0])} ><input id="file-input"  type="file" style={{visibility:'hidden'}}/></div>
             <div className="profileInfo">
                 <div className="profileInfoWrap">
                     <div className="profileInfoTop">
-                        <div className="profilePicture" style={{backgroundImage: `url(${state?state.pic:""})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
+                        <div className="profilePicture" style={{backgroundImage: `url(${state?state.pic:""})`, backgroundPosition: "50% 50%", backgroundSize: "cover",cursor:'pointer'}} onClick={clikProfile} type="file" value={pic} onChange={(e)=>updatePic(e.target.files[0])} ><input id="profile-input"  type="file" style={{visibility:'hidden'}}/></div>
                         <div className="editProfileButton"><button>Edit profile</button></div>
                     </div>
                     <div className="profileInfoBottom">

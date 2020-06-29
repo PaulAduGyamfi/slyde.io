@@ -13,27 +13,82 @@
         justify-content: space-around;
         background-color: $dark-background;
         height: auto;
+        align-items: center;
 
+        .newsSections{
+            padding-bottom: 3em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2em;
+            input{
+                width: 100%;
+                padding: 0.3em 1em;
+                background-color: $dark-background-match;
+                outline: none;
+                border: transparent;
+                border-radius: 0.3em;
+                color: $dark-white;
+                font-size: 1.2em;
+                font-weight: 600;
+                    
+                    &:focus::placeholder{
+                        color: #b6b6b6;
+                    }
+            }
+
+            .categoryLinks{
+                ul{
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    color: $dark-white;
+
+                    li{
+                        // background-color: red;
+                        padding: 0 0.7em;
+                        padding-top: 1em;
+                        margin: 0 0.7em;
+                        font-weight: 800;
+                        border-bottom: 4px solid $primary;
+                        cursor: pointer;
+
+                        &:hover{
+                            background-color: $primary;
+                            transition: all .2s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+        
 
 
         .newsFeedWrap{
             
             color: $dark-white;
-            height: 17em;
+            height: auto;
             display: flex;
             align-items: center;
             padding: 1em;
             cursor: pointer;
            
 
-            &:hover{
+            &:nth-child(odd){
                 background-color: $dark-background-match;
             }
+
+            &:hover{
+                background-color: $primary;
+            }
+            
 
             .newsImage{
                 margin-right: 1em;
                 img{
-                    height: 12.875em;
+                    border-radius: 0.5em;
+                    height: auto;
                     width: 19.375em;
                 }
             }
@@ -81,4 +136,8 @@
         }
 
     }
+}
+
+.newsFeedWrap:hover .newsHeaderDate{
+    color: $dark-white !important;
 }
