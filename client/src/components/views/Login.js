@@ -98,7 +98,7 @@ const Login = () => {
 
                     <div className="loginFooter">
                         <div className="footLinks">
-                        <Link to="/">Forgot password?</Link>
+                        <Link to="/signin">Forgot password?</Link>
                         </div>
                         <span> • </span>
                         <div className="footLinks">

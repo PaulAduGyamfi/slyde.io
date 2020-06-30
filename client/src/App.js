@@ -1,5 +1,6 @@
 import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import {BrowserRouter,Route,Switch,useHistory} from 'react-router-dom'
+import Splash from './components/views/Splash/Splash'
 import Login from './components/views/Login'
 import Signup from './components/views/Signup'
 import Profile from './components/views/Profile/Profile'
@@ -24,7 +25,7 @@ const Routing = () => {
             dispatch({type:"USER",payload:user})
  
         }else{
-            history.push('/signin')
+            history.push('/')
            
         }
     },[])
@@ -32,12 +33,12 @@ const Routing = () => {
     return(
         <Switch>
             <Route exact path="/">
+                <Splash />
+            </Route>
+            <Route exact path="/signin">
                 <Login />
             </Route>
-            <Route path="/signin">
-                <Login />
-            </Route>
-            <Route path="/signup">
+            <Route exact path="/signup">
                 <Signup />
             </Route>
             <Route exact path="/profile">

@@ -102,7 +102,7 @@ const SideNav = () => {
               <div className="card-body logout" onClick={()=>{
                 localStorage.clear()
                 dispatch({type:"CLEAR"})
-                history.push("/")
+                history.push("/signin")
               }}>
                 Log out
                 </div>

@@ -154,7 +154,7 @@ useEffect(()=>{
                         <div className="button"><button onClick={()=>PostData()} >Sign up</button></div>
 
                 </div>
-                <div className="loginLink">Have an account? <Link to="/">Log in</Link></div>
+                <div className="loginLink">Have an account? <Link to="/signin">Log in</Link></div>
             </div>
         </div>
         : history.push('/profile')}

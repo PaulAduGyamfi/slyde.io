@@ -1,0 +1,73 @@
+@import '../viewsStyles/global';
+
+.splashWrapper{
+    height: 100%;
+    width: 100%;
+    
+    .sectionOne{
+       position: relative;
+       height: 100vh;
+       width: 100vw;
+
+        .sectionOneOverlay{
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background: url('https://images.unsplash.com/photo-1484712401471-05c7215830eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            filter: grayscale(60%);
+            
+        }
+
+        .sectionOneTitle{
+            text-align: center;
+            color: $primary;
+            font-size: 25em;
+            font-weight: 900;
+            z-index: 99;
+           position: absolute;
+            top: 30%;
+            right: 3%;
+            text-shadow: -4px 3px 0 #c22f34, -8px 7px 0 #bb151a;
+        }
+    }
+
+    .sectionTwo{
+        height: 100vh;
+        background-color: $dark-white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .sectionTwoOverlay{
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+           
+            img{
+                height: 600px;
+                width: auto;
+            }
+        }
+
+        .sectionTwoTitle{
+            text-align: center;
+            font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+            padding: 0 20%;
+            z-index: 99;
+            // padding-top: 6em;
+            h2{
+                font-size: 4em;
+                font-weight: 700;
+            }
+        }
+
+        .sectionTwoBody{
+            padding: 0 20%;
+        }
+    }
+}
