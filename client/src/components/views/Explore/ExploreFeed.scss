@@ -21,17 +21,17 @@
                     
                 }
                 .Name{
-                    color: $dark-white;
+                    color:var(--dark-white);
                     font-weight: 800;
                     font-size: 1.1em;
                     margin-right: 0.3em;
                 }
                 .Tag{
-                    color: $trsansparent-grey;
+                    color: var( --trsansparent-grey);
                 }
             }
             .postBody{
-                color: $dark-white;
+                color:var(--dark-white);
                 font-weight: 400;
 
             }
@@ -48,12 +48,12 @@
 
         }
         .replyTo{
-            color: $trsansparent-grey;
+            color: var( --trsansparent-grey);
             margin-left: 2.3em;
             font-size: 1.1em;
 
             span{
-                color:$primary;
+                color:var(--primary);
             }
         }
     }
@@ -66,12 +66,12 @@
         }
         textarea{
             width: 30em;
-            background-color: $dark-background;
+            background-color: var(--dark-background);
             border: none;
             resize: none;
             height: 100px;
             max-height: auto;
-            color: $dark-white;
+            color:var(--dark-white);
             font-size: 1.2em;
             font-weight: 500;
             padding-top: 0.7em;
@@ -96,21 +96,21 @@
         justify-content: flex-end;
 
         button{
-            background-color: $primary;
+            background-color: var(--primary);
             border: none;
             border-radius: 2em;
             width: 5em;
             padding: 0.5em;
             outline: none;
-            color: $dark-white;
+            color:var(--dark-white);
             font-weight: 700;
             cursor: pointer;
 
             &:hover{
-                background-color: $primary-hover;
+                background-color: var(--primary)-hover;
             }
             &:active{
-                background-color: $primary-active;
+                background-color: var(--primary)-active;
             }
 
         }

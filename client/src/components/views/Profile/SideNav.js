@@ -21,12 +21,15 @@ const SideNav = () => {
     <div className="navContainer">
       <div className="navContainerWrapper">
         <div className="sidenavLogo">
+          <Link to="/">
           <img
             src={logo}
             alt="logo"
             style={{ height: "60px", width: "60px" }}
             draggable="false"
           />
+          </Link>
+         
         </div>
         <div className="sidenavHome">
         <Link to="/feed">

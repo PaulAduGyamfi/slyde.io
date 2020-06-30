@@ -14,7 +14,7 @@
         height: auto;
 
         .joinContainer{
-            background-color: $dark-background;
+            background-color: var(--dark-background);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -30,11 +30,11 @@
                     width: 30em;
                     padding: 0.3em 1em;
                     margin-right: 0.5em;
-                    background-color: $dark-background-match;
+                    background-color: var(--dark-background-match);
                     outline: none;
                     border: transparent;
                     border-radius: 0.3em;
-                    color: $dark-white;
+                    color:var(--dark-white);
                     font-size: 1.2em;
                     font-weight: 600;
                     
@@ -44,9 +44,9 @@
                     
                 }
                 button{
-                    color: $dark-white;
+                    color: var(--white);
                     font-weight: 700;
-                    background-color: $primary;
+                    background-color: var(--primary);
                     outline: none;
                     border: transparent;
                     height: 2.3em;
@@ -55,10 +55,10 @@
                     cursor: pointer;
 
                     &:hover{
-                        background-color: $primary-hover;
+                        background-color: var(--primary)-hover;
                     }
                     &:active{
-                        background-color: $primary-active;
+                        background-color: var(--primary)-active;
                     }
                 }
                 

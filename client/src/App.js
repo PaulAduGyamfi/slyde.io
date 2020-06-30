@@ -17,6 +17,7 @@ import { message } from 'antd';
 export const UserContext = createContext()
 
 const Routing = () => {
+    // document.documentElement.setAttribute('data-theme', 'light')
     const history = useHistory()
     const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{

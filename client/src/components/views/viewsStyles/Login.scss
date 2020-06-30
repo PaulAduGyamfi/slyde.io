@@ -16,7 +16,7 @@
           
         }
         .loginTitle{
-            color: $dark-white;
+            color:var(--dark-white);
             font-size: 23px;
             font-weight: 700;
         }
@@ -25,7 +25,7 @@
 
             .placeholder{
                 font-weight: 500;
-                color: $trsansparent-grey;
+                color: var( --trsansparent-grey);
                 position: absolute;
                 top: 1.3em;
                 left: 1.7em;
@@ -41,36 +41,36 @@
                 padding: 0.5em;
                 padding-bottom: 0em;
                 padding-top: 0.7em;
-                background-color: $dark-background-match;
+                background-color: var(--dark-background-match);
                 border-style:solid;
                 border-color: transparent;
-                color: $dark-white;
-                border-bottom: 2px solid $trsansparent-grey;
+                color:var(--dark-white);
+                border-bottom: 2px solid var( --trsansparent-grey);
     
                 &:focus {
                     transition: all .2s ease-in-out;
-                    border-bottom: 2px solid $dark-white;
+                    border-bottom: 2px solidvar(--dark-white);
                 }
             }
         }
 
         button{
             padding: 1em 2em;
-            background-color: $primary;
+            background-color: var(--primary);
             border: transparent;
             outline: none;
             width: 25.5em;
-            color: $white;
+            color: var(--white);
             font-weight: 900;
             font-size: 16px;
             border-radius: 2em;
             margin-top: 1em;
             cursor: pointer;
             &:hover{
-                background-color: $primary-hover;
+                background-color:var(--primary-hover);
             }
             &:active{
-                background-color: $primary-active;
+                background-color:var(--primary-active);
             }
         }
         .loginFooter{
@@ -79,13 +79,13 @@
             width: 20em;
             margin-top: 2em;
             span{
-                color: $dark-white;
+                color:var(--dark-white);
                 font-size: 8px;
                 margin: 0 2em;
             }
             .footLinks{
                 a{
-                    color: $dark-white;
+                    color:var(--dark-white);
                     text-decoration: none;
                     font-size: 0.85em;
                     font-weight: 100;

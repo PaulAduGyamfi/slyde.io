@@ -11,7 +11,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-around;
-        background-color: $dark-background;
+        background-color: var(--dark-background);
         height: auto;
         align-items: center;
 
@@ -24,11 +24,11 @@
             input{
                 width: 100%;
                 padding: 0.3em 1em;
-                background-color: $dark-background-match;
+                background-color: var(--dark-background-match);
                 outline: none;
                 border: transparent;
                 border-radius: 0.3em;
-                color: $dark-white;
+                color:var(--dark-white);
                 font-size: 1.2em;
                 font-weight: 600;
                     
@@ -43,7 +43,7 @@
                     display: flex;
                     align-items: center;
                     width: 100%;
-                    color: $dark-white;
+                    color:var(--dark-white);
 
                     li{
                         // background-color: red;
@@ -51,12 +51,13 @@
                         padding-top: 1em;
                         margin: 0 0.7em;
                         font-weight: 800;
-                        border-bottom: 4px solid $primary;
+                        border-bottom: 4px solid var(--primary);
                         cursor: pointer;
 
                         &:hover{
-                            background-color: $primary;
+                            background-color: var(--primary);
                             transition: all .2s ease-in-out;
+                            color: var(--white);
                         }
                     }
                 }
@@ -67,7 +68,7 @@
 
         .newsFeedWrap{
             
-            color: $dark-white;
+            color:var(--dark-white);
             height: auto;
             display: flex;
             align-items: center;
@@ -76,11 +77,12 @@
            
 
             &:nth-child(odd){
-                background-color: $dark-background-match;
+                background-color: var(--dark-background-match);
             }
 
             &:hover{
-                background-color: $primary;
+                background-color: var(--primary);
+                color: var(--white);
             }
             
 
@@ -108,7 +110,7 @@
                         font-size: 0.9em;
                         font-weight: 700;
                         text-transform: uppercase;
-                        color: $primary;
+                        color: var(--primary);
                     }
                 }
     
@@ -139,5 +141,5 @@
 }
 
 .newsFeedWrap:hover .newsHeaderDate{
-    color: $dark-white !important;
+    color: var(--white) !important;
 }

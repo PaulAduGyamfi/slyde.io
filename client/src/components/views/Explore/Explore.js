@@ -168,8 +168,8 @@ const Explore = () => {
                                      <div className="feedCard-Right">
                                          <div className="feedCard-header">
                                                  <div className="feedCard-info">
-                                                         <div className="feedCardAuthor Name"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} style={{color:"#ffffff"}}>{item.postedBy.fullname}</Link></div>
-                                                         <div className="feedCardAuthor Tag"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} style={{color:"#f0f0f079"}}>@{item.postedBy.username}</Link></div>
+                                                         <div className="feedCardAuthor Name"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} >{item.postedBy.fullname}</Link></div>
+                                                         <div className="feedCardAuthor Tag"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} >@{item.postedBy.username}</Link></div>
                                                     </div>
                                                         {item.postedBy._id == state._id
                                                             && <div className="feedCard-arrow popover popover-bottom">
@@ -198,7 +198,7 @@ const Explore = () => {
                                                  }else{
                                                     likePost(item._id)
                                                  }
-                                             }} />:<HeartOutlined className="likeButton" style={{color:"#f0f0f079",cursor:"pointer"}} onClick={() =>{
+                                             }} />:<HeartOutlined className="likeButton" style={{color:"#b0b9c3",cursor:"pointer"}} onClick={() =>{
                                                  if(item.likes.includes(state._id)){
                                                         unlikePost(item._id)
                                                  }else{
@@ -206,7 +206,7 @@ const Explore = () => {
                                                  }
                                              }}/>  }
                                 
-                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
+                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#b0b9c3"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
                                              <div className="commentButton"><MessageOutlined onClick={()=>{
                                                  document.getElementById(`${item._id}`).classList.toggle("showComments")

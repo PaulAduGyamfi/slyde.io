@@ -78,7 +78,9 @@ const Login = () => {
             <div className="loginForm">
 
                 <div className="Logo">
+                    <Link to="/">
                     <img src={logo} alt="logo" style={{'height':'120px', 'width':'120px'}} draggable="false" />
+                    </Link>
                 </div>
 
                 <div className="loginTitle">Login to Slyde</div>

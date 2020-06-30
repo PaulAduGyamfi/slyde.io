@@ -275,7 +275,7 @@ const Profile = () => {
                                      <div className="feedCard-Right">
                                          <div className="feedCard-header">
                                                  <div className="feedCard-info">
-                                                         <div className="feedCardAuthor Name">{item.postedBy.fullname}</div>
+                                                         <div className="feedCardAuthor Name" style={{marginLeft:'1em'}}>{item.postedBy.fullname}</div>
                                                          <div className="feedCardAuthor Tag">@{item.postedBy.username}</div>
                                                  </div>
                                                  {item.postedBy._id == state._id
@@ -304,7 +304,7 @@ const Profile = () => {
                                                  }else{
                                                     likePost(item._id)
                                                  }
-                                             }} />:<HeartOutlined className="likeButton" style={{color:"#f0f0f079",cursor:"pointer"}} onClick={() =>{
+                                             }} />:<HeartOutlined className="likeButton" style={{color:"#b0b9c3",cursor:"pointer"}} onClick={() =>{
                                                  if(item.likes.includes(state._id)){
                                                         unlikePost(item._id)
                                                  }else{
@@ -312,7 +312,7 @@ const Profile = () => {
                                                  }
                                              }}/>  }
                                 
-                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#f0f0f079"}}>{item.likes.length>0&&item.likes.length}</span>
+                                             <span style={item.likes.includes(state._id)?{marginLeft:"0.75em",color:"#e0245e"}:{marginLeft:"0.75em",color:"#b0b9c3"}}>{item.likes.length>0&&item.likes.length}</span>
                                              </div>
                                              <div className="commentButton"><MessageOutlined onClick={()=>{
                                                  document.getElementById(`${item._id}`).classList.toggle("showComments")

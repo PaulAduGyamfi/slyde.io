@@ -6,8 +6,8 @@
     top:0;
     bottom:0;
     width: 20%;
-    background-color:  $dark-background;
-    border-right: 0.3px solid $invisible-grey;
+    background-color:  var(--dark-background);
+    border-right: 0.3px solid var(--invisible-grey);
     padding-bottom: 2em;
     .navContainerWrapper{
         margin: 0.5em 2em;
@@ -15,7 +15,7 @@
             width: 4.5em;
             cursor: pointer;
             &:hover{
-                background-color: $dark-background-match;
+                background-color: var(--dark-background-match);
                 border-radius: 50%;
             }
         }
@@ -24,13 +24,13 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: left;
-        color: $dark-white;
+        color:var(--dark-white);
         height: 100%;
         
         .sidenavHome,.sidenavNews,.sidenavUser,.sidenavChat,.sidenavExplore{
             
            a{
-            color: $dark-white;
+            color:var(--dark-white);
             display: flex;
             align-items: center;
             margin: 1em 0;
@@ -38,8 +38,8 @@
             width: 11em;
             cursor: pointer;
             &:hover{
-                color: $primary;
-                background-color: $primary-faded;
+                color: var(--primary);
+                background-color:var(--primary-faded);
                 border-radius: 3em;
             }
            }
@@ -52,10 +52,10 @@
         .sidnavPost{
             button{
                 margin: 1em 0.5em;
-                background-color: $primary;
+                background-color: var(--primary);
                 border: transparent;
                 width: 10em;
-                color: $white;
+                color: var(--white);
                 font-weight: 700;
                 font-size: 16px;
                 border-radius: 2em;
@@ -63,10 +63,10 @@
                 outline: none;
                 cursor: pointer;
                     &:hover{
-                        background-color: $primary-hover;
+                        background-color:var(--primary-hover);
                     }
                     &:active{
-                        background-color: $primary-active;
+                        background-color:var(--primary-active);
                     }
             }
         }
@@ -85,17 +85,17 @@
                    height: 3.2em;
                    width: 3.2em;
                    border-radius: 50%;
-                    background-color: $primary;
+                    background-color: var(--primary);
                     margin-right: 0.8em;
                 }
 
                 .nameWrap{
                     
                     .fullname{
-                        color: $dark-white;
+                        color:var(--dark-white);
                      }
                      .username{
-                        color: $trsansparent-grey;
+                        color: var( --trsansparent-grey);
                         width: 8em;
                         overflow: hidden;
                         text-overflow: ellipsis;;
@@ -103,15 +103,15 @@
                  }
             }
             &:hover{
-                background-color: $dark-background-match;
+                background-color: var(--dark-background-match);
             }
         }
         .card{
-            background-color: $dark-background-match;
+            background-color: var(--dark-background-match);
             .card-header{
                 padding-bottom: 1em;
                 .profileSnippetWrap{
-                    color: $dark-white;
+                    color:var(--dark-white);
                     font-weight: 700;
                     display: flex;
                     align-items: center;
@@ -119,7 +119,7 @@
                         height: 3.2em;
                         width: 3.2em;
                         border-radius: 50%;
-                         background-color: $primary;
+                         background-color: var(--primary);
                          margin-right: 0.8em;
                      }
 
@@ -128,15 +128,16 @@
             }
             .logout{
                 text-align: center;
-                color: $dark-white;
+                color:var(--dark-white);
                 padding-top: 1em;
                 font-weight: 800;
                 cursor: pointer;
                 &:hover{
-                    background-color: $primary;
+                    background-color: var(--primary);
+                    color: var(--white);
                 }
                 &:active{
-                    background-color: $primary-hover;
+                    background-color:var(--primary-hover);
                 }
             }
         }

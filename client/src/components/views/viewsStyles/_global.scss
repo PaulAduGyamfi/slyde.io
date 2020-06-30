@@ -2,32 +2,58 @@
             VARIABLES
 ************************************/
 
-$darkest-background: #23272A;
-$dark-background-match: #3a3e42;
-$dark-background-match-hover: #494e52;
-$dark-background: #2C2F33;
-$primary: #ff4d52;
-$primary-faded: #ff4d5333;
-$primary-hover: #f1444a;
-$primary-active: #c22f34;
-$primary-button-active: #aa2327;
-$dark-primary: #bb151a;
-$white: #ffffff;
-$light-grey: #f0f0f0;
-$dark-white: #f4f4f4;
-$trsansparent-grey : #f0f0f079;
-$invisible-grey : #c2c2c24f;
+
+
+/*
+UNUSED
+--darkest-background: #23272A;
+
+*/
+
+html{
+  
+  --dark-background-match: #3a3e42;
+  --dark-background-match-hover: #494e52;
+  --dark-background: #2C2F33;
+  --primary: #ff4d52;
+  --primary-faded: #ff4d5333;
+  --primary-hover: #f1444a;
+  --primary-active: #c22f34;
+  --primary-button-active: #aa2327;
+  --dark-primary: #bb151a;
+  --white: #ffffff;
+  --light-grey: #f0f0f0;
+  --dark-white: #f4f4f4;
+  --trsansparent-grey : #f0f0f079;
+  --invisible-grey : #c2c2c24f;
+}
 
 
 //#dedede
 
-// $dark-background: #ff4d52;
-//  $dark-background-match: #f1444a;
-// $light-background-text:#000000;
-// $light-grey:#000000;
-// $trsansparent-grey:#747474;
-// $dark-white:#788798;
-// $trsansparent-grey:#b0b9c3;
+
+html[data-theme='light'] {
+
+  --dark-background-match: #f8f8f8;
+  --dark-background-match-hover: #f8f8f8;
+  --dark-background: #ffffff;
+  --primary: #ff4d52;
+  --primary-faded: #ff4d5333;
+  --primary-hover: #f1444a;
+  --primary-active: #c22f34;
+  --primary-button-active: #aa2327;
+  --dark-primary: #bb151a;
+  --light-grey: #f0f0f0;
+  --dark-white: #788798;
+  --white: #ffffff;
+  --trsansparent-grey : #b0b9c3;
+  --invisible-grey : #c2c2c24f;
+  
+}
+
+
+  
+
 
 
 
@@ -62,12 +88,20 @@ $invisible-grey : #c2c2c24f;
 body, html {
     margin: 0;
     height: 100%;
-    background-color: $dark-background !important;
+    background-color: var(--dark-background) !important;
     scroll-behavior: smooth !important;
 }
 
-button{
+*{
+  button{
     -webkit-user-select: none;
-  -ms-user-select: none; 
+    -ms-user-select: none; 
   user-select: none;
 }
+}
+
+
+  a, a:active, a:focus{
+    border: none;
+    outline: none !important;
+  }

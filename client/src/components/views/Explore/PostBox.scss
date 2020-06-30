@@ -3,7 +3,7 @@
 .postboxContainer{
     width: 100%;
     height: auto;
-    background-color:  $dark-background;
+    background-color:  var(--dark-background);
     display: flex;
     flex-direction: column;
   
@@ -15,25 +15,25 @@
         flex-direction: column;
         align-items: flex-start;
         padding-bottom: 1em;
-        border-bottom: 0.5em solid $invisible-grey;
+        border-bottom: 0.5em solid var(--invisible-grey);
 
         .postboxHeader{
-            color: $dark-white;
+            color:var(--dark-white);
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             width: 50%;
             padding: 0.5em;
-            background-color: $dark-background;
-            border-bottom: 0.3px solid $invisible-grey;
+            background-color: var(--dark-background);
+            border-bottom: 0.3px solid var(--invisible-grey);
             z-index: 99;
 
                 .postboxTitle{
                     font-weight: 700;
                     font-size: 1.4em;
                     text-indent: 1em;
-                    background-color: $dark-background;
+                    background-color: var(--dark-background);
                     z-index: 99;
                 }
                 .postboxRefresh{
@@ -43,10 +43,10 @@
                     width: 2em;
                     height: 1.7em;
                     cursor: pointer;
-                    color: $primary;
+                    color: var(--primary);
                     border-radius: 50%;
                     &:hover{
-                        background-color: $primary-faded;
+                        background-color: var(--primary)-faded;
                     }
                 }
         }
@@ -54,7 +54,7 @@
 
         .postboxBody{
             padding-top: 3.5em;
-            background-color: $dark-background;
+            background-color: var(--dark-background);
             width: 100%;
             padding-left: 1.4em;
             .postboxBody-Top{
@@ -66,7 +66,7 @@
                     height: 4.3em;
                     width: 4.3em;
                     border-radius: 50%;
-                    background-color: $primary;
+                    background-color: var(--primary);
                     padding-right: 3em;
                     margin-top: 1em;
                 }
@@ -79,14 +79,14 @@
                         min-height: 4em;
                         max-height: 16em;
                         padding-top: 1em;
-                        background-color: $dark-background;
+                        background-color: var(--dark-background);
                         outline: none;
                         border: none;
-                        color: $dark-white;
+                        color:var(--dark-white);
                         font-size: 1.4em;
 
                         &::placeholder{
-                            color: $trsansparent-grey;
+                            color: var( --trsansparent-grey);
                         }
                         &:focus::placeholder{
                             color: #ffffffa4;
@@ -112,10 +112,10 @@
                         width: 1.7em;
                         height: 1.7em;
                         border-radius: 50%;
-                        color: $primary;
+                        color: var(--primary);
                         cursor: pointer;
                         &:hover{
-                            background-color: $primary-faded;
+                            background-color:var(--primary-faded);
                         }
                     }
                     #upload > input{
@@ -128,11 +128,11 @@
                 .postboxSubmit{
                     padding-right: 4em;
                         button{
-                            background-color: $primary;
+                            background-color: var(--primary);
                             border: transparent;
                             width: 5em;
                             height: 2em;
-                            color: $white;
+                            color: var(--white);
                             font-weight: 700;
                             font-size: 16px;
                             border-radius: 1em;
@@ -140,10 +140,10 @@
                             outline: none;
                             cursor: pointer;
                                 &:hover{
-                                    background-color: $primary-hover;
+                                    background-color:var(--primary-hover);
                                 }
                                 &:active{
-                                    background-color: $primary-active;
+                                    background-color:var(--primary-active);
                                 }
                         }
                 }

@@ -2,13 +2,13 @@
 
 .myprofilecardWrap{
     height: 29.375em;
-    background-color:  $dark-background;
+    background-color:  var(--dark-background);
     width: 100%;
     display:flex;
     flex-direction: column;
     .profileBanner{
         flex: 1;
-        background-color: $dark-background-match;
+        background-color: var(--dark-background-match);
 
         &:after {
             content: '\A';
@@ -31,7 +31,7 @@
         // align-items: center;
         // justify-content: center;
         // width: 80%;
-        background-color: $dark-background;
+        background-color: var(--dark-background);
         .profileInfoWrap{
             position: absolute;
             display: flex;
@@ -39,7 +39,7 @@
             width: 45%;
             top: 9em;
             margin: 0 2.2em;
-            color: $dark-white;
+            color:var(--dark-white);
             .profileInfoTop{
                 display: flex;
                 justify-content: space-between;
@@ -48,7 +48,7 @@
                     height: 10.5em;
                         width: 10.5em;
                         border-radius: 50%;
-                         background-color: $primary;
+                         background-color: var(--primary);
 
                          &:after {
                             content: '\A';
@@ -71,9 +71,9 @@
                 .editProfileButton{
                     button{
                         background-color: transparent;
-                        border: 1.3px solid $primary;
+                        border: 1.3px solid var(--primary);
                         width: 7em;
-                        color: $primary;
+                        color: var(--primary);
                         font-weight: 700;
                         font-size: 16px;
                         border-radius: 2em;
@@ -83,7 +83,7 @@
 
                         &:hover{
                             transition: all .2s ease-in-out;
-                            background-color: $primary-faded;
+                            background-color:var(--primary-faded);
                         }
                     }
                 }
@@ -101,25 +101,25 @@
                     .badge{
                         height: 1.1em;
                         path{
-                            fill: $dark-white;
+                            fill:var(--dark-white);
                         }
                     }
                 }
                 .userTagname{
                     font-size: 1.2em;
-                    color: $trsansparent-grey;
+                    color: var( --trsansparent-grey);
                     margin-bottom: 1em;
                 }
                 .profileStats{
                     display: flex;
                     align-items: baseline;
-                    color: $trsansparent-grey;
+                    color: var( --trsansparent-grey);
                     font-size: 1em;
                     .profileFollowers, .profileFolling{
                         margin-right: 1em;
                     }
                       #followers, #following{
-                            color: $dark-white;
+                            color:var(--dark-white);
                             font-weight: 700;
                         }
                     
@@ -127,4 +127,17 @@
             }
         }
     }
+}
+
+.Name{
+        color: var(--primary);
+    font-size: 1.12em;
+    font-weight: 700;
+    // margin-left: 1em;
+    
+}
+.Tag{
+
+        color: var( --trsansparent-grey);
+    font-size: 1em;
 }

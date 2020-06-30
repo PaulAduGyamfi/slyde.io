@@ -3,8 +3,8 @@
 .postComponent{
     width: 100%;
     height: auto;
-    background-color:  $dark-background;
-    border-top: 0.3px solid $invisible-grey;
+    background-color:  var(--dark-background);
+    border-top: 0.3px solid var(--invisible-grey);
     display: flex;
     flex-direction: column;
 
@@ -14,10 +14,10 @@
         display: flex;
         align-items: flex-start;
         padding: 1em;
-        // border-bottom: 0.3px solid $invisible-grey;
+        // border-bottom: 0.3px solid var(--invisible-grey);
         // cursor: pointer;
             &:hover{
-                background-color: $dark-background-match;
+                background-color: var(--dark-background-match);
                 transition: all .18s ease-in-out;
             }
             .feedCard-Left{
@@ -29,7 +29,7 @@
                     height: 5em;
                     width: 5em;
                     border-radius: 50%;
-                    background-color: $primary
+                    background-color: var(--primary)
                 }
             }
             .feedCard-Right{
@@ -48,25 +48,29 @@
                                     margin-right: 0.5em;
                                 }
                                 .Name{
-                                    color: $dark-white;
+                                    a{
+                                        color: var(--primary);
                                     font-size: 1.12em;
                                     font-weight: 700;
                                     margin-left: 1em;
+                                    }
                                 }
                                 .Tag{
-                                    color: $trsansparent-grey;
+                                    a{
+                                        color: var( --trsansparent-grey);
                                     font-size: 1em;
+                                    }
                                 }
                             }
                             .feedCard-arrow{
-                                color:  $trsansparent-grey;
+                                color:  var( --trsansparent-grey);
                                 margin-right: 0.6em;
                             }
                     }
 
                     .feedCard-body{
                         padding: 0.4em;
-                        color: $dark-white;
+                        color:var(--dark-white);
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
@@ -84,7 +88,7 @@
                         height: 2em;
                         font-size: 1.2em;
                         width: 100%;
-                        color: $dark-white;
+                        color:var(--dark-white);
 
                             .likeButton{
                                 &:hover, &:hover + span{

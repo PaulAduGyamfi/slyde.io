@@ -13,18 +13,48 @@
             position: absolute;
             height: 100vh;
             width: 100vw;
-            background: url('https://images.unsplash.com/photo-1484712401471-05c7215830eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed; 
+            background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), hsla(358, 100%, 65%, 0.74)),url('https://images.unsplash.com/photo-1484712401471-05c7215830eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            filter: grayscale(60%);
+            // filter: grayscale(60%);
+
+            .navBar{
+                width: 100%;
+                height: 4em;
+                background-color: var(--white);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                a{
+                    color: black;
+                }
+
+                img{
+                    margin-left:2em;
+                }
+
+                .logInOrSignUp{
+                    display: flex;
+                    margin-right: 10%;
+                    
+                    
+                    .link{
+                        font-weight: 700;
+                        margin: 1em;
+                    }
+                }
+                
+            }
+        
             
         }
 
         .sectionOneTitle{
             text-align: center;
-            color: $primary;
+            color: var(--white);
             font-size: 25em;
             font-weight: 900;
             z-index: 99;
@@ -37,22 +67,22 @@
 
     .sectionTwo{
         height: 100vh;
-        background-color: $dark-white;
+        background-color: var(--white);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
-        .sectionTwoOverlay{
-            height: 100vh;
-            width: 100vw;
-            position: absolute;
+        // .sectionTwoOverlay{
+        //     height: 100vh;
+        //     width: 100vw;
+        //     position: absolute;
            
-            img{
-                height: 600px;
-                width: auto;
-            }
-        }
+        //     img{
+        //         height: 600px;
+        //         width: auto;
+        //     }
+        // }
 
         .sectionTwoTitle{
             text-align: center;
@@ -68,6 +98,16 @@
 
         .sectionTwoBody{
             padding: 0 20%;
+        }
+
+        .sectionTwoLink{
+            a{
+                color:var(--primary);
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }

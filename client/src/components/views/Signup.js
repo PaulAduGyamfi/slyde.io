@@ -113,7 +113,11 @@ useEffect(()=>{
             <div className="signupModal">
 
                 <div className="modalTop">
-                        <div className="logo"><img src={logo} alt="logo" style={{'height':'80px', 'width':'80px'}} draggable="false" /></div>
+                        <div className="logo">
+                            <Link to="/">
+                            <img src={logo} alt="logo" style={{'height':'80px', 'width':'80px'}} draggable="false" />
+                            </Link>
+                        </div>
 
                 </div>
 

@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     height: 100%;
-    background-color: $dark-background;
+    background-color: var(--dark-background);
 
     .middle{
         width:60%;
@@ -47,11 +47,11 @@
                     height: 2em;
                     padding: 0.5em 1em;
                     margin-right: 0.5em;
-                    background-color: $dark-background-match;
+                    background-color: var(--dark-background-match);
                     outline: none;
                     border: transparent;
                     border-radius: 0.3em;
-                    color: $dark-white;
+                    color:var(--dark-white);
                     font-size: 1.2em;
                     font-weight: 600;
                     
@@ -62,9 +62,9 @@
                 }
                 .sendMessageButton{
                     button{
-                        color: $dark-white;
+                        color: var(--white);
                     font-weight: 700;
-                    background-color: $primary;
+                    background-color: var(--primary);
                     outline: none;
                     border: transparent;
                     height: 2.3em;
@@ -73,10 +73,10 @@
                     cursor: pointer;
 
                     &:hover{
-                        background-color: $primary-hover;
+                        background-color: var(--primary)-hover;
                     }
                     &:active{
-                        background-color: $primary-active;
+                        background-color: var(--primary)-active;
                     }
                     }
                 }
@@ -99,13 +99,13 @@
                     align-items: center;
 
                     .sentBy{
-                        color: $trsansparent-grey;
+                        color: var( --trsansparent-grey);
                     }
                     .messageBubble{
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        background-color: $primary;
+                        background-color: var(--primary);
                         height: auto;
                         margin-left: 1em;
                         max-width: 30em;
@@ -114,7 +114,7 @@
 
 
                         .messageText{
-                            color: $dark-white;
+                            color: var(--white);
                             width: 100%;
                             p{
                                 white-space: pre-wrap;
@@ -134,13 +134,13 @@
                     align-items: center;
                     padding-left: 2em;
                     .sentBy{
-                        color: $trsansparent-grey;
+                        color: var( --trsansparent-grey);
                     }
                     .messageBubble{
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        background-color: $dark-background-match;
+                        background-color: var(--dark-background-match);
                         height: auto;
                         margin-right: 1em;
                         max-width: 30em;
@@ -149,7 +149,7 @@
 
 
                         .messageText{
-                            color: $dark-white;
+                            color: var(--white);
                             width: 100%;
                             p{
                                 white-space: pre-wrap;
@@ -162,7 +162,7 @@
                 .botMessage{
                     padding: 0;
                     text-align: center;
-                    color: $trsansparent-grey;
+                    color: var( --trsansparent-grey);
                 }
 
 
