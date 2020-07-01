@@ -93,6 +93,22 @@
                         }
                         
                     }
+
+                    .imagePreview{
+                        border-radius: 1em;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        margin-bottom: 1em;
+
+                        span{
+                            color: var(--primary);
+                            padding-left: 0.3em;
+                            padding-top: 0.3em;
+                            font-size: 1.5em;
+                            cursor: pointer;
+                        }
+                    }
                 }
             }
 

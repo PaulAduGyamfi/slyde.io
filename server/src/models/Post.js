@@ -4,7 +4,7 @@ const { ObjectId } = mongoose.Schema.Types
 const postSchema = new mongoose.Schema({
     body: {
         type:String,
-        required:true
+        required:false
     },
     media: {
         type:String,

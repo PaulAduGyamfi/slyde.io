@@ -32,7 +32,7 @@ router.get('/followingposts',RequireLogin,(req,res) => {
 
 router.post('/createpost',RequireLogin,(req,res) => {
     const {body,pic} = req.body
-    if(!body){
+    if(!body && !pic){
       return res.status(422).json({error:"please write something first"})
     }
     req.user.password = undefined

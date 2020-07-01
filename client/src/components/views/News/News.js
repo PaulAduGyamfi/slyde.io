@@ -29,7 +29,7 @@ const News = () =>{
                 setNews(result.articles)
             })
 
-        },[url])
+        },[])
 
         const getNews = (category) =>{
             let newUrl = `https://newsapi.org/v2/everything?q=${category}&` +
@@ -109,7 +109,7 @@ const News = () =>{
                     })
                 }
                 </>
-                :<TempNews />}
+                :''}
                 </div>
             </div>
             {/* <Suggestions /> */}
