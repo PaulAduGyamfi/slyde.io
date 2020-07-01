@@ -10,7 +10,7 @@ UNUSED
 
 */
 
-html{
+html[data-theme='dark']{
   
   --dark-background-match: #3a3e42;
   --dark-background-match-hover: #494e52;
@@ -32,7 +32,7 @@ html{
 //#dedede
 
 
-html[data-theme='light'] {
+html{
 
   --dark-background-match: #f8f8f8;
   --dark-background-match-hover: #f8f8f8;

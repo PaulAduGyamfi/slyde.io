@@ -18,6 +18,10 @@ export const UserContext = createContext()
 
 const Routing = () => {
     // document.documentElement.setAttribute('data-theme', 'light')
+
+    document.documentElement.setAttribute('data-theme', localStorage.getItem("mode"))
+
+
     const history = useHistory()
     const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{

@@ -55,10 +55,10 @@
                     cursor: pointer;
 
                     &:hover{
-                        background-color: var(--primary)-hover;
+                        background-color: var(--primary-hover);
                     }
                     &:active{
-                        background-color: var(--primary)-active;
+                        background-color: var(--primary-active);
                     }
                 }
                 

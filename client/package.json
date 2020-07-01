@@ -11,6 +11,7 @@
     "antd": "^4.3.4",
     "is-in-viewport": "^3.0.4",
     "jquery": "^3.5.1",
+    "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "query-string": "^6.13.1",
     "react": "^16.13.1",

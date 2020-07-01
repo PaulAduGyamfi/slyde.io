@@ -126,6 +126,34 @@
                     
                 }
             }
+            .colorMode{
+                // background-color: red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+
+                .mode{
+                    margin: 0.3em 1em;
+                    padding: 1em;
+                    color: var(--dark-white);
+                    // background-color: var(--primary);
+                    cursor: pointer;
+                    &:hover{
+                        color: var(--white);
+                        background-color: var(--primary-hover);
+                    }
+                    &:active{
+                        background-color: var(--primary-active);
+                    }
+                }
+                .light{
+                    
+                }
+                .dark{
+                    
+                }
+            }
             .logout{
                 text-align: center;
                 color:var(--dark-white);

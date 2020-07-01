@@ -9,10 +9,12 @@ import { UserContext } from '../../../App'
 import './profileStyles/ProfileCard.scss'
 import ReactEmoji from 'react-emoji'
 import banner from "../viewsStyles/imgs/banner.jpg"
+import { Link } from 'react-router-dom'
 
 
 
 const Profile = () => {
+
 
     const clik = () =>{
     
@@ -277,7 +279,9 @@ const Profile = () => {
                                                  <div className="feedCard-info">
                                                          <div className="feedCardAuthor Name" style={{marginLeft:'1em'}}>{item.postedBy.fullname}</div>
                                                          <div className="feedCardAuthor Tag">@{item.postedBy.username}</div>
+                                                         {/* <span>{formatTime(item.createdAt)}</span> */}
                                                  </div>
+                                                 
                                                  {item.postedBy._id == state._id
                                                             && <div className="feedCard-arrow popover popover-bottom">
                                                             <DownOutlined />
@@ -327,9 +331,13 @@ const Profile = () => {
                                         item.comments.map((record,index) => {
                                             return(
                                                 <div className="comment" style={{color:'#ffffff'}} key={index}>
+                                                    <Link to={record.postedBy._id !== state._id ? `/profile/${record.postedBy._id}`: `/profile`} >
                                                     <div className="posterPic" style={{backgroundImage: `url(${record.postedBy.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"30px",width:"30px",borderRadius:50}}></div>
+                                                    </Link>
                                                     <div className="authorReply">
-                                                        <div className="top"><span>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
+                                                    <Link to={record.postedBy._id !== state._id ? `/profile/${record.postedBy._id}`: `/profile`} >
+                                                        <div className="top" style={{color:'var(--trsansparent-grey)'}}><span style={{color:'var(--primary)'}}>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
+                                                        </Link>
                                                         <div className="bottom">{ReactEmoji.emojify(record.text)}</div>
                                                     </div>
                                                 </div>

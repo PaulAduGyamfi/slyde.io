@@ -21,7 +21,7 @@ const Splash = () => {
           />
                     </Link>
                    
-    {state?<Link to="/profile" style={{display:'flex', alignItems:'center'}}><span style={{marginRight:'1em'}}>{state.fullname}</span><div className="profilePicture" style={{backgroundImage:`url('${state.pic}')`, backgroundPosition: "50% 50%", backgroundSize: "cover", height:'50px',width:'50px', borderRadius:'50%', marginRight:'4em'}}></div></Link>:<div className="logInOrSignUp"><div className="Login link"><Link to="/signin">Log in</Link></div><div className="Signup link"><Link to="/signup">Sign up</Link></div></div>}
+    {state?<Link to="/profile" style={{display:'flex', alignItems:'center'}}><span style={{marginRight:'1em'}}>{state.fullname}</span><div className="profilePicture" style={{backgroundImage:`url('${state.pic}')`, backgroundPosition: "50% 50%", backgroundSize: "cover", height:'50px',width:'50px', borderRadius:'50%', marginRight:'4em'}}></div></Link>:<div className="logInOrSignUp"><div className="Login link"><Link to="/signin">Log in</Link></div><div>|</div><div className="Signup link"><Link to="/signup">Sign up</Link></div></div>}
                     </div>
                </div>
                <div className="sectionOneTitle">Slyde.io</div>

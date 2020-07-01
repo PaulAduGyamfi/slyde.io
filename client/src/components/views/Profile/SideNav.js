@@ -17,6 +17,20 @@ import { UserContext } from "../../../App";
 const SideNav = () => {
   const history = useHistory()
   const {state,dispatch} = useContext(UserContext)
+
+
+const lightMode = () => {
+  document.documentElement.setAttribute('data-theme', 'light')
+  localStorage.setItem('mode',"light")
+}
+const darkMode = () => {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  localStorage.setItem('mode',"dark")
+}
+
+
+
+
   return (
     <div className="navContainer">
       <div className="navContainerWrapper">
@@ -101,6 +115,10 @@ const SideNav = () => {
                   ></div>
                   <div className="pofileUserName" style={{width:"50%",textAlign:"center"}}>{state?state.fullname:"loading"}</div>
                 </div>
+              </div>
+              <div className="colorMode">
+                <div className="mode light" onClick={()=>lightMode()}>Light</div>
+                <div className="mode dark" onClick={()=>darkMode()}> Dark</div>
               </div>
               <div className="card-body logout" onClick={()=>{
                 localStorage.clear()
