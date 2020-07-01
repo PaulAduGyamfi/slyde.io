@@ -75,9 +75,9 @@ const darkMode = () => {
             <div className="user Text">Profile</div>
           </Link>
         </div>
-        <div className="sidnavPost">
+        {/* <div className="sidnavPost">
           <button>Post</button>
-        </div>
+        </div> */}
 
         <div className="popover popover-top">
           <div className="profileButton">
