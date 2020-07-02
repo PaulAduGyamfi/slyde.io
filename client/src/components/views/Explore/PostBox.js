@@ -1,15 +1,38 @@
 import React,{useState,useEffect,useContext} from 'react'
 import './PostBox.scss'
-import {FileImageOutlined,FileGifOutlined,SmileOutlined,ReloadOutlined,LoadingOutlined,CloseCircleFilled} from "@ant-design/icons";
+import {FileImageOutlined,FileGifOutlined,SmileOutlined,SearchOutlined,LoadingOutlined,CloseCircleFilled} from "@ant-design/icons";
 import pic from "../viewsStyles/imgs/lbj.jpg"
 import { UserContext } from '../../../App';
 import { Upload } from 'antd';
+import { Link } from 'react-router-dom'
 
 // import {useHistory} from 'react-router-dom'
 
  const PostBox = (props) =>{
 
-    // const history = useHistory()
+    const {state,dispatch} = useContext(UserContext)
+
+    const [body,setBody] = useState("")
+    const [image,setImage] = useState("")
+    const [url,setUrl] = useState("")
+    const [error,setError] = useState("")
+    const [search,setSearch] = useState("")
+    const [userDetails,setUserDetails] = useState([])
+
+/*----------------------- Search Modal -------------------- */
+
+      const openModal = () =>{
+        document.getElementById("modal-id").classList.add("active")
+    }
+    const closeModal = ()=>{
+        
+        document.getElementById("modal-id").classList.remove("active")
+
+    }
+ /*----------------------- Search Modal -------------------- */
+
+
+ /*----------------------- Post Box -------------------- */
 
     var autoExpand = function (field) {
 
@@ -38,49 +61,12 @@ import { Upload } from 'antd';
     
         document.getElementById('file-input').click();
  }
-
- const {state,dispatch} = useContext(UserContext)
-
- const [body,setBody] = useState("")
- const [image,setImage] = useState("")
- const [url,setUrl] = useState("")
- const [error,setError] = useState("")
-//  useEffect(()=>{
-   
-//     if(url){
-//         fetch("/createpost",{
-//             method:"post",
-//             headers:{
-//                 "Content-Type":"application/json",
-//                 "Authorization":"Bearer "+localStorage.getItem("jwt")
-//             },
-//             body:JSON.stringify({
-//                 body,
-//                 pic:url
-//             })
-//         }).then(res=>res.json())
-//            .then(data=>{
-//             //    console.log(data)
-//                if(data.error){
-//                    setError(data.error)
-//                }
-//                else{
-//                 setTimeout(() => {
-//                     document.getElementById('postbox').value=''
-//                     window.location.reload()
-//                    }, 900)
-                   
-//                }
-//            }).catch(err=>{
-//                console.log(err)
-//            })
-//     }
-//  },[url])
+/*----------------------- Post Box -------------------- */
 
  useEffect(()=>{
 
     if(image){
-        console.log(image)
+        // console.log(image)
         const data = new FormData()
         data.append("file",image)
         data.append("upload_preset","slydepreset")
@@ -188,13 +174,31 @@ import { Upload } from 'antd';
 
  }
 
+
+ const fetchSearch = (query) =>{
+     setSearch(query)
+     fetch('/search',{
+         method:"post",
+         headers:{
+             "Content-Type":"application/json"
+         },
+         body:JSON.stringify({
+             query
+         })
+     }).then(res => res.json())
+     .then(result => {
+         setUserDetails(result.user)
+     })
+
+ }
+
     return(
         <div className="postboxContainer">
             <div className="postboxWrap">
 
                 <div className="postboxHeader">
                         <div className="postboxTitle">{props.prop}</div>
-                    <div className="postboxRefresh" onClick={()=>window.location.reload()}><ReloadOutlined /></div>
+                    <div className="postboxRefresh" onClick={()=>openModal()}><SearchOutlined /></div>
                 </div>
 
                 <div className="postboxBody">
@@ -231,8 +235,99 @@ import { Upload } from 'antd';
                     </div>
                 </div>
             </div>
+
+
+              {/* ------------------------- Search Modal ------------------ */}
+            <div className="modal " id="modal-id">
+                <a href="#close" className="modal-overlay" aria-label="Close" onClick={()=>{closeModal();setSearch("")}} style={{opacity:".5"}}></a>
+                <div className="modal-container" style={{backgroundColor:'var(--dark-background)',height:"30em",maxHeight:"auto",borderRadius:"1em"}}>
+                        <div className="modal-header" >
+                            <input 
+                            type="text"
+                            placeholder="Search Slyde"
+                            value={search}
+                            onChange={(e)=>fetchSearch(e.target.value)}
+                            />
+                            
+                            <a href="#close" className="btn btn-clear float-right" aria-label="Close" onClick={()=>{closeModal();setSearch("")}} style={{color:"#ff4d52"}}></a>
+                        </div>
+                        <div className="modal-body">
+                            <div className="content">
+                            <div className="searchResults">
+                                {
+                                    userDetails.map((item,i) => {
+                                        return(
+                                    <Link to={item._id !== state._id ? `/profile/${item._id}`: `/profile`} key={i}>
+                                        <div className="searchResult">
+                                            <div className="searchResultWrap">
+                                                <div className="profilePicture" style={{backgroundImage: `url(${item.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
+                                                <div className="searchResultInfo">
+                                                    <div className="name fullname">{item.fullname}</div>
+                                                    <div className="name username">@{item.username}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                        )
+                                    })
+                                }
+                            </div>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                        {/* <div className="commentButton"><button>Reply</button></div> */}
+                        </div>
+                </div>
+            </div>
         </div>
     )
 }
 
 export default PostBox
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  useEffect(()=>{
+   
+//     if(url){
+//         fetch("/createpost",{
+//             method:"post",
+//             headers:{
+//                 "Content-Type":"application/json",
+//                 "Authorization":"Bearer "+localStorage.getItem("jwt")
+//             },
+//             body:JSON.stringify({
+//                 body,
+//                 pic:url
+//             })
+//         }).then(res=>res.json())
+//            .then(data=>{
+//             //    console.log(data)
+//                if(data.error){
+//                    setError(data.error)
+//                }
+//                else{
+//                 setTimeout(() => {
+//                     document.getElementById('postbox').value=''
+//                     window.location.reload()
+//                    }, 900)
+                   
+//                }
+//            }).catch(err=>{
+//                console.log(err)
+//            })
+//     }
+//  },[url])

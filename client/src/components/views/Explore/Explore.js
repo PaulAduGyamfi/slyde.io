@@ -16,15 +16,6 @@ import ReactEmoji from 'react-emoji'
 
 const Explore = () => {
 
-    // const openModal = () =>{
-    //     document.getElementById("modal-id").classList.add("active")
-    // }
-    // const closeModal = ()=>{
-        
-    //     document.getElementById("modal-id").classList.remove("active")
-
-    // }
-
     const [data,setData] = useState([])
     const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{
@@ -158,7 +149,7 @@ const Explore = () => {
                         data.map((item) => {
                             return(
                                 <div className="explorefeedContainer postComponent" key={item._id}>
-                                    {console.log(item)}
+                                    {/* {console.log(item)} */}
                                 <div className="feedCard">
                                      <div className="feedCard-Left">
                                      <Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`}>
@@ -280,9 +271,9 @@ export default Explore
                         <div className="modal-body">
                             <div className="content">
                                     
-                                    <div className="commentWrap" style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
+                                    <div className="searchWrap" style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
                                             
-                                            <div className="commentTop">
+                                            <div className="searchTop">
                                                     <div className="posterPic" style={{backgroundImage: `url(${pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover",height:"52px",width:"52px",borderRadius:50}}></div>
                                                     <div className="posterInfoWrap">
                                                             <div className="posterInfo">

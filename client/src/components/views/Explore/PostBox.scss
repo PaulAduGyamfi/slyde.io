@@ -166,5 +166,88 @@
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+    .modal{
+        .modal-overlay{}
+
+        .modal-container{
+            padding: 1em 0;
+            .modal-header{
+
+                input{
+                    width: 90%;
+                    background-color: var(--dark-background-match);
+                    border: transparent;
+                    outline: none;
+                    padding: 0.5em;
+                    padding-left: 1em;
+                    border-radius: 1em;
+                    font-size: 1.2em;
+                    font-weight: 500;
+                    color: var(--dark-white);
+                    &::placeholder{
+                        color: var(--trsansparent-grey);
+                    }
+                }
+                input:focus::placeholder{
+                    color: var(--dark-white);
+                }
+
+            }
+        }
+        .modal-body{
+            padding: 1em 0;
+            .content{
+                .searchResults{
+                    display: flex;
+                    flex-direction: column;
+                    .searchResult{
+                        list-style: none;
+                        height: 100%;
+                        border-top: 1px solid var(--invisible-grey);
+                        
+
+                        &:hover{
+                            background-color: var(--dark-background-match);
+                        }
+                        .searchResultWrap{
+                            display: flex;
+                            align-items: center;
+                            padding: 1em;
+                            .profilePicture{
+                                height: 2.7em;
+                                width: 2.7em;
+                                border-radius: 50%;
+                                margin-right: 1em;
+                            }
+                            .searchResultInfo{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+
+                                .fullname{
+                                    color: var(--dark-white);
+                                    font-weight: 800;
+                                    font-size: 1.1em;
+                                }
+                                .username{
+                                    color:var(--trsansparent-grey)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 

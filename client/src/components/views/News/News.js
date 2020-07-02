@@ -25,7 +25,7 @@ const News = () =>{
             fetch(req)
             .then(res=>res.json())
             .then(result => {
-                console.log(result)
+                // console.log(result)
                 setNews(result.articles)
             })
 
@@ -40,7 +40,7 @@ const News = () =>{
             fetch(newReq)
             .then(res=>res.json())
             .then(result => {
-                console.log(result)
+                // console.log(result)
                 setNews(result.articles)
             }).catch(err=>{
                 console.log(err)

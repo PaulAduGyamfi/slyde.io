@@ -11,7 +11,7 @@ const ChatRoom = () =>{
     
     const {state,dispatch} = useContext(UserContext)
 
-    console.log(state)
+    // console.log(state)
     
     const [room,setRoom] = useState("")
     const [name,setName] = useState("")
