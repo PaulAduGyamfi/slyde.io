@@ -10,6 +10,7 @@ import UserProfile from './components/views/Profile/UserProfile'
 import ChatRoom from './components/views/ChatRoom/ChatRoom'
 import Chat from './components/views/ChatRoom/Chat/Chat'
 import News from './components/views/News/News'
+import NoComponent from './components/views/NoComponent/NoComponent'
 import {reducer,initialState} from './reducers/userReducer'
 import { message } from 'antd';
 
@@ -66,6 +67,9 @@ const Routing = () => {
             </Route>
             <Route path="/chat">
                 <Chat />
+            </Route>
+            <Route>
+                <NoComponent />
             </Route>
         </Switch>
     )
