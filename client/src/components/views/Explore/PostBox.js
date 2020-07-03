@@ -5,6 +5,7 @@ import pic from "../viewsStyles/imgs/lbj.jpg"
 import { UserContext } from '../../../App';
 import { Upload } from 'antd';
 import { Link } from 'react-router-dom'
+import EmojiButton from '@joeattardi/emoji-button'
 
 // import {useHistory} from 'react-router-dom'
 
@@ -18,6 +19,21 @@ import { Link } from 'react-router-dom'
     const [error,setError] = useState("")
     const [search,setSearch] = useState("")
     const [userDetails,setUserDetails] = useState([])
+    const [emojitheme,setEmojiTheme] = useState("")
+    
+
+
+    const pickEmoji = () => {
+        const picker = new EmojiButton({theme:localStorage.getItem('mode'), autoHide:false});
+        picker.togglePicker(document.getElementById('emojiButton'))
+        picker.on('emoji', emoji => {
+        document.querySelector('textarea').value += emoji
+
+        setBody(document.querySelector('textarea').value)
+       
+        });
+    }
+
 
 /*----------------------- Search Modal -------------------- */
 
@@ -202,7 +218,10 @@ import { Link } from 'react-router-dom'
          setUserDetails(result.user)
      })
 
+
  }
+
+
 
     return(
         <div className="postboxContainer">
@@ -237,7 +256,7 @@ import { Link } from 'react-router-dom'
                                     <FileImageOutlined />
                                 </div>
                             <div className="postboxAttachLink"><FileGifOutlined /></div>
-                            <div className="postboxAttachLink"><SmileOutlined /></div>
+                            <div className="postboxAttachLink" id="emojiButton" onClick={()=>pickEmoji()}><SmileOutlined /></div>
                            
                         </div>
                                     <span id="error" style={{color:'red', fontWeight:400}}>{error}</span>
