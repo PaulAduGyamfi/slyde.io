@@ -82,7 +82,7 @@
                         background-color: var(--dark-background);
                         outline: none;
                         border: none;
-                        color:var(--dark-white);
+                        color:var(--black);
                         font-size: 1.4em;
 
                         &::placeholder{
@@ -251,3 +251,9 @@
     }
 }
 
+#error{
+    display: none;
+}
+.displayError{
+    display: block !important;
+}

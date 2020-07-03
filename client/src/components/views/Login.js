@@ -15,6 +15,18 @@ const Login = () => {
     const [password,setPassword] = useState("")
     const [error, setError] = useState("")
 
+    if(error){
+        document.querySelectorAll('.inputBox').forEach(input =>{
+            input.classList.add('error')
+        })
+        setTimeout(function() {
+            document.querySelectorAll('.inputBox').forEach(input =>{
+                input.classList.remove('error')
+                setError("")
+            })
+        }, 9000);
+    }
+
    const PostData = () => {
 
 

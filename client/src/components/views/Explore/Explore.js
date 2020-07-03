@@ -29,7 +29,7 @@ const Explore = () => {
             // console.log(result)
         })
 
-    },[])
+    },[data])
 
 
     const likePost = (id) => {

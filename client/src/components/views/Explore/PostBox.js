@@ -61,6 +61,17 @@ import { Link } from 'react-router-dom'
     
         document.getElementById('file-input').click();
  }
+
+ useEffect(()=>{
+    if(error){
+        document.getElementById('error').classList.add('displayError')
+   
+        setTimeout(() => {
+           document.getElementById('error').classList.remove('displayError')
+           setError("")
+        }, 6000);
+    }
+ },[error])
 /*----------------------- Post Box -------------------- */
 
  useEffect(()=>{
@@ -133,7 +144,8 @@ import { Link } from 'react-router-dom'
                                 document.getElementById('postbox').value=''
                                 setImage("")
                                 setUrl("")
-                                window.location.reload()
+                                setBody("")
+                                // window.location.reload()
                                }, 900)
                                
                            }
@@ -163,7 +175,7 @@ import { Link } from 'react-router-dom'
                    setTimeout(() => {
                     document.getElementById('postbox').value=''
                     setBody("")
-                    window.location.reload() 
+                    // window.location.reload() 
                    }, 900)
                }
            }).catch(err=>{
@@ -228,7 +240,7 @@ import { Link } from 'react-router-dom'
                             <div className="postboxAttachLink"><SmileOutlined /></div>
                            
                         </div>
-                                    <span style={{color:'red', fontWeight:400}}>{error}</span>
+                                    <span id="error" style={{color:'red', fontWeight:400}}>{error}</span>
 
                         <div className="postboxSubmit"><button id="postButton" onClick={()=>postDetails()}>Post</button></div>
 

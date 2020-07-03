@@ -91,6 +91,7 @@ const Signup = () => {
             document.getElementById('email').classList.add('error')
             setTimeout(function() {
                 document.getElementById('email').classList.remove('error')
+                setError("")
             }, 10000);
             return setError("* That email address is invalid. Please choose another one *")
         }
@@ -99,6 +100,7 @@ const Signup = () => {
             document.getElementById('password').classList.add('error')
             setTimeout(function() {
                 document.getElementById('password').classList.remove('error')
+                setError("")
             }, 10000);
             const errMsg = 'Please make sure your password meets the following requirements:\n1. Must be at least 8-15 characters long.\n2. Contains at least one letter, one number and one special character.'
             return setError(errMsg)
