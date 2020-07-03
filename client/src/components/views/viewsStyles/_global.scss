@@ -26,6 +26,7 @@ html[data-theme='dark']{
   --dark-white: #f4f4f4;
   --trsansparent-grey : #f0f0f079;
   --invisible-grey : #c2c2c24f;
+  --black: #f4f4f4;
 }
 
 
@@ -48,6 +49,7 @@ html{
   --white: #ffffff;
   --trsansparent-grey : #b0b9c3;
   --invisible-grey : #c2c2c24f;
+  --black: #000000;
   
 }
 
@@ -105,3 +107,6 @@ body, html {
     border: none;
     outline: none !important;
   }
+
+
+ 

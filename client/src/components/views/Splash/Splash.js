@@ -21,7 +21,7 @@ const Splash = () => {
                     </div>
                     <div className="sectionTwo">
                         <div className="sectionTwoOverlay"></div>
-                        <div className="sectionTwoTitle"><h1><span>Slyde</span>, where power of friendship is maintained through distance.</h1></div>
+                        <div className="sectionTwoTitle"><h1><span>Slyde</span> where the power of friendship is maintained through distance.</h1></div>
                         <div className="sectionTwoBody"><p>Don't let social distancing, distance you from current relationships. <span><Link to="/signin">Join Slyde</Link></span> and see what your friends are up to, and make new friends!</p></div>
                         {/* <Link to="/signin">Connect with friends on Slyde</Link> */}
                     </div>
@@ -30,7 +30,7 @@ const Splash = () => {
                             <div className="parallaxParagraphWrapperBody">
                                 <p>Anyone is welcome.</p>
                                 <p>Great vibes is a must.</p>
-                                <p>Our goal is to not only bring friends together, but all, to be unified as one.</p>
+                                <p>Our goal is to not only bring friends together, but for us all, to be one.</p>
                                 <p>#OneLoveOneHeart</p>
                             </div>
                         </div>

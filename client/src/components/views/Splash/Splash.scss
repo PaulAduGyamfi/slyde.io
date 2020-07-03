@@ -1,8 +1,18 @@
 @import '../viewsStyles/global';
 
+html{
+    ::selection {
+        color: var(--primary);
+        background: var(--dark-background-match);
+      }
+}
+
+
 .splashWrapper{
     height: 300vh;
     width: 100%;
+
+    
     
     .sectionOne{
        position: relative;
@@ -77,7 +87,7 @@
                 }
         
                 .sectionTwoBody{
-                    color: var(--dark-white);
+                    color: #788798;
                     padding: 0 20%;
                     font-size: 1.3em;
                     font-weight: 600;
@@ -113,7 +123,7 @@
                         // padding-top: 6em;
                         color: var(--white);
                         font-size: 2rem;
-                        font-weight: 600;
+                        font-weight: 800;
                         line-height: 1.2;
 
                         p{
@@ -129,6 +139,7 @@
         }
 
         .featuresContainer{
+            background-color: var(--white);
             .featuresWrap{
                 padding: 8em 4em;
                 display: flex;
@@ -137,7 +148,7 @@
                 .featuresImage{
                     
                     height: 25.125em;
-                    width: 49.813em;
+                    width: 40.813em;
                     background-color: red;
                     background-image: url('../viewsStyles/imgs/POST.gif');
                     background-size: cover;

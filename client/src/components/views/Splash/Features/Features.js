@@ -7,7 +7,7 @@ const Features = () => {
                    <div className="featuresWrap">
                        <div className="featuresImage"></div>
                        <div className="featuresDescription">
-                           <div className="title"><h1>Post, Comment & Like</h1></div>
+                           <div className="title"><h1>Post, Like & Comment</h1></div>
                            <div className="body"><p>sklcsdncksndcnslcnskdcnlsdcnlscnslcnscnlsdclsnclscnlsdcnlsdcnl</p></div>
                        </div>
                    </div>
@@ -19,7 +19,7 @@ const Features = () => {
                    <div className="featuresWrap">
                        <div className="featuresImage"></div>
                        <div className="featuresDescription">
-                           <div className="title"><h1>Real-time Messaging</h1></div>
+                           <div className="title"><h1>Real Time Messaging</h1></div>
                            <div className="body"><p>sklcsdncksndcnslcnskdcnlsdcnlscnslcnscnlsdclsnclscnlsdcnlsdcnl</p></div>
                        </div>
                    </div>
