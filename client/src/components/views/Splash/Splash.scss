@@ -1,24 +1,21 @@
 @import '../viewsStyles/global';
 
 .splashWrapper{
-    height: 100%;
+    height: 300vh;
     width: 100%;
     
     .sectionOne{
        position: relative;
-       height: 100vh;
+       height: 100%;
        width: 100vw;
 
         .sectionOneOverlay{
-            position: absolute;
-            height: 100vh;
             width: 100vw;
-            background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), hsla(358, 100%, 65%, 0.74)),url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60') no-repeat center center fixed; 
+            background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), hsla(358, 100%, 65%, 0.651)),url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            // filter: grayscale(60%);
 
             .navBar{
                 width: 100%;
@@ -53,67 +50,135 @@
                 }
                 
             }
+
+            .sectionTwo{
+                background-color: var(--white);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-top: 2em;
+        
+        
+                .sectionTwoTitle{
+                    text-align: center;
+                    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+                    padding: 0 20%;
+                    z-index: 99;
+                    // padding-top: 6em;
+                    h1{
+                        font-size: 6.5em;
+                        font-weight: 700;
+                        span{
+                            color: var(--primary);
+                            font-weight: 800;
+                        }
+                    }
+                }
+        
+                .sectionTwoBody{
+                    color: var(--dark-white);
+                    padding: 0 20%;
+                    font-size: 1.3em;
+                    font-weight: 600;
+                    padding-bottom: 6em;
+
+                    span{
+                        a{
+                            color: var(--primary);
+
+                            
+                        }
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+        
+            }
+
+            .parallaxParagraph{
+                
+                width: 100vw;
+                background-color: transparent;
+
+                .parallaxParagraphWrapper{
+                    width: 100%;
+                    padding: 2rem;
+                    padding-top: 25em;
+                    padding-bottom: 25em;
+
+                    .parallaxParagraphWrapperBody{
+                        padding: 0 2rem;
+                        // padding-top: 6em;
+                        color: var(--white);
+                        font-size: 2rem;
+                        font-weight: 600;
+                        line-height: 1.2;
+
+                        p{
+                            margin:0;
+                            width: 20em;
+                        }
+                    }
+                }
+
+            }
         
             
         }
 
-        .sectionOneTitle{
-            text-align: center;
-            width: 100%;
-            color: var(--white);
-            font-size: 25em;
-            font-weight: 900;
-            z-index: 99;
-           position: absolute;
-            top: 30%;
-            right: 3%;
-            text-shadow: -4px 3px 0 #c22f34, -8px 7px 0 #bb151a;
-        }
-    }
+        .featuresContainer{
+            .featuresWrap{
+                padding: 8em 4em;
+                display: flex;
+                flex-direction: row;
+               
+                .featuresImage{
+                    
+                    height: 25.125em;
+                    width: 49.813em;
+                    background-color: red;
+                    background-image: url('../viewsStyles/imgs/POST.gif');
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 2em;
+                    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+                                0 2px 2px rgba(0,0,0,0.12), 
+                                0 4px 4px rgba(0,0,0,0.12), 
+                                0 8px 8px rgba(0,0,0,0.12),
+                                0 16px 16px rgba(0,0,0,0.12);
+                    transition: all .6s ease-in-out;
+                    cursor: pointer;
 
-    .sectionTwo{
-        height: 100vh;
-        background-color: var(--white);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        // .sectionTwoOverlay{
-        //     height: 100vh;
-        //     width: 100vw;
-        //     position: absolute;
-           
-        //     img{
-        //         height: 600px;
-        //         width: auto;
-        //     }
-        // }
-
-        .sectionTwoTitle{
-            text-align: center;
-            font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-            padding: 0 20%;
-            z-index: 99;
-            // padding-top: 6em;
-            h2{
-                font-size: 4em;
-                font-weight: 700;
-            }
-        }
-
-        .sectionTwoBody{
-            padding: 0 20%;
-        }
-
-        .sectionTwoLink{
-            a{
-                color:var(--primary);
-
-                &:hover{
-                    text-decoration: underline;
+                    &:hover{
+                        transform: scale(1.01);
+                    }
+                
+                }
+                .featuresDescription{
+                    text-align: center;
+                    margin-left: 5em;
+                    .title{
+                        width: 100%;
+                        h1{
+                            font-size: 3em;
+                            font-weight: 700;
+                            color: var(--primary);
+                        }
+                        
+                    }
                 }
             }
+
+           
+
+            
         }
+
+
+
     }
+
+   
 }
