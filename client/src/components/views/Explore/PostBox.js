@@ -146,7 +146,7 @@ import { Link } from 'react-router-dom'
                                 setUrl("")
                                 setBody("")
                                 // window.location.reload()
-                               }, 900)
+                               }, 300)
                                
                            }
                        }).catch(err=>{
@@ -176,7 +176,7 @@ import { Link } from 'react-router-dom'
                     document.getElementById('postbox').value=''
                     setBody("")
                     // window.location.reload() 
-                   }, 900)
+                   }, 300)
                }
            }).catch(err=>{
                console.log(err)
