@@ -144,13 +144,13 @@ html{
                 padding: 8em 4em;
                 display: flex;
                 flex-direction: row;
+                align-items: center;
                
                 .featuresImage{
                     
                     height: 25.125em;
                     width: 40.813em;
                     background-color: red;
-                    background-image: url('../viewsStyles/imgs/POST.gif');
                     background-size: cover;
                     background-position: center;
                     border-radius: 2em;
@@ -170,6 +170,7 @@ html{
                 .featuresDescription{
                     text-align: center;
                     margin-left: 5em;
+                    width: 50%;
                     .title{
                         width: 100%;
                         h1{
@@ -178,6 +179,12 @@ html{
                             color: var(--primary);
                         }
                         
+                    }
+                    .body{
+                        p{
+                            font-size: 1.5em;
+                        }
+
                     }
                 }
             }
