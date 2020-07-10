@@ -14,9 +14,7 @@ const News = () =>{
 
     // NEWS API KEY = f91f0e8b8739477f9fa0f43f787b686e
 
-    let url = 'http://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=f91f0e8b8739477f9fa0f43f787b686e'
+    let url = 'https://gnews.io/api/v3/top-news?&token=b980e7299f3b0664ee9e8c6c6c86db15'
 
     let req = new Request(url);
 
@@ -32,8 +30,7 @@ const News = () =>{
         },[])
 
         const getNews = (category) =>{
-            let newUrl = `https://newsapi.org/v2/everything?q=${category}&` +
-          'apiKey=f91f0e8b8739477f9fa0f43f787b686e'
+            let newUrl = `https://gnews.io/api/v3/search?q=${category}&token=b980e7299f3b0664ee9e8c6c6c86db15`
 
           let newReq = new Request(newUrl);
 
@@ -89,7 +86,7 @@ const News = () =>{
                         return(
                           
                             <div className="newsFeedWrap" key={i} onClick={()=>window.open(`${item.url}`)}>
-                                <div className="newsImage"><img src={item.urlToImage} /></div>
+                                {item.image ? <div className="newsImage"><img src={item.image} /></div>:''}
                                     <div className="newsContent">
                                        <div className="newsHeader">
                                             <div className='newsHeaderTitle'>{item.title}</div>
@@ -97,7 +94,7 @@ const News = () =>{
                                             <div className='newsHeaderDate'>{dateToString(item.publishedAt)}</div>
                                         </div>
                                         <div className="newsBody">
-                                            {item.author != null || "" ? <div className="newsBodyAuthor">by {item.author}</div>:""}
+                                            {item.author != null || "" ? <div className="newsBodyAuthor">by {item.source.name}</div>:""}
                                             <div className="newsBodyText"><p>{item.description}</p></div>
                                         </div>
 

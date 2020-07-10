@@ -19,7 +19,7 @@ const Chat = () =>{
     const [image,setImage] = useState("")
     const [message,setMessage] = useState([])
     const [messages,setMessages] = useState([])
-    const ENDPOINT = 'localhost:3000'
+    const ENDPOINT = 'https://slydeio.herokuapp.com/'
     
     useEffect(() => {
         const {name,room,image} = queryString.parse(window.location.search)

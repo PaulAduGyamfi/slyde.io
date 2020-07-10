@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const { MONGOURI } = require('./config/secure')
 const socketio = require('socket.io')
 const http = require('http')
+const cors = require('cors')
 
 const { addUser, removeUser, getUser, getUserInRoom } =require('./chatUsers')
 
@@ -12,6 +13,7 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
+app.use(cors())
 
 require('./models/User')
 require('./models/Post')
@@ -88,6 +90,15 @@ app.use(bodyParser.json())
 app.use(require('./routes/auth'))
 app.use(require('./routes/post'))
 app.use(require('./routes/user'))
+
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static('client/build'))
+    const path = require('path')
+    app.get("*",(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+    })
+}
+
 
 
 server.listen(config.port, () => {
