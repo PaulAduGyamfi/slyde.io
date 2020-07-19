@@ -15,6 +15,7 @@ router.get("/user/:id",RequireLogin,(req,res) => {
         Post.find({postedBy:req.params.id})
         .populate("postedBy", "_id username fullname pic banner")
         .populate("comments.postedBy", "_id username fullname pic banner")
+        .sort("-createdAt")
         .exec((err,posts) => {
             if(err){
                 return res.status(422).json({error:err})

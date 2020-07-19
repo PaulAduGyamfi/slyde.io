@@ -45,6 +45,50 @@
 
         input[name="search"]:focus + .searchIcon { color: var(--primary); }
     }
+    .searchResults{
+        display: flex;
+        flex-direction: column;
+        margin-top: 5em;
+        width: 25em;
+        height: auto;
+        max-height: 25em;
+        overflow: scroll;
+        .searchResult{
+            list-style: none;
+            height: 100%;
+            border: 1px solid var(--invisible-grey);
+            
+
+            &:hover{
+                background-color: var(--dark-background-match);
+            }
+            .searchResultWrap{
+                display: flex;
+                align-items: center;
+                padding: 1em;
+                .profilePicture{
+                    height: 2.7em;
+                    width: 2.7em;
+                    border-radius: 50%;
+                    margin-right: 1em;
+                }
+                .searchResultInfo{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    .fullname{
+                        color: var(--dark-white);
+                        font-weight: 800;
+                        font-size: 1.1em;
+                    }
+                    .username{
+                        color:var(--trsansparent-grey)
+                    }
+                }
+            }
+        }
+    }
 
     .suggestionsWrap{
         display: flex;
@@ -53,7 +97,7 @@
         align-items: center;
         padding-top: 0.6em;
         overflow-y: scroll;
-        margin-top: 5em;
+        margin-top: 2em;
         width: 100%;
 
         .Trending{
@@ -91,10 +135,16 @@
                     font-size: 1.1em;
                 }
                 .trendingArrow{
-                    color:  var( --trsansparent-grey);
+                    color:  var( --white);
+                    background-color: var(--primary);
+                    height: 1em;
+                    width: 2em;
+                    padding-bottom: 1.7em;
+                    font-size: .75em;
+                    border-radius: .3em;
                 }
                 &:hover{
-                    background-color: var(--dark-background-match-hover);
+                    background-color: var(--invisible-grey);
                     transition: all .18s ease-in-out;
                 }
             }
@@ -106,12 +156,13 @@
                 border-bottom-right-radius: 1em;
                 cursor: pointer;
                 &:hover{
-                    background-color: var(--dark-background-match-hover);
+                    background-color: var(--invisible-grey);
                     transition: all .18s ease-in-out;
                 }
             }
         }
        
     }
+
 }
 

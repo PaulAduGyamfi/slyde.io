@@ -5,12 +5,14 @@ import { UserContext } from '../../../App'
 import { Link } from 'react-router-dom'
 import TempNews from './tempNews'
 import './News.scss'
+import { fake_news } from '../Profile/SuggestionsFallback'
 
 const News = () =>{
 
     const {state,dispatch} = useContext(UserContext)
     const [news,setNews] = useState([])
     const [category,setCategory] = useState("")
+    const [error,setError] = useState({})
 
     // NEWS API KEY = f91f0e8b8739477f9fa0f43f787b686e
 
@@ -20,28 +22,35 @@ const News = () =>{
 
         useEffect(()=>{  
 
+           if(!error){
             fetch(req)
             .then(res=>res.json())
             .then(result => {
                 // console.log(result)
                 setNews(result.articles)
+            }).catch(err=>{
+                setError(err)
             })
+
+           }
 
         },[])
 
         const getNews = (category) =>{
+           if(!error){
             let newUrl = `https://gnews.io/api/v3/search?q=${category}&token=b980e7299f3b0664ee9e8c6c6c86db15`
 
-          let newReq = new Request(newUrl);
-
-            fetch(newReq)
-            .then(res=>res.json())
-            .then(result => {
-                // console.log(result)
-                setNews(result.articles)
-            }).catch(err=>{
-                console.log(err)
-            })
+            let newReq = new Request(newUrl);
+  
+              fetch(newReq)
+              .then(res=>res.json())
+              .then(result => {
+                  // console.log(result)
+                  setNews(result.articles)
+              }).catch(err=>{
+                  setError(err)
+              })
+           }
         }
 
         const dateToString = (published) =>{
@@ -81,7 +90,7 @@ const News = () =>{
                 <div>
                     {news?
                     <>
-                {
+                { !error ?
                     news.map((item,i) => {
                         return(
                           
@@ -95,6 +104,28 @@ const News = () =>{
                                         </div>
                                         <div className="newsBody">
                                             {item.author != null || "" ? <div className="newsBodyAuthor">by {item.source.name}</div>:""}
+                                            <div className="newsBodyText"><p>{item.description}</p></div>
+                                        </div>
+
+                                    </div>
+
+                            </div>
+                           
+                        )
+                    })
+                    : fake_news.articles.map((item,i) => {
+                        return(
+                          
+                            <div className="newsFeedWrap" key={i} onClick={()=>window.open(`${item.url}`)}>
+                                {item.urlToImage ? <div className="newsImage"><img src={item.urlToImage} /></div>:''}
+                                    <div className="newsContent">
+                                       <div className="newsHeader">
+                                            <div className='newsHeaderTitle'>{item.title}</div>
+                                            
+                                            <div className='newsHeaderDate'>{dateToString(item.publishedAt)}</div>
+                                        </div>
+                                        <div className="newsBody">
+                                            {item.author != null || "" ? <div className="newsBodyAuthor">by {item.author}</div>:<div className="newsBodyAuthor">by {item.source.name}</div>}
                                             <div className="newsBodyText"><p>{item.description}</p></div>
                                         </div>
 

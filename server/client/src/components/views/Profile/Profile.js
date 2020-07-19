@@ -249,7 +249,7 @@ const Profile = () => {
                 <div className="profileInfoWrap">
                     <div className="profileInfoTop">
                         <div className="profilePicture" style={{backgroundImage: `url(${state?state.pic:""})`, backgroundPosition: "50% 50%", backgroundSize: "cover",cursor:'pointer'}} onClick={clikProfile} type="file" value={pic} onChange={(e)=>updatePic(e.target.files[0])} ><input id="profile-input"  type="file" style={{visibility:'hidden'}}/></div>
-                        <div className="editProfileButton"><button>Edit profile</button></div>
+                        {/* <div className="editProfileButton"><button>Edit profile</button></div> */}
                     </div>
                     <div className="profileInfoBottom">
                             <div className="profileUsername">

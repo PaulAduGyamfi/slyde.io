@@ -223,7 +223,7 @@ const unfollowUser = () => {
             </div>
         </div>
                 <div style={{display:"flex",flexDirection:"column",width:'100%'}}>
-                        {
+                        {userProfile.posts.length > 0 ?
                             userProfile.posts.map(item => {
                                 return(
                                     <div className="profilefeedContainer postComponent" key={item._id}>
@@ -309,7 +309,7 @@ const unfollowUser = () => {
         </div>
                                 )
                             })
-                        }
+                        :<div style={{fontSize:'4em',fontWeight:800,color:'var(--trsansparent-grey)',textAlign:'center',width:'80%',margin:'0',marginTop:'1.8em', display:'flex', alignItems:'center',justifyContent:'center'}}>{userProfile.user.fullname} <br></br>has not posted yet</div>}
                         </div>
             </div>
             <Suggestions />
