@@ -12,6 +12,7 @@ import {DownOutlined,HeartOutlined,MessageOutlined,HeartFilled,DeleteOutlined,Lo
 import { UserContext } from '../../../App'
 import {useParams} from 'react-router-dom'
 import ReactEmoji from 'react-emoji'
+import moment from 'moment'
 
 
 const Profile = () => {
@@ -236,6 +237,8 @@ const unfollowUser = () => {
                                                  <div className="feedCard-info">
                                                          <div className="feedCardAuthor Name" style={{marginLeft:'1em'}}>{item.postedBy.fullname}</div>
                                                          <div className="feedCardAuthor Tag">@{item.postedBy.username}</div>
+                                                         <div className="feedCardAuthor Tag"> • </div>
+                                                         <div className="Tag">{moment(item.createdAt).startOf('minute').fromNow()}</div>
                                                  </div>
                                                  {item.postedBy._id == state._id
                                                             && <div className="feedCard-arrow popover popover-bottom">

@@ -85,9 +85,11 @@ const Suggestions = () => {
                                 {
                                     userDetails.map((item,i) => {
                                         return(
-                                    <Link to={item._id !== state._id ? `/profile/${item._id}`: `/profile`} key={i}>
-                                        <div className="searchResult">
-                                            <div className="searchResultWrap">
+                                    <Link to={item._id !== state._id ? `/profile/${item._id}`: `/profile`} key={i} >
+                                        <div className="searchResult" >
+                                            <div className="searchResultWrap" onClick={()=>setInterval(() => {
+                                        window.location.reload()
+                                    }, 100)}>
                                                 <div className="profilePicture" style={{backgroundImage: `url(${item.pic})`, backgroundPosition: "50% 50%", backgroundSize: "cover"}}></div>
                                                 <div className="searchResultInfo">
                                                     <div className="name fullname">{item.fullname}</div>
