@@ -39,7 +39,7 @@ router.post('/createpost',RequireLogin,(req,res) => {
     const post = new Post({
         body:body,
         media:pic,
-        postedBy:req.user
+        postedBy:req.user,
     })
     post.save()
     .then(result => {
@@ -54,6 +54,7 @@ router.get('/myposts',RequireLogin,(req,res) => {
     Post.find({postedBy:req.user._id})
     .populate("postedBy", "_id username fullname pic banner")
     .populate("comments.postedBy", "_id username fullname pic banner")
+    .populate("createdAt.stringValue")
     .sort("-createdAt")
     .then(mypost => {
         res.json({mypost})

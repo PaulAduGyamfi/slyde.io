@@ -10,6 +10,7 @@ import './profileStyles/ProfileCard.scss'
 import ReactEmoji from 'react-emoji'
 import banner from "../viewsStyles/imgs/banner.jpg"
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 
 
@@ -279,6 +280,8 @@ const Profile = () => {
                                                  <div className="feedCard-info">
                                                          <div className="feedCardAuthor Name" style={{marginLeft:'1em'}}>{item.postedBy.fullname}</div>
                                                          <div className="feedCardAuthor Tag">@{item.postedBy.username}</div>
+                                                         <div className="feedCardAuthor Tag"> • </div>
+                                                         <div className="Tag">{moment(item.createdAt).startOf('minute').fromNow()}</div>
                                                          {/* <span>{formatTime(item.createdAt)}</span> */}
                                                  </div>
                                                  
@@ -336,7 +339,7 @@ const Profile = () => {
                                                     </Link>
                                                     <div className="authorReply">
                                                     <Link to={record.postedBy._id !== state._id ? `/profile/${record.postedBy._id}`: `/profile`} >
-                                                        <div className="top" style={{color:'var(--trsansparent-grey)'}}><span style={{color:'var(--primary)'}}>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
+                                            <div className="top" style={{color:'var(--trsansparent-grey)'}}><span style={{color:'var(--primary)'}}>{record.postedBy.fullname}</span> @{record.postedBy.username}</div>
                                                         </Link>
                                                         <div className="bottom">{ReactEmoji.emojify(record.text)}</div>
                                                     </div>

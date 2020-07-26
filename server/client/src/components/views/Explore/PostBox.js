@@ -147,7 +147,7 @@ import EmojiButton from '@joeattardi/emoji-button'
                         },
                         body:JSON.stringify({
                             body,
-                            pic:url
+                            pic:url,
                         })
                     }).then(res=>res.json())
                        .then(data=>{

@@ -11,6 +11,7 @@ import "spectre.css"
 import { UserContext } from '../../../App'
 import { Link } from 'react-router-dom'
 import ReactEmoji from 'react-emoji'
+import moment from 'moment'
 
 
 
@@ -161,6 +162,8 @@ const Explore = () => {
                                                  <div className="feedCard-info">
                                                          <div className="feedCardAuthor Name"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} >{item.postedBy.fullname}</Link></div>
                                                          <div className="feedCardAuthor Tag"><Link to={item.postedBy._id !== state._id ? `/profile/${item.postedBy._id}`: `/profile`} >@{item.postedBy.username}</Link></div>
+                                                         <div className="feedCardAuthor Tag"> • </div>
+                                                         <div className="Tag">{moment(item.createdAt).startOf('minute').fromNow()}</div>
                                                     </div>
                                                         {item.postedBy._id == state._id
                                                             && <div className="feedCard-arrow popover popover-bottom">
