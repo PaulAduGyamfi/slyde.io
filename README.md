@@ -3,6 +3,8 @@
 
 A full stack social media application built to let users easily connect with friends, using the MERN stack.
 
+![slyde.io demo](assets/demo.gif)
+
 ## What This Project Accomplished
 
 - Built a complete social networking application from the ground up, covering both the client-facing UI and the backend API
