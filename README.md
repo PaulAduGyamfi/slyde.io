@@ -1,5 +1,5 @@
 # slyde.io
-<h4>https://slydeio.herokuapp.com/</h4>
+<h4></h4>
 
 A full stack social media application built to let users easily connect with friends, using the MERN stack.
 
