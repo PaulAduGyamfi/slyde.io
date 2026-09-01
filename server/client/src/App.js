@@ -7,8 +7,6 @@ import Profile from './components/views/Profile/Profile'
 import Explore from './components/views/Explore/Explore'
 import FollowingFeed from './components/views/Explore/FollowingFeed'
 import UserProfile from './components/views/Profile/UserProfile'
-import ChatRoom from './components/views/ChatRoom/ChatRoom'
-import Chat from './components/views/ChatRoom/Chat/Chat'
 import News from './components/views/News/News'
 import NoComponent from './components/views/NoComponent/NoComponent'
 import {reducer,initialState} from './reducers/userReducer'
@@ -61,12 +59,6 @@ const Routing = () => {
             </Route>
             <Route path="/news">
                 <News />
-            </Route>
-            <Route path="/chatroom">
-                <ChatRoom />
-            </Route>
-            <Route path="/chat">
-                <Chat />
             </Route>
             <Route>
                 <NoComponent />

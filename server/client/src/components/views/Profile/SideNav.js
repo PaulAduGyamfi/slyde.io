@@ -7,7 +7,6 @@ import {
   ReadOutlined,
   UserOutlined,
   DownOutlined,
-  WechatOutlined,
   RocketOutlined
 } from "@ant-design/icons";
 import "spectre.css";
@@ -61,12 +60,6 @@ const darkMode = () => {
         <Link to="/news">
             <ReadOutlined style={{ fontSize: "29px" }} />
             <div className="news Text">News</div>
-          </Link>
-        </div>
-        <div className="sidenavChat">
-        <Link to="/chatroom">
-            <WechatOutlined style={{ fontSize: "29px" }} />
-            <div className="news Text">Chat</div>
           </Link>
         </div>
         <div className="sidenavUser">
